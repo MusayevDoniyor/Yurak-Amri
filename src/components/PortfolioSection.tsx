@@ -1,14 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Home,
-  Users,
-  DollarSign,
-  MapPin,
-  Award,
-  CheckCircle,
-} from "lucide-react";
+import { Home, Users, DollarSign, Award, CheckCircle } from "lucide-react";
 
 const portfolioItems = [
   {
@@ -74,7 +67,7 @@ export default function PortfolioSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 justify-center items-center">
           {portfolioItems.map((item, index) => (
             <motion.div
               key={index}
@@ -113,11 +106,15 @@ export default function PortfolioSection() {
                 <Award className="w-4 h-4" />
                 ASOSIY LOYIHA
               </div>
-              <h3 className="text-3xl font-bold mb-4">"25+" Uylar Loyihasi</h3>
+
+              <h3 className="text-3xl font-bold mb-4">
+                &ldquo;25+&rdquo; Uylar Loyihasi
+              </h3>
+
               <p className="text-lg text-white/90 leading-relaxed mb-6">
-                Bo'ka tumanida 30 ta xonadondan iborat uylar majmuasi
-                qurilmoqda. Har bir uy oilaning hayotini to'liq o'zgartiradi va
-                ularga yangi umid baxsh etadi.
+                Bo&apos;ka tumanida 30 ta xonadondan iborat uylar majmuasi
+                qurilmoqda. Har bir uy oilaning hayotini to&apos;liq
+                o&apos;zgartiradi va ularga yangi umid baxsh etadi.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2">
@@ -134,6 +131,7 @@ export default function PortfolioSection() {
                 </div>
               </div>
             </div>
+
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
               <div className="text-center">
                 <div className="text-4xl font-bold mb-2">25+</div>

@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -28,7 +28,7 @@ export default function HeroSection() {
             <div className="w-2 h-2 bg-white rounded-full"></div>
             YURAK AMRI XAYRIYA FONDI
             <div className="w-2 h-2 bg-white rounded-full"></div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Main Headline */}
           <motion.h1
@@ -49,10 +49,11 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 leading-relaxed"
           >
-            O'zbekistonning har bir chekkasida bir oila sizning e'tiboringizni
-            kutmoqda.{" "}
+            O&apos;zbekistonning har bir chekkasida bir oila sizning
+            e&apos;tiboringizni kutmoqda.{" "}
             <span className="text-gradient-primary font-semibold">
-              "Yurak Amri" bilan siz bevosita o'zgarish yasay olasiz.
+              &ldquo;Yurak Amri&rdquo; bilan siz bevosita o&apos;zgarish yasay
+              olasiz.
             </span>{" "}
             Bugun emas, hoziroq.
           </motion.p>
@@ -95,7 +96,7 @@ export default function HeroSection() {
 
             <button className="bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-xl text-lg font-semibold flex items-center gap-2 transition-all duration-300 shadow-lg">
               <Play className="w-5 h-5" />
-              HIKOYALARNI KO'RISH
+              HIKOYALARNI KO&apos;RISH
             </button>
           </motion.div>
 
@@ -104,7 +105,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-12 p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-blue-200 shadow-lg"
+            className="mt-16 p-6 bg-white/80 backdrop-blur-sm rounded-t-3xl border border-blue-200 shadow-lg mb-0"
           >
             <p className="text-slate-600 text-lg">
               <span className="text-gradient-primary font-semibold">
@@ -113,7 +114,7 @@ export default function HeroSection() {
               oddiy tashabbus, bugun 15 000+ oilaga yordam bergan, 160 ta uy
               qurgan va minglab bolalarning yuzini kuldirgan milliy xayriya
               tizimiga aylandi. Endi siz ham bu yurakdan chiqqan amallarga
-              qo'shilishingiz mumkin.
+              qo&apos;shilishingiz mumkin.
             </p>
           </motion.div>
         </div>

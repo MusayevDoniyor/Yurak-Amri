@@ -53,9 +53,10 @@ export default function TestimonialsSection() {
             <span className="text-gradient-primary">Hikoyalar</span> va{" "}
             <span className="text-gradient-secondary">shukrona</span>
           </h2>
+
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Har bir hikoya orqasida yuzlab oilalar va ularning hayotini
-            o'zgartirgan yordam turibdi.{" "}
+            o&apos;zgartirgan yordam turibdi.{" "}
             <span className="text-gradient-primary font-semibold">
               Bu sizning yordamingiz natijasidir.
             </span>
@@ -80,21 +81,26 @@ export default function TestimonialsSection() {
                   />
                 ))}
               </div>
+
               <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-xs font-medium mb-4">
                 <Heart className="w-3 h-3" />
                 {testimonial.category}
               </div>
+
               <blockquote className="text-slate-700 mb-4 leading-relaxed">
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </blockquote>
+
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">
                   {testimonial.name.charAt(0)}
                 </div>
+
                 <div>
                   <div className="font-semibold text-slate-900">
                     {testimonial.name}
                   </div>
+
                   <div className="text-sm text-slate-600">
                     {testimonial.location}
                   </div>
@@ -118,30 +124,39 @@ export default function TestimonialsSection() {
                 <Quote className="w-4 h-4" />
                 ASOSIY HIKOYA
               </div>
+
               <h3 className="text-3xl font-bold mb-4">
                 Mavluda opaning hikoyasi
               </h3>
+
               <blockquote className="text-lg text-white/90 leading-relaxed mb-6">
-                "Biz shunchaki ro'yxatda turgan oilamiz deb o'ylagandik. Lekin
-                Yurak Amri bizga insoniylik, or-nomus va umid hadya qildi. Endi
-                farzandim maktabga bormoqda. Rahmat sizlarga."
+                &ldquo;Biz shunchaki ro&apos;yxatda turgan oilamiz deb
+                o&apos;ylagandik. Lekin Yurak Amri bizga insoniylik, or-nomus va
+                umid hadya qildi. Endi farzandim maktabga bormoqda. Rahmat
+                sizlarga.&rdquo;
               </blockquote>
+
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-white text-white" />
                   ))}
                 </div>
-                <div className="text-sm text-white/80">Farg'ona viloyati</div>
+
+                <div className="text-sm text-white/80">
+                  Farg&apos;ona viloyati
+                </div>
               </div>
             </div>
+
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
               <div className="text-center">
                 <div className="text-6xl font-bold mb-2">15,200+</div>
-                <div className="text-white/80 text-lg">Shukurona oila</div>
-                <div className="mt-4 text-sm text-white/70">
-                  Har bir oila o'z hikoyasiga ega
+                <div className="text-white/90 text-xl">Shukurona oila</div>
+                <div className="mt-4 text-md text-white/80">
+                  Har bir oila o&apos;z hikoyasiga ega
                 </div>
+
                 <div className="mt-6">
                   <div className="flex items-center justify-center gap-1">
                     <div className="w-3 h-3 bg-white/30 rounded-full"></div>

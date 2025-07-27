@@ -15,7 +15,7 @@ const statistics = [
     icon: Users,
     number: "15,200+",
     label: "Oila yordam olgan",
-    description: "O'zbekiston bo'ylab",
+    description: "O&apos;zbekiston bo&apos;ylab",
     color: "bg-gradient-accent",
     bgColor: "bg-green-50",
   },
@@ -47,7 +47,7 @@ const statistics = [
     icon: MapPin,
     number: "13",
     label: "Viloyatda faoliyat",
-    description: "O'zbekiston bo'ylab",
+    description: "O&apos;zbekiston bo&apos;ylab",
     color: "bg-gradient-primary",
     bgColor: "bg-blue-50",
   },
@@ -111,7 +111,7 @@ export default function StatisticsSection() {
         </div>
 
         {/* Growth Chart */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -122,13 +122,15 @@ export default function StatisticsSection() {
             <div>
               <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <TrendingUp className="w-4 h-4" />
-                O'SISH DINAMIKASI
+                O&apos;SISH DINAMIKASI
               </div>
-              <h3 className="text-3xl font-bold mb-4">Har yili 300% o'sish</h3>
+              <h3 className="text-3xl font-bold mb-4">
+                Har yili 300% o&apos;sish
+              </h3>
               <p className="text-lg text-slate-600 leading-relaxed mb-6">
                 2021 yildan beri har yili yordam berilgan oilalar soni 300% ga
-                o'sdi. Bu faqat raqamlar emas, bu yuzlab oilalarning hayotini
-                o'zgartirish.
+                o&apos;sdi. Bu faqat raqamlar emas, bu yuzlab oilalarning
+                hayotini o&apos;zgartirish.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-blue-50 rounded-xl p-4">
@@ -146,7 +148,7 @@ export default function StatisticsSection() {
                 <div className="text-6xl font-bold mb-2 text-blue-700">
                   300%
                 </div>
-                <div className="text-slate-800 text-lg">O'sish</div>
+                <div className="text-slate-800 text-lg">O&apos;sish</div>
                 <div className="mt-4 text-sm text-slate-600">
                   3 yil davomida
                 </div>
@@ -161,7 +163,7 @@ export default function StatisticsSection() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

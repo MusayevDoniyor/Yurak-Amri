@@ -67,7 +67,7 @@ export default function VideoPhotoBanner() {
           viewport={{ once: true }}
           className="text-5xl md:text-6xl font-bold text-white mb-6"
         >
-          <span className="text-white">Vizual</span> dorilik
+          <span className="text-white">Haqiqiy</span> hikoyalar
         </motion.h2>
 
         <motion.p
@@ -80,7 +80,7 @@ export default function VideoPhotoBanner() {
           Har bir video orqasida yuzlab oilalar va ularning yurtiga muhabbat
           yotadi.{" "}
           <span className="text-white font-semibold">
-            Sizning harakatingiz – yuzlab umidlar manbai.
+            Sizning harakatingiz - yuzlab umidlar manbai.
           </span>
         </motion.p>
 

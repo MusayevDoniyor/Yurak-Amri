@@ -8,21 +8,38 @@ import {
   ArrowRight,
   CheckCircle,
   Coffee,
+  CreditCard as UzCard,
+  CreditCard as Humo,
+  CreditCard as Visa,
+  CreditCard as MasterCard,
+  Smartphone,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const donationAmounts = [
   { amount: 10000, label: "10,000 so'm", description: "Bir oilaga non" },
-  { amount: 50000, label: "50,000 so'm", description: "Oila uchun oziq-ovqat" },
-  { amount: 100000, label: "100,000 so'm", description: "Bolalar uchun kiyim" },
-  { amount: 500000, label: "500,000 so'm", description: "Uy ta'mirlash" },
+  {
+    amount: 50000,
+    label: "50,000 so'm",
+    description: "Oila uchun oziq-ovqat",
+  },
+  {
+    amount: 100000,
+    label: "100,000 so'm",
+    description: "Bolalar uchun kiyim",
+  },
+  {
+    amount: 500000,
+    label: "500,000 so'm",
+    description: "Uy ta'mirlash",
+  },
 ];
 
 const paymentMethods = [
-  { name: "UzCard", icon: "💳" },
-  { name: "Humo", icon: "💳" },
-  { name: "Visa", icon: "💳" },
-  { name: "MasterCard", icon: "💳" },
+  { name: "UzCard", icon: UzCard },
+  { name: "Humo", icon: Humo },
+  { name: "Visa", icon: Visa },
+  { name: "MasterCard", icon: MasterCard },
 ];
 
 export default function DonationSection() {
@@ -47,12 +64,13 @@ export default function DonationSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            <span className="text-gradient-primary">SEN HAM</span> QO'SHIL!
+            <span className="text-gradient-primary">SEN HAM</span> QO&apos;SHIL!
           </h2>
+
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Bugun bitta yurakni ilitib, o'zingizni ham o'zgartiring. Pastdagi
-            tugma orqali xayriya qiling — kartangiz bilan to'g'ridan-to'g'ri,
-            xavfsiz va shaffof.
+            Bugun bitta yurakni ilitib, o&apos;zingizni ham o&apos;zgartiring.
+            Pastdagi tugma orqali xayriya qiling — kartangiz bilan
+            to&apos;g&apos;ridan-to&apos;g&apos;ri, xavfsiz va shaffof.
           </p>
         </motion.div>
 
@@ -70,11 +88,13 @@ export default function DonationSection() {
                 <Heart className="w-4 h-4 fill-green-700" />
                 Xayriya miqdori
               </div>
+
               <h3 className="text-2xl font-bold text-slate-900 mb-2">
                 Qancha yordam bermoqchisiz?
               </h3>
+
               <p className="text-slate-600">
-                Har bir so'm bir oilaning hayotini o'zgartiradi
+                Har bir so&apos;m bir oilaning hayotini o&apos;zgartiradi
               </p>
             </div>
 
@@ -99,6 +119,7 @@ export default function DonationSection() {
                   >
                     {item.label}
                   </div>
+
                   <div
                     className={`text-sm ${
                       isClient && selectedAmount === item.amount
@@ -115,8 +136,9 @@ export default function DonationSection() {
             {/* Custom Amount */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Yoki o'zingiz miqdorni kiriting:
+                Yoki o&apos;zingiz miqdorni kiriting:
               </label>
+
               <input
                 type="number"
                 value={customAmount}
@@ -135,13 +157,15 @@ export default function DonationSection() {
                   onChange={(e) => setIsMonthly(e.target.checked)}
                   className="w-5 h-5 text-green-600 border-slate-300 rounded focus:ring-green-600"
                 />
+
                 <div>
                   <div className="font-semibold text-slate-900">
                     Har oylik xayriya
                   </div>
+
                   <div className="text-sm text-slate-600">
-                    Har oyda 10,000 so'm – bu sizga bitta kofe. Lekin bir oilaga
-                    esa, non.
+                    Har oyda 10,000 so&apos;m – bu sizga bitta kofe. Lekin bir
+                    oilaga esa, non.
                   </div>
                 </div>
               </label>
@@ -152,13 +176,14 @@ export default function DonationSection() {
               <div className="text-sm font-medium text-slate-700 mb-3">
                 Qabul qilinadi:
               </div>
+
               <div className="flex flex-wrap gap-2">
                 {paymentMethods.map((method, index) => (
                   <div
                     key={index}
                     className="flex items-center gap-2 px-3 py-2 bg-slate-100 rounded-lg text-sm text-slate-700"
                   >
-                    <span>{method.icon}</span>
+                    <method.icon className="w-4 h-4" />
                     <span>{method.name}</span>
                   </div>
                 ))}
@@ -180,14 +205,15 @@ export default function DonationSection() {
             {/* Security Notice */}
             <div className="flex items-center gap-2 mb-6 text-sm text-slate-600">
               <Shield className="w-4 h-4 text-green-600" />
-              100% xavfsiz va shaffof to'lov
+              100% xavfsiz va shaffof to&apos;lov
             </div>
 
             {/* Additional Payment Links */}
             <div className="pt-6 border-t border-slate-200">
               <div className="text-sm font-medium text-slate-700 mb-3">
-                Qo'shimcha to'lov usullari:
+                Qo&apos;shimcha to&apos;lov usullari:
               </div>
+
               <div className="flex flex-wrap gap-2">
                 <a
                   href="https://payme.uz/@yurakamri"
@@ -195,21 +221,26 @@ export default function DonationSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-3 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors"
                 >
-                  💳 PayMe
+                  <CreditCard className="w-4 h-4" />
+                  PayMe
                 </a>
+
                 <a
                   href="https://click.uz/@yurakamri"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors"
                 >
-                  💳 Click
+                  <CreditCard className="w-4 h-4" />
+                  Click
                 </a>
+
                 <a
                   href="tel:+998712345678"
                   className="inline-flex items-center gap-2 px-3 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg text-sm font-medium transition-colors"
                 >
-                  📞 Telefon
+                  <Smartphone className="w-4 h-4" />
+                  Telefon
                 </a>
               </div>
             </div>
@@ -225,7 +256,9 @@ export default function DonationSection() {
           >
             {/* Impact Stats */}
             <div className="bg-gradient-primary text-white rounded-3xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold mb-6">Sizning ta'siringiz</h3>
+              <h3 className="text-2xl font-bold mb-6">
+                Sizning ta&apos;siringiz
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-6 h-6 text-green-300" />
@@ -241,7 +274,7 @@ export default function DonationSection() {
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-6 h-6 text-green-300" />
-                  <span>365/24 faol ko'mak liniyasi</span>
+                  <span>365/24 faol ko&apos;mak liniyasi</span>
                 </div>
               </div>
             </div>
@@ -252,10 +285,12 @@ export default function DonationSection() {
                 <Coffee className="w-8 h-8 text-amber-200" />
                 <h3 className="text-xl font-bold">Har oylik yordam</h3>
               </div>
-              <p className="text-amber-100 mb-6">
-                Har oyda 10,000 so'm – bu sizga bitta kofe. Lekin bir oilaga
-                esa, non.
+
+              <p className="text-amber-50/90 text-md mb-6">
+                Har oyda 10,000 so&apos;m - bu sizga bitta kofe. Lekin bir
+                oilaga esa, non.
               </p>
+
               <button className="bg-white hover:bg-amber-50 text-amber-700 px-6 py-3 rounded-xl font-semibold transition-colors">
                 Avtomatik xayriya
               </button>
@@ -265,12 +300,14 @@ export default function DonationSection() {
             <div className="bg-white rounded-3xl p-6 shadow-lg border border-slate-200">
               <div className="text-center">
                 <Shield className="w-12 h-12 text-green-600 mx-auto mb-4" />
+
                 <h4 className="font-bold text-slate-900 mb-2">
                   100% Shaffoflik
                 </h4>
+
                 <p className="text-slate-600 text-sm">
-                  Barcha xayriya miqdorlari va ularning taqsimlanishi to'liq
-                  ochiq va nazorat ostida
+                  Barcha xayriya miqdorlari va ularning taqsimlanishi
+                  to&apos;liq ochiq va nazorat ostida
                 </p>
               </div>
             </div>
