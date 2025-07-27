@@ -76,12 +76,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Optimize fonts */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1e40af" />

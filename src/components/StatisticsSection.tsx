@@ -1,14 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  TrendingUp,
-  Users,
-  Home,
-  DollarSign,
-  Clock,
-  MapPin,
-} from "lucide-react";
+import { Users, Home, DollarSign, Clock, MapPin } from "lucide-react";
 
 const statistics = [
   {

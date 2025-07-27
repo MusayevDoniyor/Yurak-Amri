@@ -10,18 +10,11 @@ const nextConfig: NextConfig = {
 
   // Optimize bundle
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
 
   // Compression
   compress: true,
-
-  // Optimize fonts
-  optimizeFonts: true,
-
-  // Reduce bundle size
-  swcMinify: true,
 
   // Performance optimizations
   poweredByHeader: false,
