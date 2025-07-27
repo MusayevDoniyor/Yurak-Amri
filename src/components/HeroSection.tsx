@@ -6,7 +6,7 @@ import { Heart, ArrowRight, Play } from "lucide-react";
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Pattern */}
+      {/* Background Pattern - Optimized */}
       <div className="absolute inset-0 bg-gradient-hero">
         <div
           className="absolute inset-0 opacity-5"
@@ -19,22 +19,22 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
           {/* Badge */}
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="inline-flex items-center gap-3 bg-gradient-primary text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg"
           >
             <div className="w-2 h-2 bg-white rounded-full"></div>
             YURAK AMRI XAYRIYA FONDI
             <div className="w-2 h-2 bg-white rounded-full"></div>
-          </motion.div> */}
+          </motion.div>
 
           {/* Main Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight"
           >
             <span className="text-gradient-primary">Bir yurakdan</span>
@@ -44,9 +44,9 @@ export default function HeroSection() {
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 leading-relaxed"
           >
             O&apos;zbekistonning har bir chekkasida bir oila sizning
@@ -60,9 +60,9 @@ export default function HeroSection() {
 
           {/* Trust Indicators */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap justify-center items-center gap-8 mb-12 text-slate-500"
           >
             <div className="flex items-center gap-2">
@@ -83,9 +83,9 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <button className="btn-primary text-white px-8 py-4 rounded-xl text-lg font-semibold flex items-center gap-2 shadow-xl">
@@ -102,9 +102,9 @@ export default function HeroSection() {
 
           {/* Additional Info */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             className="mt-16 p-6 bg-white/80 backdrop-blur-sm rounded-t-3xl border border-blue-200 shadow-lg mb-0"
           >
             <p className="text-slate-600 text-lg">

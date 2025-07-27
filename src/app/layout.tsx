@@ -15,16 +15,16 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://yurakamri.uz"),
+  metadataBase: new URL("https://yurak-amri-three.vercel.app/"),
   openGraph: {
     title: "Yurak Amri - Xayriya Fondi",
     description:
       "Bir yurakdan - ming yurakka nur! O'zbekistonning har bir chekkasida bir oila sizning e'tiboringizni kutmoqda.",
-    url: "https://yurakamri.uz",
+    url: "https://yurak-amri-three.vercel.app/",
     siteName: "Yurak Amri",
     images: [
       {
-        url: "/yurak_amri.png",
+        url: "/yurak_amri.webp",
         width: 1200,
         height: 630,
         alt: "Yurak Amri Logo",
@@ -37,12 +37,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Yurak Amri - Xayriya Fondi",
     description: "Bir yurakdan - ming yurakka nur!",
-    images: ["/yurak_amri.png"],
+    images: ["/yurak_amri.webp"],
   },
   icons: {
-    icon: "/yurak_amri.png",
-    shortcut: "/yurak_amri.png",
-    apple: "/yurak_amri.png",
+    icon: "/yurak_amri.webp",
+    shortcut: "/yurak_amri.webp",
+    apple: "/yurak_amri.webp",
   },
   manifest: "/manifest.json",
   robots: {
@@ -65,6 +65,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uz" className="scroll-smooth">
+      <head>
+        {/* Preload critical resources */}
+        <link rel="preload" href="/yurak_amri.webp" as="image" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        {/* Optimize fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="antialiased" suppressHydrationWarning={true}>
         {children}
       </body>
