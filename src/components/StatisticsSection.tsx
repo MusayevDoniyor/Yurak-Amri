@@ -1,162 +1,222 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, Home, DollarSign, Clock, MapPin } from "lucide-react";
+import { Users, Home, Heart, TrendingUp } from "lucide-react";
 
 const statistics = [
   {
+    id: 1,
     icon: Users,
-    number: "15,200+",
+    number: "15,000+",
     label: "Oila yordam olgan",
-    description: "O'zbekiston bo'ylab",
+    description: "O&apos;zbekiston bo&apos;ylab",
     color: "bg-gradient-accent",
-    bgColor: "bg-green-50",
   },
   {
+    id: 2,
     icon: Home,
-    number: "190+",
-    label: "Uy topshirilgan",
-    description: "Turli hududlarda",
+    number: "160+",
+    label: "Uy qurilgan",
+    description: "Turli viloyatlarda",
     color: "bg-gradient-primary",
-    bgColor: "bg-blue-50",
   },
   {
-    icon: DollarSign,
-    number: "1,2 mln",
-    label: "USD qiymatdagi yordam",
-    description: "3 yil davomida",
+    id: 3,
+    icon: Heart,
+    number: "1M+",
+    label: "USD yig&apos;ilgan",
+    description: "3 yilda xayriya",
     color: "bg-gradient-secondary",
-    bgColor: "bg-amber-50",
   },
   {
-    icon: Clock,
-    number: "365/24",
-    label: "Faol ko'mak liniyasi",
-    description: "Doimiy yordam",
+    id: 4,
+    icon: TrendingUp,
+    number: "100%",
+    label: "Shaffoflik",
+    description: "Hisob-kitob ochiq",
     color: "bg-gradient-accent",
-    bgColor: "bg-green-50",
   },
-  {
-    icon: MapPin,
-    number: "13",
-    label: "Viloyatda faoliyat",
-    description: "O'zbekiston bo'ylab",
-    color: "bg-gradient-primary",
-    bgColor: "bg-blue-50",
-  },
+];
+
+const growthData = [
+  { year: "2021", amount: 250000 },
+  { year: "2022", amount: 450000 },
+  { year: "2023", amount: 750000 },
+  { year: "2024", amount: 1000000 },
 ];
 
 export default function StatisticsSection() {
   return (
-    <section className="py-20 bg-gradient-section relative overflow-hidden">
-      {/* Background Pattern */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      ></div>
-
+    <section className="py-24 bg-gradient-section relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            <span className="text-white">Raqamlar</span> haqida
-          </h2>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Natijalar sonlarda: har bir raqam orqasida yuzlab oilalar va
-            ularning hayotlari turibdi.{" "}
-            <span className="text-white font-semibold">
-              Sizning yordamingiz - ularning umidi.
-            </span>
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {statistics.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`${stat.bgColor} rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-white/10`}
-            >
-              <div
-                className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${stat.color} text-white mb-6 shadow-lg`}
-              >
-                <stat.icon className="w-8 h-8" />
-              </div>
-              <div className="text-4xl font-bold text-slate-900 mb-2">
-                {stat.number}
-              </div>
-              <div className="text-xl font-semibold text-slate-800 mb-2">
-                {stat.label}
-              </div>
-              <div className="text-slate-600">{stat.description}</div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Growth Chart */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="bg-white text-slate-900 rounded-3xl p-8 shadow-2xl"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <TrendingUp className="w-4 h-4" />
-                O&apos;SISH DINAMIKASI
-              </div>
-              <h3 className="text-3xl font-bold mb-4">
-                Har yili 300% o&apos;sish
-              </h3>
-              <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                2021 yildan beri har yili yordam berilgan oilalar soni 300% ga
-                o&apos;sdi. Bu faqat raqamlar emas, bu yuzlab oilalarning
-                hayotini o&apos;zgartirish.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-blue-50 rounded-xl p-4">
-                  <div className="text-2xl font-bold text-blue-700">2021</div>
-                  <div className="text-sm text-slate-600">5,000 oila</div>
-                </div>
-                <div className="bg-blue-50 rounded-xl p-4">
-                  <div className="text-2xl font-bold text-blue-700">2024</div>
-                  <div className="text-sm text-slate-600">15,200+ oila</div>
-                </div>
-              </div>
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 bg-gradient-secondary text-navy-dark px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
+              <TrendingUp className="w-4 h-4" />
+              Bizning Natijalar
             </div>
-            <div className="bg-blue-50 rounded-2xl p-6">
-              <div className="text-center">
-                <div className="text-6xl font-bold mb-2 text-blue-700">
-                  300%
+            <h2 className="heading-corporate text-5xl md:text-7xl font-black mb-6">
+              <span className="text-gradient-primary">O&apos;SISH</span>{" "}
+              <span className="text-white">DINAMIKASI</span>
+            </h2>
+            <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+              Har yili yordam berish hajmi o&apos;sib bormoqda. Bu faqat sizning
+              ishonchingiz va qo&apos;llab-quvvatlashingiz natijasidir.
+            </p>
+          </motion.div>
+
+          {/* Statistics Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {statistics.map((stat, idx) => (
+              <motion.div
+                key={stat.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: idx * 0.1,
+                  ease: "easeOut",
+                }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="card-navy text-center group"
+              >
+                <div className="p-8">
+                  <div
+                    className={`w-16 h-16 ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-gold group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <stat.icon className="w-8 h-8 text-navy-dark" />
+                  </div>
+                  <div className="text-4xl md:text-5xl font-black text-gradient-primary mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-xl font-bold text-white mb-2">
+                    {stat.label}
+                  </div>
+                  <div className="text-text-secondary">{stat.description}</div>
                 </div>
-                <div className="text-slate-800 text-lg">O&apos;sish</div>
-                <div className="mt-4 text-sm text-slate-600">
-                  3 yil davomida
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Growth Chart */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="bg-gradient-navy rounded-3xl p-8 md:p-12 shadow-navy border-navy"
+          >
+            <div className="text-center mb-12">
+              <h3 className="heading-corporate text-3xl md:text-4xl font-black text-white mb-4">
+                Yillik O&apos;sish Grafigi
+              </h3>
+              <p className="text-xl text-text-secondary">
+                Xayriya mablag&apos;lari yig&apos;ish dinamikasi (USD)
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Chart Visualization */}
+              <div className="space-y-6">
+                {growthData.map((data, idx) => (
+                  <motion.div
+                    key={data.year}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: idx * 0.1,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="w-20 text-lg font-bold text-white">
+                      {data.year}
+                    </div>
+                    <div className="flex-1 bg-navy-light rounded-full h-4 overflow-hidden">
+                      <div
+                        className="bg-gradient-secondary h-full rounded-full transition-all duration-1000 ease-out"
+                        style={{
+                          width: `${(data.amount / 1000000) * 100}%`,
+                          animationDelay: `${idx * 0.2}s`,
+                        }}
+                      ></div>
+                    </div>
+                    <div className="w-24 text-right font-bold text-gradient-secondary">
+                      ${(data.amount / 1000).toFixed(0)}K
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Growth Stats */}
+              <div className="space-y-8">
+                <div className="text-center">
+                  <div className="text-6xl font-black text-gradient-secondary mb-4">
+                    {(
+                      ((growthData[3].amount - growthData[0].amount) /
+                        growthData[0].amount) *
+                      100
+                    ).toFixed(0)}
+                    %
+                  </div>
+                  <div className="text-2xl font-bold text-white mb-2">
+                    Umumiy o&apos;sish
+                  </div>
+                  <div className="text-text-secondary">
+                    2021-2024 yillar oralig&apos;ida
+                  </div>
                 </div>
-                <div className="mt-6">
-                  <div className="flex items-center justify-center gap-1">
-                    <div className="w-3 h-3 bg-blue-300 rounded-full"></div>
-                    <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center p-6 bg-gradient-card rounded-2xl border border-navy-light">
+                    <div className="text-3xl font-black text-gradient-accent mb-2">
+                      {(
+                        ((growthData[1].amount - growthData[0].amount) /
+                          growthData[0].amount) *
+                        100
+                      ).toFixed(0)}
+                      %
+                    </div>
+                    <div className="text-sm font-bold text-white">
+                      2021-2022
+                    </div>
+                  </div>
+                  <div className="text-center p-6 bg-gradient-card rounded-2xl border border-navy-light">
+                    <div className="text-3xl font-black text-gradient-primary mb-2">
+                      {(
+                        ((growthData[2].amount - growthData[1].amount) /
+                          growthData[1].amount) *
+                        100
+                      ).toFixed(0)}
+                      %
+                    </div>
+                    <div className="text-sm font-bold text-white">
+                      2022-2023
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center p-6 bg-gradient-secondary/20 rounded-2xl border border-navy-light">
+                  <div className="text-2xl font-bold text-white mb-2">
+                    Faol ko&apos;mak liniyasi
+                  </div>
+                  <div className="text-text-secondary">
+                    24/7 qo&apos;llab-quvvatlash
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div> */}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
