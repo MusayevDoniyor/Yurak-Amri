@@ -8,8 +8,7 @@ const portfolioItems = [
     id: 1,
     icon: Heart,
     title: "Oila yordami",
-    description:
-      "Ehtiyojmand oilalarga to&apos;g&apos;ridan-to&apos;g&apos;ri yordam",
+    description: "Ehtiyojmand oilalarga to'gridan-to'gri yordam",
     color: "bg-gradient-accent",
     bgColor: "bg-gradient-card",
     textColor: "text-white",
@@ -27,7 +26,7 @@ const portfolioItems = [
     id: 3,
     icon: Users,
     title: "Ijtimoiy ishlar",
-    description: "Jamiyatda ijtimoiy mas&apos;uliyatni oshirish",
+    description: "Jamiyatda ijtimoiy mas'uliyatni oshirish",
     color: "bg-gradient-secondary",
     bgColor: "bg-gradient-card",
     textColor: "text-white",
@@ -35,8 +34,8 @@ const portfolioItems = [
   {
     id: 4,
     icon: BookOpen,
-    title: "Ta&apos;lim yordami",
-    description: "Bolalar uchun ta&apos;lim materiallari va stipendiyalar",
+    title: "Ta'lim yordami",
+    description: "Bolalar uchun ta'lim materiallari va stipendiyalar",
     color: "bg-gradient-accent",
     bgColor: "bg-gradient-card",
     textColor: "text-white",
@@ -74,14 +73,16 @@ export default function PortfolioSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-secondary text-navy-dark px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
+            <div className="inline-flex items-center gap-2 bg-gradient-secondary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
               <Star className="w-4 h-4" />
               Bizning Faoliyat
             </div>
+
             <h2 className="heading-corporate text-5xl md:text-7xl font-black mb-6">
               <span className="text-gradient-primary">NIMALAR</span>{" "}
-              <span className="text-white">QILAMIZ?</span>
+              <span className="text-text-primary">QILAMIZ?</span>
             </h2>
+
             <p className="text-xl text-text-secondary max-w-3xl mx-auto">
               Yurak Amri fondi O&apos;zbekiston bo&apos;ylab turli xil ijtimoiy
               loyihalar orqali ehtiyojmand oilalarga yordam beradi.
@@ -101,15 +102,16 @@ export default function PortfolioSection() {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="card-navy group cursor-pointer"
+                className="card group cursor-pointer"
               >
                 <div className="p-8 text-center">
                   <div
                     className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-gold group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <item.icon className="w-8 h-8 text-navy-dark" />
+                    <item.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">
+
+                  <h3 className="text-2xl font-bold text-text-primary mb-4">
                     {item.title}
                   </h3>
                   <p className="text-text-secondary leading-relaxed">
@@ -130,43 +132,43 @@ export default function PortfolioSection() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 bg-gradient-secondary text-navy-dark px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
+                <div className="inline-flex items-center gap-2 bg-gradient-secondary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
                   <Star className="w-4 h-4" />
                   Asosiy Loyiha
                 </div>
                 <h3 className="heading-corporate text-4xl md:text-5xl font-black text-white mb-6">
                   &ldquo;25+&rdquo; Uylar Loyihasi
                 </h3>
-                <p className="text-xl text-text-secondary mb-8 leading-relaxed">
+                <p className="text-xl text-white/80 mb-8 leading-relaxed">
                   Bo&apos;ka tumanida 25 ta oila uchun uy qurish loyihasi. Bu
                   loyiha 2024 yil oxirida yakunlanadi va 100+ kishining hayotini
                   o&apos;zgartiradi.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2 text-text-secondary">
+                  <div className="flex items-center gap-2 text-white/80">
                     <div className="w-3 h-3 bg-gradient-secondary rounded-full"></div>
                     <span>25 ta uy qurilmoqda</span>
                   </div>
-                  <div className="flex items-center gap-2 text-text-secondary">
+                  <div className="flex items-center gap-2 text-white/80">
                     <div className="w-3 h-3 bg-gradient-accent rounded-full"></div>
                     <span>100+ kishi foyda oladi</span>
                   </div>
-                  <div className="flex items-center gap-2 text-text-secondary">
+                  <div className="flex items-center gap-2 text-white/80">
                     <div className="w-3 h-3 bg-gradient-primary rounded-full"></div>
                     <span>2024 yil yakunlanadi</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-card/20 backdrop-blur-sm rounded-2xl p-8 border border-navy-light">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <div className="text-center">
-                  <div className="text-6xl font-black text-gradient-secondary mb-4">
+                  <div className="text-6xl font-black text-gradient-accent mb-4">
                     25+
                   </div>
                   <div className="text-2xl font-bold text-white mb-4">
                     Uy qurilmoqda
                   </div>
-                  <div className="text-text-secondary mb-6">
+                  <div className="text-white/80 mb-6">
                     Loyiha 2024 yil oxirida yakunlanadi
                   </div>
                   <button className="btn-primary px-8 py-4 rounded-xl text-lg font-bold shadow-gold">

@@ -9,7 +9,7 @@ const statistics = [
     icon: Users,
     number: "15,000+",
     label: "Oila yordam olgan",
-    description: "O&apos;zbekiston bo&apos;ylab",
+    description: "O'zbekiston bo'ylab",
     color: "bg-gradient-accent",
   },
   {
@@ -24,7 +24,7 @@ const statistics = [
     id: 3,
     icon: Heart,
     number: "1M+",
-    label: "USD yig&apos;ilgan",
+    label: "USD yig'ilgan",
     description: "3 yilda xayriya",
     color: "bg-gradient-secondary",
   },
@@ -58,13 +58,13 @@ export default function StatisticsSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-secondary text-navy-dark px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
+            <div className="inline-flex items-center gap-2 bg-gradient-secondary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
               <TrendingUp className="w-4 h-4" />
               Bizning Natijalar
             </div>
             <h2 className="heading-corporate text-5xl md:text-7xl font-black mb-6">
               <span className="text-gradient-primary">O&apos;SISH</span>{" "}
-              <span className="text-white">DINAMIKASI</span>
+              <span className="text-text-primary">DINAMIKASI</span>
             </h2>
             <p className="text-xl text-text-secondary max-w-3xl mx-auto">
               Har yili yordam berish hajmi o&apos;sib bormoqda. Bu faqat sizning
@@ -85,18 +85,18 @@ export default function StatisticsSection() {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="card-navy text-center group"
+                className="card text-center group"
               >
                 <div className="p-8">
                   <div
                     className={`w-16 h-16 ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-gold group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <stat.icon className="w-8 h-8 text-navy-dark" />
+                    <stat.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-4xl md:text-5xl font-black text-gradient-primary mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-xl font-bold text-white mb-2">
+                  <div className="text-xl font-bold text-text-primary mb-2">
                     {stat.label}
                   </div>
                   <div className="text-text-secondary">{stat.description}</div>
@@ -117,7 +117,7 @@ export default function StatisticsSection() {
               <h3 className="heading-corporate text-3xl md:text-4xl font-black text-white mb-4">
                 Yillik O&apos;sish Grafigi
               </h3>
-              <p className="text-xl text-text-secondary">
+              <p className="text-xl text-white/80">
                 Xayriya mablag&apos;lari yig&apos;ish dinamikasi (USD)
               </p>
             </div>
@@ -141,7 +141,7 @@ export default function StatisticsSection() {
                     <div className="w-20 text-lg font-bold text-white">
                       {data.year}
                     </div>
-                    <div className="flex-1 bg-navy-light rounded-full h-4 overflow-hidden">
+                    <div className="flex-1 bg-white/20 rounded-full h-4 overflow-hidden">
                       <div
                         className="bg-gradient-secondary h-full rounded-full transition-all duration-1000 ease-out"
                         style={{
@@ -150,7 +150,7 @@ export default function StatisticsSection() {
                         }}
                       ></div>
                     </div>
-                    <div className="w-24 text-right font-bold text-gradient-secondary">
+                    <div className="w-24 text-right font-bold text-gradient-accent">
                       ${(data.amount / 1000).toFixed(0)}K
                     </div>
                   </motion.div>
@@ -160,7 +160,7 @@ export default function StatisticsSection() {
               {/* Growth Stats */}
               <div className="space-y-8">
                 <div className="text-center">
-                  <div className="text-6xl font-black text-gradient-secondary mb-4">
+                  <div className="text-6xl font-black text-gradient-accent mb-4">
                     {(
                       ((growthData[3].amount - growthData[0].amount) /
                         growthData[0].amount) *
@@ -171,13 +171,13 @@ export default function StatisticsSection() {
                   <div className="text-2xl font-bold text-white mb-2">
                     Umumiy o&apos;sish
                   </div>
-                  <div className="text-text-secondary">
+                  <div className="text-white/80">
                     2021-2024 yillar oralig&apos;ida
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-6 bg-gradient-card rounded-2xl border border-navy-light">
+                  <div className="text-center p-6 bg-white/10 rounded-2xl border border-white/20">
                     <div className="text-3xl font-black text-gradient-accent mb-2">
                       {(
                         ((growthData[1].amount - growthData[0].amount) /
@@ -190,7 +190,7 @@ export default function StatisticsSection() {
                       2021-2022
                     </div>
                   </div>
-                  <div className="text-center p-6 bg-gradient-card rounded-2xl border border-navy-light">
+                  <div className="text-center p-6 bg-white/10 rounded-2xl border border-white/20">
                     <div className="text-3xl font-black text-gradient-primary mb-2">
                       {(
                         ((growthData[2].amount - growthData[1].amount) /
@@ -205,11 +205,11 @@ export default function StatisticsSection() {
                   </div>
                 </div>
 
-                <div className="text-center p-6 bg-gradient-secondary/20 rounded-2xl border border-navy-light">
+                <div className="text-center p-6 bg-gradient-secondary/20 rounded-2xl border border-white/20">
                   <div className="text-2xl font-bold text-white mb-2">
                     Faol ko&apos;mak liniyasi
                   </div>
-                  <div className="text-text-secondary">
+                  <div className="text-white/80">
                     24/7 qo&apos;llab-quvvatlash
                   </div>
                 </div>

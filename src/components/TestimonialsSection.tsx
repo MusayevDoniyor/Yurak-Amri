@@ -4,29 +4,37 @@ import { motion } from "framer-motion";
 import { Star, Quote, Heart } from "lucide-react";
 
 const testimonials = [
-  {
-    id: 1,
-    name: "Malika Karimova",
-    location: "Farg&apos;ona viloyati",
-    rating: 5,
-    text: "Biz shunchaki ro&apos;yxatda turgan oilamiz deb o&apos;ylagandik. Rahmat sizlarga. Endi bolalarimiz baxtli.",
-    category: "Uy yordami",
-  },
+  // {
+  //   id: 1,
+  //   name: "Mavluda opa",
+  //   location: "Farg'ona viloyati",
+  //   rating: 5,
+  //   text: "Biz shunchaki ro'yxatda turgan oilamiz deb o'ylagandik. Lekin Yurak Amri bizga insoniylik, or-nomus va umid hadya qildi. Endi farzandim maktabga bormoqda. Rahmat sizlarga.",
+  //   category: "Uy qurish",
+  // },
   {
     id: 2,
-    name: "Aziz Toshmatov",
-    location: "Bo&apos;ka tumani",
+    name: "Sardor aka",
+    location: "Bo'ka tumani",
     rating: 5,
-    text: "Yurak Amri yordami bilan hayotimiz to&apos;liq o&apos;zgardi. Endi o&apos;z uyimizda yashaymiz.",
-    category: "Uy qurish",
+    text: "Yurak Amri yordami bilan oilamiz yangi uyga ko'chdi. Bu faqat uy emas, bu yangi hayot boshlash imkoniyati. Hammadan rahmat!",
+    category: "Oziq-ovqat",
   },
   {
     id: 3,
-    name: "Dilfuza Rahimova",
+    name: "Dilfuza opa",
     location: "Toshkent viloyati",
     rating: 5,
-    text: "Bolalarim uchun ta&apos;lim materiallari va kiyimlar yuborildi. Hammadan rahmat!",
-    category: "Ta&apos;lim yordami",
+    text: "Farzandlarim uchun kiyim va oziq-ovqat yordami oldik. Bu yordam bizga juda kerak edi. Yurak Amri haqiqatan ham yurakdan ishlaydi.",
+    category: "Bolalar yordami",
+  },
+  {
+    id: 4,
+    name: "Aziz aka",
+    location: "Andijon viloyati",
+    rating: 5,
+    text: "Uy ta'mirlash uchun yordam oldik. Endi oilamiz xavfsiz va qulay sharoitda yashaydi. Bu yordamni hech qachon unutmaymiz.",
+    category: "Uy ta'mirlash",
   },
 ];
 
@@ -43,13 +51,13 @@ export default function TestimonialsSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-secondary text-navy-dark px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
+            <div className="inline-flex items-center gap-2 bg-gradient-secondary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
               <Heart className="w-4 h-4" />
               Foydalanuvchilar Fikri
             </div>
             <h2 className="heading-corporate text-5xl md:text-7xl font-black mb-6">
               <span className="text-gradient-primary">Hikoyalar</span>{" "}
-              <span className="text-white">va shukrona</span>
+              <span className="text-text-primary">va shukrona</span>
             </h2>
             <p className="text-xl text-text-secondary max-w-3xl mx-auto">
               Har bir oila o&apos;z hikoyasiga ega. Ularning baxtli yuzlari -
@@ -70,7 +78,7 @@ export default function TestimonialsSection() {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="card-navy group"
+                className="card group"
               >
                 <div className="p-8">
                   {/* Rating */}
@@ -78,13 +86,13 @@ export default function TestimonialsSection() {
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-5 h-5 fill-gold-primary text-gold-primary"
+                        className="w-5 h-5 fill-accent text-accent"
                       />
                     ))}
                   </div>
 
                   {/* Category Badge */}
-                  <div className="inline-flex items-center gap-2 bg-gradient-secondary/20 text-gold-primary px-3 py-1 rounded-full text-xs font-bold mb-6">
+                  <div className="inline-flex items-center gap-2 bg-gradient-secondary/20 text-secondary px-3 py-1 rounded-full text-xs font-bold mb-6">
                     {testimonial.category}
                   </div>
 
@@ -104,7 +112,7 @@ export default function TestimonialsSection() {
                       </span>
                     </div>
                     <div>
-                      <div className="font-bold text-white">
+                      <div className="font-bold text-text-primary">
                         {testimonial.name}
                       </div>
                       <div className="text-text-secondary text-sm">
@@ -117,7 +125,7 @@ export default function TestimonialsSection() {
             ))}
           </div>
 
-          {/* Featured Testimonial */}
+          {/* Featured Testimonial - Mavluda opa */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -127,50 +135,47 @@ export default function TestimonialsSection() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 bg-navy-dark/20 text-navy-dark px-4 py-2 rounded-full text-sm font-bold mb-6">
+                <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-bold mb-6">
                   <Quote className="w-4 h-4" />
                   Asosiy Hikoya
                 </div>
-                <h3 className="heading-corporate text-3xl md:text-4xl font-black text-navy-dark mb-6">
-                  Uy ta&apos;mirlash va hayot o&apos;zgartirgan
+                <h3 className="heading-corporate text-3xl md:text-4xl font-black text-white mb-6">
+                  Mavluda opa hikoyasi
                 </h3>
-                <blockquote className="text-xl text-navy-dark/90 leading-relaxed mb-8">
-                  &ldquo;Yurak Amri yordami bilan uyimiz to&apos;liq
-                  ta&apos;mirlandi. Bolalarim endi xavfsiz va qulay sharoitda
-                  yashaydi. Bu faqat uy emas, yangi hayot boshlanishi
-                  edi.&rdquo;
+                <blockquote className="text-xl text-white/90 leading-relaxed mb-8">
+                  &ldquo;Biz shunchaki ro&apos;yxatda turgan oilamiz deb
+                  o&apos;ylagandik. Lekin Yurak Amri bizga insoniylik, or-nomus
+                  va umid hadya qildi. Endi farzandim maktabga bormoqda. Rahmat
+                  sizlarga.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-navy-dark/20 rounded-full flex items-center justify-center">
-                    <span className="text-navy-dark font-bold text-xl">SR</span>
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-xl">MO</span>
                   </div>
                   <div>
-                    <div className="font-bold text-navy-dark text-lg">
-                      Sardor Rahimov
+                    <div className="font-bold text-white text-lg">
+                      Mavluda opa
                     </div>
-                    <div className="text-navy-dark/80">
-                      Bo&apos;ka tumani, 5 ta farzand otasi
+                    <div className="text-white/80">
+                      Farg&apos;ona viloyati, farzand onasi
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="text-center">
-                <div className="text-8xl font-black text-navy-dark/20 mb-4">
+                <div className="text-8xl font-black text-white/20 mb-4">
                   &ldquo;
                 </div>
-                <div className="text-2xl font-bold text-navy-dark mb-4">
+                <div className="text-2xl font-bold text-white mb-4">
                   Har bir oila o&apos;z hikoyasiga ega
                 </div>
-                <div className="text-navy-dark/80 mb-8">
+                <div className="text-white/80 mb-8">
                   Ularning baxtli yuzlari - bizning eng katta muvaffaqiyatimiz
                 </div>
                 <div className="flex justify-center gap-2">
                   {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-6 h-6 fill-navy-dark text-navy-dark"
-                    />
+                    <Star key={i} className="w-6 h-6 fill-white text-white" />
                   ))}
                 </div>
               </div>

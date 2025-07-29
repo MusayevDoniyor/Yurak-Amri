@@ -1,34 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"); */
 
 :root {
-  /* Professional Corporate Theme - Serious Colors */
-  --background: #0a0e1a;
-  --foreground: #f8fafc;
-  --primary: #1e293b;
-  --primary-light: #334155;
-  --secondary: #c4a484;
-  --secondary-light: #d4b494;
-  --accent: #d4af37;
-  --accent-light: #e6c244;
-  --muted: #475569;
-  --muted-light: #64748b;
-  --border: #334155;
-  --border-light: #475569;
-  --success: #059669;
-  --warning: #d97706;
-  --error: #dc2626;
-  --card: #1e293b;
-  --card-hover: #334155;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --highlight: #d4af37;
+  /* Professional Dark Theme - Premium Color Palette */
+  --background: #0a0a0f;
+  --foreground: #ffffff;
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --secondary: #10b981;
+  --secondary-light: #34d399;
+  --accent: #f59e0b;
+  --accent-light: #fbbf24;
+  --muted: #6b7280;
+  --muted-light: #9ca3af;
+  --border: #1f2937;
+  --border-light: #374151;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --card: #111827;
+  --card-hover: #1f2937;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --highlight: #6366f1;
   --navy-dark: #0f172a;
   --navy-medium: #1e293b;
   --navy-light: #334155;
-  --gold-primary: #d4af37;
-  --gold-light: #e6c244;
-  --gold-dark: #b8941f;
+  --gold-primary: #f59e0b;
+  --gold-light: #fbbf24;
+  --gold-dark: #d97706;
 }
 
 @theme inline {
@@ -58,13 +58,10 @@
   --color-gold-primary: var(--gold-primary);
   --color-gold-light: var(--gold-light);
   --color-gold-dark: var(--gold-dark);
-  --font-sans: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
-  --font-serif: "Merriweather", Georgia, serif;
-  --font-heading: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  --font-mono: "Roboto Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
-    Consolas, "Courier New", monospace;
+  --font-sans: "Kanit", "Kanit Placeholder", sans-serif;
+  --font-serif: "Kanit", "Kanit Placeholder", sans-serif;
+  --font-heading: "Kanit", "Kanit Placeholder", sans-serif;
+  --font-mono: "Kanit", "Kanit Placeholder", sans-serif;
 }
 
 body {
@@ -104,10 +101,10 @@ body {
 .btn-primary {
   background: linear-gradient(
     135deg,
-    var(--gold-primary) 0%,
-    var(--gold-light) 100%
+    var(--primary) 0%,
+    var(--primary-light) 100%
   );
-  color: var(--navy-dark);
+  color: white;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -119,12 +116,12 @@ body {
 .btn-primary:hover {
   background: linear-gradient(
     135deg,
-    var(--gold-light) 0%,
-    var(--gold-primary) 100%
+    var(--primary-light) 0%,
+    var(--primary) 100%
   );
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
-  border-color: var(--gold-primary);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+  border-color: var(--primary);
 }
 
 .btn-secondary {
@@ -143,41 +140,41 @@ body {
   color: var(--background);
   border-color: var(--foreground);
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(248, 250, 252, 0.1);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
 }
 
 .btn-navy {
   background: linear-gradient(
     135deg,
-    var(--navy-medium) 0%,
-    var(--navy-light) 100%
+    var(--secondary) 0%,
+    var(--secondary-light) 100%
   );
-  color: var(--foreground);
+  color: white;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
-  border: 2px solid var(--navy-light);
+  border: 2px solid var(--secondary-light);
 }
 
 .btn-navy:hover {
   background: linear-gradient(
     135deg,
-    var(--navy-light) 0%,
-    var(--navy-medium) 100%
+    var(--secondary-light) 0%,
+    var(--secondary) 100%
   );
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(30, 41, 59, 0.4);
-  border-color: var(--gold-primary);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+  border-color: var(--accent);
 }
 
 /* Professional Gradients */
 .text-gradient-primary {
   background: linear-gradient(
     135deg,
-    var(--gold-primary) 0%,
-    var(--gold-light) 100%
+    var(--primary) 0%,
+    var(--primary-light) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -196,7 +193,11 @@ body {
 }
 
 .text-gradient-accent {
-  background: linear-gradient(135deg, var(--success) 0%, var(--warning) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    var(--accent-light) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -205,8 +206,8 @@ body {
 .text-gradient-navy {
   background: linear-gradient(
     135deg,
-    var(--navy-light) 0%,
-    var(--muted-light) 100%
+    var(--navy-medium) 0%,
+    var(--navy-light) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -217,20 +218,12 @@ body {
 .bg-gradient-primary {
   background: linear-gradient(
     135deg,
-    var(--navy-dark) 0%,
-    var(--navy-medium) 100%
+    var(--primary) 0%,
+    var(--primary-light) 100%
   );
 }
 
 .bg-gradient-secondary {
-  background: linear-gradient(
-    135deg,
-    var(--gold-primary) 0%,
-    var(--gold-light) 100%
-  );
-}
-
-.bg-gradient-accent {
   background: linear-gradient(
     135deg,
     var(--secondary) 0%,
@@ -238,22 +231,25 @@ body {
   );
 }
 
+.bg-gradient-accent {
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    var(--accent-light) 100%
+  );
+}
+
 .bg-gradient-hero {
   background: linear-gradient(
     135deg,
     var(--background) 0%,
-    var(--navy-dark) 50%,
-    var(--navy-medium) 100%
+    #0f172a 50%,
+    #1e293b 100%
   );
 }
 
 .bg-gradient-section {
-  background: linear-gradient(
-    135deg,
-    var(--navy-medium) 0%,
-    var(--navy-light) 50%,
-    var(--muted) 100%
-  );
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
 }
 
 .bg-gradient-card {
@@ -264,8 +260,8 @@ body {
 .bg-gradient-navy {
   background: linear-gradient(
     135deg,
-    var(--navy-dark) 0%,
-    var(--navy-medium) 100%
+    var(--navy-medium) 0%,
+    var(--navy-light) 100%
   );
 }
 
@@ -295,9 +291,9 @@ body {
 
 .card-navy:hover {
   background: var(--navy-light);
-  border-color: var(--gold-primary);
+  border-color: var(--accent);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2);
 }
 
 /* Scroll Animations - Fixed */
@@ -316,12 +312,12 @@ body {
 /* Professional Borders */
 .border-glow {
   border: 1px solid var(--border);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
 }
 
 .border-glow:hover {
-  border-color: var(--gold-primary);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+  border-color: var(--primary);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
 }
 
 .border-navy {
@@ -330,8 +326,8 @@ body {
 }
 
 .border-navy:hover {
-  border-color: var(--gold-primary);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  border-color: var(--accent);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
 }
 
 /* Professional Shadows */
@@ -344,19 +340,19 @@ body {
 }
 
 .shadow-navy {
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.4);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
 }
 
 .shadow-navy:hover {
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.6);
+  box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
 }
 
 .shadow-gold {
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
 }
 
 .shadow-gold:hover {
-  box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 50px rgba(245, 158, 11, 0.3);
 }
 
 /* Optimize motion for users who prefer reduced motion */
@@ -390,11 +386,11 @@ body {
 
 /* Selection */
 ::selection {
-  background: var(--gold-primary);
-  color: var(--navy-dark);
+  background: var(--primary);
+  color: white;
 }
 
 ::-moz-selection {
-  background: var(--gold-primary);
-  color: var(--navy-dark);
+  background: var(--primary);
+  color: white;
 }
