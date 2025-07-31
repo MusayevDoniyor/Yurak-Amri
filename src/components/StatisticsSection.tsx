@@ -1,48 +1,79 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, Home, Heart, TrendingUp } from "lucide-react";
+import {
+  Users,
+  Home,
+  Heart,
+  TrendingUp,
+  Clock,
+  Globe,
+  Award,
+} from "lucide-react";
+import Image from "next/image";
 
 const statistics = [
   {
     id: 1,
     icon: Users,
-    number: "15,000+",
+    number: "15,200+",
     label: "Oila yordam olgan",
     description: "O'zbekiston bo'ylab",
-    color: "bg-gradient-accent",
+    color: "bg-primary",
+    bgColor: "bg-primary/5",
   },
   {
     id: 2,
     icon: Home,
-    number: "160+",
+    number: "190+",
     label: "Uy qurilgan",
     description: "Turli viloyatlarda",
-    color: "bg-gradient-primary",
+    color: "bg-secondary",
+    bgColor: "bg-secondary/5",
   },
   {
     id: 3,
     icon: Heart,
-    number: "1M+",
+    number: "1.2M",
     label: "USD yig'ilgan",
     description: "3 yilda xayriya",
-    color: "bg-gradient-secondary",
+    color: "bg-accent",
+    bgColor: "bg-accent/5",
   },
   {
     id: 4,
-    icon: TrendingUp,
+    icon: Clock,
+    number: "365/24",
+    label: "Faol ko'mak",
+    description: "Qo'llab-quvvatlash",
+    color: "bg-success",
+    bgColor: "bg-success/5",
+  },
+  {
+    id: 5,
+    icon: Globe,
+    number: "13",
+    label: "Viloyat",
+    description: "Faoliyat doirasi",
+    color: "bg-primary",
+    bgColor: "bg-primary/5",
+  },
+  {
+    id: 6,
+    icon: Award,
     number: "100%",
     label: "Shaffoflik",
     description: "Hisob-kitob ochiq",
-    color: "bg-gradient-accent",
+    color: "bg-secondary",
+    bgColor: "bg-secondary/5",
   },
 ];
 
 const growthData = [
-  { year: "2021", amount: 250000 },
-  { year: "2022", amount: 450000 },
-  { year: "2023", amount: 750000 },
-  { year: "2024", amount: 1000000 },
+  { year: "2021", amount: 250000, color: "bg-primary" },
+  { year: "2022", amount: 450000, color: "bg-secondary" },
+  { year: "2023", amount: 750000, color: "bg-accent" },
+  { year: "2024", amount: 1200000, color: "bg-success" },
 ];
 
 export default function StatisticsSection() {
@@ -58,13 +89,13 @@ export default function StatisticsSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-secondary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
+            <div className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
               <TrendingUp className="w-4 h-4" />
               Bizning Natijalar
             </div>
-            <h2 className="heading-corporate text-5xl md:text-7xl font-black mb-6">
-              <span className="text-gradient-primary">O&apos;SISH</span>{" "}
-              <span className="text-text-primary">DINAMIKASI</span>
+            <h2 className="heading-corporate text-4xl md:text-5xl font-black mb-6">
+              <span className="text-primary">RAQAMLAR</span>{" "}
+              <span className="text-text-primary">GAPIRADI</span>
             </h2>
             <p className="text-xl text-text-secondary max-w-3xl mx-auto">
               Har yili yordam berish hajmi o&apos;sib bormoqda. Bu faqat sizning
@@ -72,8 +103,39 @@ export default function StatisticsSection() {
             </p>
           </motion.div>
 
-          {/* Statistics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {/* Featured Stat */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-16 relative rounded-3xl overflow-hidden"
+          >
+            <div className="relative h-64 md:h-80">
+              <Image
+                src="/yurak_amri.webp" // Placeholder - would be replaced with actual impact photo
+                alt="Yurak Amri ta'siri"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center">
+                <div className="p-8 md:p-16 max-w-xl">
+                  <div className="text-white text-5xl md:text-7xl font-black mb-4">
+                    1,200,000+
+                  </div>
+                  <div className="text-white text-2xl md:text-3xl font-bold mb-2">
+                    USD qiymatidagi yordam
+                  </div>
+                  <div className="text-white/90 text-lg">
+                    3 yil ichida to'plangan va yo'naltirilgan mablag'
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Statistics Grid - New Design */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {statistics.map((stat, idx) => (
               <motion.div
                 key={stat.id}
@@ -85,134 +147,141 @@ export default function StatisticsSection() {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="card text-center group"
+                className="card group hover:border-primary/20"
               >
-                <div className="p-8">
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div
+                      className={`w-16 h-16 ${stat.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <stat.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-text-primary">
+                        {stat.number}
+                      </div>
+                      <div className="text-text-secondary">{stat.label}</div>
+                    </div>
+                  </div>
                   <div
-                    className={`w-16 h-16 ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-gold group-hover:scale-110 transition-transform duration-300`}
+                    className={`${stat.bgColor} p-4 rounded-xl text-text-secondary`}
                   >
-                    <stat.icon className="w-8 h-8 text-white" />
+                    {stat.description}
                   </div>
-                  <div className="text-4xl md:text-5xl font-black text-gradient-primary mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-xl font-bold text-text-primary mb-2">
-                    {stat.label}
-                  </div>
-                  <div className="text-text-secondary">{stat.description}</div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Growth Chart */}
+          {/* Growth Chart - New Design */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            className="bg-gradient-navy rounded-3xl p-8 md:p-12 shadow-navy border-navy"
+            className="card p-8 md:p-12"
           >
-            <div className="text-center mb-12">
-              <h3 className="heading-corporate text-3xl md:text-4xl font-black text-white mb-4">
-                Yillik O&apos;sish Grafigi
-              </h3>
-              <p className="text-xl text-white/80">
-                Xayriya mablag&apos;lari yig&apos;ish dinamikasi (USD)
-              </p>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
+                  Yillik O&apos;sish Dinamikasi
+                </h3>
+                <p className="text-text-secondary">
+                  Xayriya mablag&apos;lari yig&apos;ish dinamikasi (USD)
+                </p>
+              </div>
+              <div className="mt-4 md:mt-0 bg-primary/5 rounded-xl p-4">
+                <div className="text-3xl font-bold text-primary">
+                  {(
+                    ((growthData[3].amount - growthData[0].amount) /
+                      growthData[0].amount) *
+                    100
+                  ).toFixed(0)}
+                  %
+                </div>
+                <div className="text-text-secondary text-sm">
+                  Umumiy o&apos;sish (2021-2024)
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Chart Visualization */}
-              <div className="space-y-6">
-                {growthData.map((data, idx) => (
-                  <motion.div
-                    key={data.year}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: idx * 0.1,
-                      ease: "easeOut",
-                    }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="flex items-center gap-4"
-                  >
-                    <div className="w-20 text-lg font-bold text-white">
-                      {data.year}
+            {/* Chart Visualization - New Design */}
+            <div className="mb-12">
+              <div className="relative h-80">
+                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between h-64">
+                  {growthData.map((data, idx) => (
+                    <motion.div
+                      key={data.year}
+                      initial={{ height: 0 }}
+                      whileInView={{
+                        height: `${(data.amount / 1200000) * 100}%`,
+                      }}
+                      transition={{
+                        duration: 1,
+                        delay: idx * 0.2,
+                        ease: "easeOut",
+                      }}
+                      viewport={{ once: true }}
+                      className={`w-1/5 ${data.color} rounded-t-lg relative group`}
+                    >
+                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg px-3 py-2 text-center min-w-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="text-lg font-bold text-text-primary">
+                          ${(data.amount / 1000).toFixed(0)}K
+                        </div>
+                        <div className="text-text-secondary text-sm">
+                          {data.year}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-border"></div>
+                <div className="absolute bottom-0 left-0 right-0 flex justify-between pt-4 border-t border-border">
+                  {growthData.map((data) => (
+                    <div key={data.year} className="text-center w-1/5">
+                      <div className="text-text-primary font-medium">
+                        {data.year}
+                      </div>
                     </div>
-                    <div className="flex-1 bg-white/20 rounded-full h-4 overflow-hidden">
-                      <div
-                        className="bg-gradient-secondary h-full rounded-full transition-all duration-1000 ease-out"
-                        style={{
-                          width: `${(data.amount / 1000000) * 100}%`,
-                          animationDelay: `${idx * 0.2}s`,
-                        }}
-                      ></div>
-                    </div>
-                    <div className="w-24 text-right font-bold text-gradient-accent">
-                      ${(data.amount / 1000).toFixed(0)}K
-                    </div>
-                  </motion.div>
-                ))}
+                  ))}
+                </div>
               </div>
+            </div>
 
-              {/* Growth Stats */}
-              <div className="space-y-8">
-                <div className="text-center">
-                  <div className="text-6xl font-black text-gradient-accent mb-4">
-                    {(
-                      ((growthData[3].amount - growthData[0].amount) /
-                        growthData[0].amount) *
-                      100
-                    ).toFixed(0)}
-                    %
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-2">
-                    Umumiy o&apos;sish
-                  </div>
-                  <div className="text-white/80">
-                    2021-2024 yillar oralig&apos;ida
-                  </div>
+            {/* Year-by-Year Growth */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-primary/5 rounded-xl p-6 text-center">
+                <div className="text-2xl font-bold text-primary mb-2">
+                  {(
+                    ((growthData[1].amount - growthData[0].amount) /
+                      growthData[0].amount) *
+                    100
+                  ).toFixed(0)}
+                  %
                 </div>
-
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-6 bg-white/10 rounded-2xl border border-white/20">
-                    <div className="text-3xl font-black text-gradient-accent mb-2">
-                      {(
-                        ((growthData[1].amount - growthData[0].amount) /
-                          growthData[0].amount) *
-                        100
-                      ).toFixed(0)}
-                      %
-                    </div>
-                    <div className="text-sm font-bold text-white">
-                      2021-2022
-                    </div>
-                  </div>
-                  <div className="text-center p-6 bg-white/10 rounded-2xl border border-white/20">
-                    <div className="text-3xl font-black text-gradient-primary mb-2">
-                      {(
-                        ((growthData[2].amount - growthData[1].amount) /
-                          growthData[1].amount) *
-                        100
-                      ).toFixed(0)}
-                      %
-                    </div>
-                    <div className="text-sm font-bold text-white">
-                      2022-2023
-                    </div>
-                  </div>
+                <div className="text-text-secondary">O&apos;sish 2021-2022</div>
+              </div>
+              <div className="bg-secondary/5 rounded-xl p-6 text-center">
+                <div className="text-2xl font-bold text-secondary mb-2">
+                  {(
+                    ((growthData[2].amount - growthData[1].amount) /
+                      growthData[1].amount) *
+                    100
+                  ).toFixed(0)}
+                  %
                 </div>
-
-                <div className="text-center p-6 bg-gradient-secondary/20 rounded-2xl border border-white/20">
-                  <div className="text-2xl font-bold text-white mb-2">
-                    Faol ko&apos;mak liniyasi
-                  </div>
-                  <div className="text-white/80">
-                    24/7 qo&apos;llab-quvvatlash
-                  </div>
+                <div className="text-text-secondary">O&apos;sish 2022-2023</div>
+              </div>
+              <div className="bg-accent/5 rounded-xl p-6 text-center">
+                <div className="text-2xl font-bold text-accent mb-2">
+                  {(
+                    ((growthData[3].amount - growthData[2].amount) /
+                      growthData[2].amount) *
+                    100
+                  ).toFixed(0)}
+                  %
                 </div>
+                <div className="text-text-secondary">O&apos;sish 2023-2024</div>
               </div>
             </div>
           </motion.div>
