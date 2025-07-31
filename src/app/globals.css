@@ -2,33 +2,33 @@
 @import "tailwindcss";
 
 :root {
-  /* Professional Charity Theme - Refined Color Palette */
-  --background: #fafafa;
-  --foreground: #333333;
-  --primary: #c0392b;
-  --primary-light: #d35400;
-  --secondary: #2980b9;
-  --secondary-light: #3498db;
-  --accent: #d35400;
-  --accent-light: #e67e22;
-  --muted: #7f8c8d;
-  --muted-light: #95a5a6;
-  --border: #e0e0e0;
-  --border-light: #f0f0f0;
-  --success: #27ae60;
-  --warning: #f39c12;
-  --error: #c0392b;
+  /* Professional Charity Theme - Serious Color Palette */
+  --background: #f5f5f5;
+  --foreground: #222222;
+  --primary: #8b0000;
+  --primary-light: #a52a2a;
+  --secondary: #003366;
+  --secondary-light: #004080;
+  --accent: #8b4513;
+  --accent-light: #a0522d;
+  --muted: #555555;
+  --muted-light: #777777;
+  --border: #dddddd;
+  --border-light: #eeeeee;
+  --success: #006400;
+  --warning: #b8860b;
+  --error: #8b0000;
   --card: #ffffff;
-  --card-hover: #f5f5f5;
-  --text-primary: #2c3e50;
-  --text-secondary: #576574;
-  --highlight: #c0392b;
-  --navy-dark: #2c3e50;
-  --navy-medium: #34495e;
-  --navy-light: #5d6d7e;
-  --gold-primary: #d35400;
-  --gold-light: #e67e22;
-  --gold-dark: #a04000;
+  --card-hover: #f0f0f0;
+  --text-primary: #222222;
+  --text-secondary: #444444;
+  --highlight: #8b0000;
+  --navy-dark: #1a2639;
+  --navy-medium: #2c3e50;
+  --navy-light: #3e5771;
+  --gold-primary: #8b4513;
+  --gold-light: #a0522d;
+  --gold-dark: #654321;
 }
 
 @theme inline {
@@ -77,10 +77,10 @@ body {
   overflow-x: hidden;
   background-image: linear-gradient(
       to bottom,
-      rgba(255, 249, 245, 0.8),
-      rgba(255, 249, 245, 0.9)
+      rgba(245, 245, 245, 0.8),
+      rgba(245, 245, 245, 0.9)
     ),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e74c3c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b0000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* Typography */
@@ -116,8 +116,9 @@ body {
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
-  border: 2px solid transparent;
+  border: 2px solid var(--primary);
   border-radius: 12px;
+  outline: none;
 }
 
 .btn-primary:hover {
@@ -127,8 +128,13 @@ body {
     var(--primary) 100%
   );
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
-  border-color: var(--primary);
+  box-shadow: 0 10px 20px rgba(139, 0, 0, 0.2);
+  border-color: var(--primary-light);
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.3);
+  outline: none;
 }
 
 .btn-secondary {
@@ -141,14 +147,20 @@ body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, border-color;
   border-radius: 12px;
+  outline: none;
 }
 
 .btn-secondary:hover {
   background: var(--secondary);
   color: white;
-  border-color: var(--secondary);
+  border-color: var(--secondary-light);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
+}
+
+.btn-secondary:focus {
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.3);
+  outline: none;
 }
 
 .btn-navy {
@@ -163,8 +175,9 @@ body {
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
-  border: 2px solid var(--secondary-light);
+  border: 2px solid var(--secondary);
   border-radius: 12px;
+  outline: none;
 }
 
 .btn-navy:hover {
@@ -174,8 +187,13 @@ body {
     var(--secondary) 100%
   );
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
-  border-color: var(--accent);
+  box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
+  border-color: var(--secondary-light);
+}
+
+.btn-navy:focus {
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.3);
+  outline: none;
 }
 
 /* Professional Gradients */
@@ -223,7 +241,7 @@ body {
   background-clip: text;
 }
 
-/* Warm Charity Backgrounds */
+/* Professional Charity Backgrounds */
 .bg-gradient-primary {
   background: linear-gradient(
     135deg,
@@ -249,11 +267,11 @@ body {
 }
 
 .bg-gradient-hero {
-  background: linear-gradient(135deg, #fff9f5 0%, #ffede5 50%, #ffe0d5 100%);
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #dddddd 100%);
 }
 
 .bg-gradient-section {
-  background: linear-gradient(135deg, #fff9f5 0%, #ffede5 50%, #ffe0d5 100%);
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #dddddd 100%);
 }
 
 .bg-gradient-card {
@@ -269,7 +287,7 @@ body {
   );
 }
 
-/* Warm Charity Cards */
+/* Professional Charity Cards */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -315,15 +333,15 @@ body {
   transform: translateY(0);
 }
 
-/* Warm Charity Borders */
+/* Professional Charity Borders */
 .border-glow {
   border: 1px solid var(--border);
-  box-shadow: 0 0 20px rgba(231, 76, 60, 0.1);
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.1);
 }
 
 .border-glow:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 30px rgba(231, 76, 60, 0.2);
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.2);
 }
 
 .border-navy {
@@ -336,7 +354,7 @@ body {
   box-shadow: 0 0 30px rgba(243, 156, 18, 0.3);
 }
 
-/* Warm Charity Shadows */
+/* Professional Charity Shadows */
 .shadow-glow {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }

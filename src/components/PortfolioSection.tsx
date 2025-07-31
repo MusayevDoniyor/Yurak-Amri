@@ -17,7 +17,7 @@ const portfolioItems = [
     id: 1,
     icon: Heart,
     title: "Oila yordami",
-    description: "Ehtiyojmand oilalarga to'gridan-to'gri yordam",
+    description: "Ehtiyojmand oilalarga to'g'ridan-to'g'ri yordam",
     color: "bg-primary",
     count: "15,000+",
     countLabel: "oila",
@@ -99,7 +99,7 @@ export default function PortfolioSection() {
           </motion.div>
 
           {/* Portfolio Grid - New Design */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {portfolioItems.map((item, idx) => (
               <motion.div
                 key={item.id}
@@ -116,15 +116,17 @@ export default function PortfolioSection() {
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-6">
                     <div
-                      className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                      className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 mr-4`}
                     >
-                      <item.icon className="w-7 h-7 text-white" />
+                      <item.icon className="w-7 h-7 text-white shrink-0" />
                     </div>
-                    <div>
+
+                    <div className="flex-1">
                       <h3 className="text-xl font-bold text-text-primary">
                         {item.title}
                       </h3>
-                      <p className="text-text-secondary text-sm">
+
+                      <p className="text-text-secondary text-sm text-wrap">
                         {item.description}
                       </p>
                     </div>
@@ -248,11 +250,11 @@ export default function PortfolioSection() {
                   Turkiya zilzila hududida 160 ta konteyner uyi
                 </h3>
                 <p className="text-text-secondary mb-4">
-                  Zilziladan zarar ko'rgan oilalar uchun 160 ta konteyner uyi
-                  qurildi
+                  Zilziladan zarar ko&apos;rgan oilalar uchun 160 ta konteyner
+                  uyi qurildi
                 </p>
                 <button className="text-secondary font-medium flex items-center gap-1">
-                  Batafsil ma'lumot
+                  Batafsil ma&apos;lumot
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -280,14 +282,14 @@ export default function PortfolioSection() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-text-primary mb-2">
-                  15,000+ oila doimiy yordam ro'yxatida
+                  15,000+ oila doimiy yordam ro&apos;yxatida
                 </h3>
                 <p className="text-text-secondary mb-4">
-                  O'zbekiston bo'ylab ehtiyojmand oilalarga doimiy yordam
-                  ko'rsatilmoqda
+                  O&apos;zbekiston bo&apos;ylab ehtiyojmand oilalarga doimiy
+                  yordam ko&apos;rsatilmoqda
                 </p>
                 <button className="text-primary font-medium flex items-center gap-1">
-                  Batafsil ma'lumot
+                  Batafsil ma&apos;lumot
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Play, Star, Heart, Home, Camera, Video } from "lucide-react";
 import Image from "next/image";
+import React from "react";
 
 // Video items
 interface VideoItem {
@@ -64,6 +65,11 @@ const photoItems: PhotoItem[] = [
 ];
 
 export default function VideoPhotoBanner() {
+  // Add state for active tab
+  const [activeTab, setActiveTab] = React.useState<"all" | "videos" | "photos">(
+    "all"
+  );
+
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "Uy qurish loyihasi":
@@ -144,11 +150,13 @@ export default function VideoPhotoBanner() {
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 max-w-2xl">
                   Har bir yordam - bir oilaning hayotini o&apos;zgartiradi
                 </h3>
+                
                 <p className="text-white/90 text-lg max-w-2xl mb-6">
                   Yurak Amri xayriya fondi O&apos;zbekistonning eng chekka
                   hududlaridagi ehtiyojmand oilalarga yordam qo&apos;lini
                   cho&apos;zmoqda.
                 </p>
+
                 <button className="btn-primary px-6 py-3 text-md font-bold flex items-center gap-3 w-fit">
                   <Play className="w-5 h-5" />
                   Hikoyani ko&apos;rish
@@ -160,20 +168,41 @@ export default function VideoPhotoBanner() {
           {/* Content Tabs */}
           <div className="flex justify-center mb-12">
             <div className="inline-flex bg-white rounded-full p-2 shadow-sm">
-              <button className="px-6 py-3 rounded-full bg-primary text-white font-medium">
+              <button
+                onClick={() => setActiveTab("all")}
+                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 ${
+                  activeTab === "all"
+                    ? "bg-primary text-white"
+                    : "text-text-secondary hover:bg-primary/10"
+                }`}
+              >
                 Barcha hikoyalar
               </button>
-              <button className="px-6 py-3 rounded-full text-text-secondary font-medium">
+              <button
+                onClick={() => setActiveTab("videos")}
+                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 ${
+                  activeTab === "videos"
+                    ? "bg-primary text-white"
+                    : "text-text-secondary hover:bg-primary/10"
+                }`}
+              >
                 Videolar
               </button>
-              <button className="px-6 py-3 rounded-full text-text-secondary font-medium">
+              <button
+                onClick={() => setActiveTab("photos")}
+                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 ${
+                  activeTab === "photos"
+                    ? "bg-primary text-white"
+                    : "text-text-secondary hover:bg-primary/10"
+                }`}
+              >
                 Rasmlar
               </button>
             </div>
           </div>
 
           {/* Photos Grid */}
-          <div className="mb-16">
+          <div className={`mb-16 ${activeTab === "videos" ? "hidden" : ""}`}>
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-2xl font-bold text-text-primary flex items-center gap-2">
                 <Camera className="w-5 h-5 text-primary" />
@@ -230,7 +259,7 @@ export default function VideoPhotoBanner() {
           </div>
 
           {/* Videos Grid */}
-          <div className="mb-16">
+          <div className={`mb-16 ${activeTab === "photos" ? "hidden" : ""}`}>
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-2xl font-bold text-text-primary flex items-center gap-2">
                 <Video className="w-5 h-5 text-secondary" />

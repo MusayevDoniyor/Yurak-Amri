@@ -120,7 +120,7 @@ export default function DonationSection() {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center">
                 <div className="p-8 md:p-16 max-w-xl">
                   <div className="text-white text-5xl md:text-7xl font-black mb-4">
-                    Har oyda 10,000 so'm
+                    Har oyda 10,000 so&apos;m
                   </div>
                   <div className="text-white text-xl md:text-2xl font-bold mb-4">
                     Bu sizga bitta kofe. Lekin bir oilaga esa, non.
@@ -195,7 +195,7 @@ export default function DonationSection() {
                     className="w-full px-4 py-4 pl-12 bg-card-hover border-2 border-border rounded-xl text-text-primary placeholder-text-secondary focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300"
                   />
                   <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-text-secondary font-medium">
-                    so'm
+                    so&apos;m
                   </div>
                 </div>
               </div>

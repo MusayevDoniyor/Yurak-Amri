@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import {
-  Heart,
   Mail,
   Phone,
   MapPin,
@@ -25,7 +24,7 @@ export default function Footer() {
       ></div>
 
       {/* Newsletter Section */}
-      <div className="bg-primary/10 py-12 border-b border-primary/10 relative z-10">
+      {/* <div className="bg-primary/10 py-12 border-b border-primary/10 relative z-10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-3xl font-bold text-text-primary mb-4">
@@ -47,7 +46,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto py-16">

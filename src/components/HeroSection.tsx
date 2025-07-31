@@ -93,10 +93,10 @@ export default function HeroSection() {
                 <h3 className="text-2xl font-bold text-text-primary mb-2">
                   Bizning natijalarimiz
                 </h3>
-                <p className="text-text-secondary">Raqamlarda ko'ring</p>
+                <p className="text-text-secondary">Raqamlarda ko&apos;ring</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-primary/5 rounded-2xl p-6 text-center">
                   <div className="text-3xl font-bold text-primary mb-2">
                     15,000+
@@ -114,7 +114,7 @@ export default function HeroSection() {
                 <div className="bg-accent/5 rounded-2xl p-6 text-center">
                   <div className="text-3xl font-bold text-accent mb-2">1M+</div>
                   <div className="text-text-secondary text-sm">
-                    USD yig'ilgan
+                    USD yig&apos;ilgan
                   </div>
                 </div>
                 <div className="bg-success/5 rounded-2xl p-6 text-center">

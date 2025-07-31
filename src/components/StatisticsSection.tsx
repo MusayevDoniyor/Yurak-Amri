@@ -70,10 +70,10 @@ const statistics = [
 ];
 
 const growthData = [
-  { year: "2021", amount: 250000, color: "bg-primary" },
-  { year: "2022", amount: 450000, color: "bg-secondary" },
-  { year: "2023", amount: 750000, color: "bg-accent" },
-  { year: "2024", amount: 1200000, color: "bg-success" },
+  { year: "2021", amount: 250000, color: "bg-primary/70" },
+  { year: "2022", amount: 450000, color: "bg-secondary/70" },
+  { year: "2023", amount: 750000, color: "bg-accent/70" },
+  { year: "2024", amount: 1200000, color: "bg-success/70" },
 ];
 
 export default function StatisticsSection() {
@@ -127,7 +127,8 @@ export default function StatisticsSection() {
                     USD qiymatidagi yordam
                   </div>
                   <div className="text-white/90 text-lg">
-                    3 yil ichida to'plangan va yo'naltirilgan mablag'
+                    3 yil ichida to&apos;plangan va yo&apos;naltirilgan
+                    mablag&apos;
                   </div>
                 </div>
               </div>
@@ -250,8 +251,8 @@ export default function StatisticsSection() {
 
             {/* Year-by-Year Growth */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-primary/5 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold text-primary mb-2">
+              <div className="bg-primary/10 rounded-xl p-6 text-center">
+                <div className="text-2xl font-bold text-primary/90 mb-2">
                   {(
                     ((growthData[1].amount - growthData[0].amount) /
                       growthData[0].amount) *
@@ -261,8 +262,8 @@ export default function StatisticsSection() {
                 </div>
                 <div className="text-text-secondary">O&apos;sish 2021-2022</div>
               </div>
-              <div className="bg-secondary/5 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold text-secondary mb-2">
+              <div className="bg-secondary/10 rounded-xl p-6 text-center">
+                <div className="text-2xl font-bold text-secondary/90 mb-2">
                   {(
                     ((growthData[2].amount - growthData[1].amount) /
                       growthData[1].amount) *
@@ -272,8 +273,8 @@ export default function StatisticsSection() {
                 </div>
                 <div className="text-text-secondary">O&apos;sish 2022-2023</div>
               </div>
-              <div className="bg-accent/5 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold text-accent mb-2">
+              <div className="bg-accent/10 rounded-xl p-6 text-center">
+                <div className="text-2xl font-bold text-accent/90 mb-2">
                   {(
                     ((growthData[3].amount - growthData[2].amount) /
                       growthData[2].amount) *
