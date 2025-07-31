@@ -97,7 +97,7 @@ export default function VideoPhotoBanner() {
   };
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="hikoyalar" className="relative py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-section">
         <div className="absolute inset-0 bg-primary/5"></div>
@@ -134,7 +134,7 @@ export default function VideoPhotoBanner() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-16"
           >
-            <div className="relative rounded-3xl overflow-hidden aspect-[21/9]">
+            <div className="relative rounded-3xl overflow-hidden aspect-[21/9] md:aspect-[21/9] aspect-[4/3]">
               <Image
                 src="/yurak_amri.webp" // Placeholder - would be replaced with actual emotional photo
                 alt="Yurak Amri - Emotsional lahza"
@@ -150,7 +150,7 @@ export default function VideoPhotoBanner() {
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 max-w-2xl">
                   Har bir yordam - bir oilaning hayotini o&apos;zgartiradi
                 </h3>
-                
+
                 <p className="text-white/90 text-lg max-w-2xl mb-6">
                   Yurak Amri xayriya fondi O&apos;zbekistonning eng chekka
                   hududlaridagi ehtiyojmand oilalarga yordam qo&apos;lini

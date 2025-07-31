@@ -236,13 +236,12 @@ export default function StatisticsSection() {
                     </motion.div>
                   ))}
                 </div>
+
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-border"></div>
                 <div className="absolute bottom-0 left-0 right-0 flex justify-between pt-4 border-t border-border">
                   {growthData.map((data) => (
                     <div key={data.year} className="text-center w-1/5">
-                      <div className="text-text-primary font-medium">
-                        {data.year}
-                      </div>
+                      <div className="text-white font-medium">{data.year}</div>
                     </div>
                   ))}
                 </div>
@@ -262,6 +261,7 @@ export default function StatisticsSection() {
                 </div>
                 <div className="text-text-secondary">O&apos;sish 2021-2022</div>
               </div>
+
               <div className="bg-secondary/10 rounded-xl p-6 text-center">
                 <div className="text-2xl font-bold text-secondary/90 mb-2">
                   {(
@@ -273,6 +273,7 @@ export default function StatisticsSection() {
                 </div>
                 <div className="text-text-secondary">O&apos;sish 2022-2023</div>
               </div>
+
               <div className="bg-accent/10 rounded-xl p-6 text-center">
                 <div className="text-2xl font-bold text-accent/90 mb-2">
                   {(

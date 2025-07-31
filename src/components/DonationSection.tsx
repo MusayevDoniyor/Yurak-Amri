@@ -13,8 +13,10 @@ import {
   Gift,
   Home,
   Users,
+  AlertCircle,
 } from "lucide-react";
 import Image from "next/image";
+import React from "react"; // Added for state management
 
 const donationAmounts = [
   {
@@ -75,8 +77,50 @@ const impactItems = [
 ];
 
 export default function DonationSection() {
+  // Add state for custom amount
+  const [customAmount, setCustomAmount] = React.useState<string>("");
+  const [amountError, setAmountError] = React.useState<string>("");
+
+  // Validation function
+  const validateAmount = (value: string) => {
+    const numValue = parseFloat(value);
+
+    if (value === "") {
+      setAmountError("");
+      return true;
+    }
+
+    if (isNaN(numValue)) {
+      setAmountError("Iltimos, to'g'ri raqam kiriting");
+      return false;
+    }
+
+    if (numValue < 0) {
+      setAmountError("Manfiy son kiritish mumkin emas");
+      return false;
+    }
+
+    if (numValue < 1000) {
+      setAmountError("Minimal miqdor 1,000 so'm");
+      return false;
+    }
+
+    setAmountError("");
+    return true;
+  };
+
+  // Handle amount change
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setCustomAmount(value);
+    validateAmount(value);
+  };
+
   return (
-    <section className="py-24 bg-gradient-section relative overflow-hidden">
+    <section
+      id="yordam"
+      className="py-24 bg-gradient-section relative overflow-hidden"
+    >
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -170,7 +214,7 @@ export default function DonationSection() {
                   >
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                        <item.icon className="w-4 h-4 text-primary" />
+                        <item.icon className="w-4 h-4 text-primary group-hover:text-white transition-colors" />
                       </div>
                       <div className="font-bold text-text-primary text-lg">
                         {item.label}
@@ -188,16 +232,28 @@ export default function DonationSection() {
                 <label className="block text-text-primary font-medium mb-3">
                   Yoki o&apos;zingiz miqdorni kiriting:
                 </label>
+
                 <div className="relative">
                   <input
                     type="number"
                     placeholder="Miqdorni kiriting..."
-                    className="w-full px-4 py-4 pl-12 bg-card-hover border-2 border-border rounded-xl text-text-primary placeholder-text-secondary focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300"
+                    className={`w-full px-4 py-4 pr-16 bg-card-hover border-2 rounded-xl text-text-primary placeholder-text-secondary focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 text-lg font-medium ${
+                      amountError ? "border-red-500" : "border-border"
+                    }`}
+                    value={customAmount}
+                    onChange={handleAmountChange}
+                    min="1000"
                   />
-                  <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-text-secondary font-medium">
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-text-secondary font-medium text-sm">
                     so&apos;m
                   </div>
                 </div>
+                {amountError && (
+                  <div className="mt-2 text-red-500 text-sm flex items-center gap-1">
+                    <AlertCircle className="w-4 h-4" />
+                    {amountError}
+                  </div>
+                )}
               </div>
 
               {/* Monthly Donation - New Design */}

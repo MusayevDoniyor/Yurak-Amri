@@ -15,9 +15,9 @@ export default function HeroSection() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
-            <div className="text-left">
+            <div className="text-left mt-8">
               {/* Badge */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -26,7 +26,7 @@ export default function HeroSection() {
                 <div className="w-2 h-2 bg-white rounded-full"></div>
                 YURAK AMRI XAYRIYA FONDI
                 <div className="w-2 h-2 bg-white rounded-full"></div>
-              </motion.div>
+              </motion.div> */}
 
               {/* Main Headline */}
               <motion.h1
@@ -66,16 +66,22 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
                 className="flex flex-col sm:flex-row gap-4 mb-8"
               >
-                <button className="btn-primary px-6 py-4 text-md md:text-lg font-bold flex items-center gap-3 shadow-gold">
+                <a
+                  href="#yordam"
+                  className="btn-primary px-6 py-4 text-md font-bold flex items-center gap-3 shadow-gold"
+                >
                   <Heart className="w-5 h-5" />
                   HOZIR YORDAM BERISH
                   <ArrowRight className="w-5 h-5" />
-                </button>
+                </a>
 
-                <button className="btn-secondary px-6 py-4 text-md md:text-lg font-bold flex items-center gap-3">
+                <a
+                  href="#hikoyalar"
+                  className="btn-secondary px-6 py-4 text-md md:text-lg font-bold flex items-center gap-3"
+                >
                   <Play className="w-5 h-5" />
                   HIKOYALARNI KO&apos;RISH
-                </button>
+                </a>
               </motion.div>
             </div>
 
