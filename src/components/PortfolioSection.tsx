@@ -162,7 +162,7 @@ export default function PortfolioSection() {
               {/* Left Column - Image */}
               <div className="relative h-80 lg:h-auto">
                 <Image
-                  src="/yurak_amri.webp" // Placeholder - would be replaced with actual project photo
+                  src="/main_project_img.png" // Placeholder - would be replaced with actual project photo
                   alt="25+ Uylar Loyihasi"
                   fill
                   style={{ objectFit: "cover" }}
@@ -198,17 +198,19 @@ export default function PortfolioSection() {
                   o&apos;zgartiradi.
                 </p>
 
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="grid md:grid-cols-3 gap-4 mb-8">
                   <div className="bg-primary/5 rounded-xl p-4 text-center">
                     <div className="text-2xl font-bold text-primary">25</div>
                     <div className="text-text-secondary text-sm">Uy</div>
                   </div>
+
                   <div className="bg-secondary/5 rounded-xl p-4 text-center">
                     <div className="text-2xl font-bold text-secondary">
                       100+
                     </div>
                     <div className="text-text-secondary text-sm">Kishi</div>
                   </div>
+
                   <div className="bg-accent/5 rounded-xl p-4 text-center">
                     <div className="text-2xl font-bold text-accent">2024</div>
                     <div className="text-text-secondary text-sm">Yil</div>

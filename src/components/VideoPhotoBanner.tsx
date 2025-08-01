@@ -43,7 +43,7 @@ interface PhotoItem {
 const photoItems: PhotoItem[] = [
   {
     id: 1,
-    imageSrc: "/yurak_amri.webp", // Placeholder - would be replaced with actual emotional photos
+    imageSrc: "/photo_banner_1.png", // Placeholder - would be replaced with actual emotional photos
     title: "Yangi uyga ko'chayotgan oila",
     description: "Oila a'zolari yangi uyga ko'chish paytida",
     category: "Uy qurish loyihasi",
@@ -57,7 +57,7 @@ const photoItems: PhotoItem[] = [
   },
   {
     id: 3,
-    imageSrc: "/yurak_amri.webp", // Placeholder - would be replaced with actual emotional photos
+    imageSrc: "/photo_banner_3.png", // Placeholder - would be replaced with actual emotional photos
     title: "Sardor Rahimxon ko'mak ko'rsatmoqda",
     description: "Sardor Rahimxon shaxsan yordam ko'rsatish paytida",
     category: "Hikoyalar",
@@ -117,9 +117,11 @@ export default function VideoPhotoBanner() {
               <Camera className="w-5 h-5" />
               Vizual Hikoyalar
             </div>
+
             <h2 className="heading-corporate text-4xl md:text-5xl font-black text-text-primary mb-6">
               <span className="text-primary">Haqiqiy</span> hikoyalar
             </h2>
+
             <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
               Yordam olgan oilalar haqida to&apos;g&apos;ridan-to&apos;g&apos;ri
               hikoyalar. Ularning yuzlaridagi baxt va shukrona hislari.
@@ -127,14 +129,14 @@ export default function VideoPhotoBanner() {
           </motion.div>
 
           {/* Featured Photo Banner */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
             className="mb-16"
           >
-            <div className="relative rounded-3xl overflow-hidden aspect-[21/9] md:aspect-[21/9] aspect-[4/3]">
+            <div className="relative rounded-3xl overflow-hidden aspect-[21/9]">
               <Image
                 src="/yurak_amri.webp" // Placeholder - would be replaced with actual emotional photo
                 alt="Yurak Amri - Emotsional lahza"
@@ -142,6 +144,7 @@ export default function VideoPhotoBanner() {
                 style={{ objectFit: "cover" }}
                 className="transition-transform duration-700 hover:scale-105"
               />
+
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8 md:p-12">
                 <div className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold mb-4 w-fit">
                   <Heart className="w-4 h-4" />
@@ -163,14 +166,14 @@ export default function VideoPhotoBanner() {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Content Tabs */}
           <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-white rounded-full p-2 shadow-sm">
+            <div className="inline-flex bg-white rounded-full p-1 sm:p-2 shadow-sm flex-wrap justify-center">
               <button
                 onClick={() => setActiveTab("all")}
-                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 ${
+                className={`px-3 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors duration-300 text-xs sm:text-sm whitespace-nowrap ${
                   activeTab === "all"
                     ? "bg-primary text-white"
                     : "text-text-secondary hover:bg-primary/10"
@@ -180,7 +183,7 @@ export default function VideoPhotoBanner() {
               </button>
               <button
                 onClick={() => setActiveTab("videos")}
-                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 ${
+                className={`px-3 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors duration-300 text-xs sm:text-sm whitespace-nowrap ${
                   activeTab === "videos"
                     ? "bg-primary text-white"
                     : "text-text-secondary hover:bg-primary/10"
@@ -190,7 +193,7 @@ export default function VideoPhotoBanner() {
               </button>
               <button
                 onClick={() => setActiveTab("photos")}
-                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 ${
+                className={`px-3 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors duration-300 text-xs sm:text-sm whitespace-nowrap ${
                   activeTab === "photos"
                     ? "bg-primary text-white"
                     : "text-text-secondary hover:bg-primary/10"
@@ -204,13 +207,16 @@ export default function VideoPhotoBanner() {
           {/* Photos Grid */}
           <div className={`mb-16 ${activeTab === "videos" ? "hidden" : ""}`}>
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-text-primary flex items-center gap-2">
-                <Camera className="w-5 h-5 text-primary" />
+              <h3 className="text-xl sm:text-2xl font-bold text-text-primary flex items-center gap-2">
+                <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 Emotsional lahzalar
               </h3>
-              <button className="text-primary font-medium flex items-center gap-1">
-                Barchasini ko&apos;rish
-                <Play className="w-4 h-4" />
+              <button className="text-primary font-medium flex items-center gap-1 text-xs sm:text-sm whitespace-nowrap">
+                <span className="hidden sm:inline">
+                  Barchasini ko&apos;rish
+                </span>
+                <span className="sm:hidden">Barchasi</span>
+                <Play className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
 
@@ -234,7 +240,7 @@ export default function VideoPhotoBanner() {
                       alt={item.title}
                       fill
                       style={{ objectFit: "cover" }}
-                      className="transition-transform duration-500 group-hover:scale-110"
+                      className="transition-transform duration-500 group-hover:scale-110 object-top"
                     />
                     <div className="absolute top-4 left-4">
                       <span
@@ -261,13 +267,16 @@ export default function VideoPhotoBanner() {
           {/* Videos Grid */}
           <div className={`mb-16 ${activeTab === "photos" ? "hidden" : ""}`}>
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-text-primary flex items-center gap-2">
-                <Video className="w-5 h-5 text-secondary" />
+              <h3 className="text-xl sm:text-2xl font-bold text-text-primary flex items-center gap-2">
+                <Video className="w-4 h-4 sm:w-5 sm:h-5 text-secondary" />
                 Video hikoyalar
               </h3>
-              <button className="text-secondary font-medium flex items-center gap-1">
-                Barchasini ko&apos;rish
-                <Play className="w-4 h-4" />
+              <button className="text-secondary font-medium flex items-center gap-1 text-xs sm:text-sm whitespace-nowrap">
+                <span className="hidden sm:inline">
+                  Barchasini ko&apos;rish
+                </span>
+                <span className="sm:hidden">Barchasi</span>
+                <Play className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
 

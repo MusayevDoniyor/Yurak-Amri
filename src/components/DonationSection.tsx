@@ -80,6 +80,9 @@ export default function DonationSection() {
   // Add state for custom amount
   const [customAmount, setCustomAmount] = React.useState<string>("");
   const [amountError, setAmountError] = React.useState<string>("");
+  const [selectedAmount, setSelectedAmount] = React.useState<number | null>(
+    null
+  );
 
   // Validation function
   const validateAmount = (value: string) => {
@@ -109,11 +112,32 @@ export default function DonationSection() {
     return true;
   };
 
-  // Handle amount change
+  // Handle preset amount selection
+  const handleAmountSelect = (amount: number) => {
+    setSelectedAmount(amount);
+    clearCustomAmount(); // Clear custom amount when preset is selected
+  };
+
+  // Handle custom amount change
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setCustomAmount(value);
+    setSelectedAmount(null); // Clear selected preset when custom amount is entered
     validateAmount(value);
+  };
+
+  // Clear custom amount when preset is selected
+  const clearCustomAmount = () => {
+    setCustomAmount("");
+    setAmountError("");
+  };
+
+  // Get the final selected amount
+  const getFinalAmount = () => {
+    if (selectedAmount) return selectedAmount;
+    if (customAmount && !amountError)
+      return parseFloat(customAmount.replace(/\s/g, ""));
+    return null;
   };
 
   return (
@@ -162,16 +186,20 @@ export default function DonationSection() {
                 style={{ objectFit: "cover" }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center">
-                <div className="p-8 md:p-16 max-w-xl">
-                  <div className="text-white text-5xl md:text-7xl font-black mb-4">
+                <div className="p-4 sm:p-8 md:p-16 w-full max-w-lg">
+                  <div className="text-white text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-2 sm:mb-4 leading-tight">
                     Har oyda 10,000 so&apos;m
                   </div>
-                  <div className="text-white text-xl md:text-2xl font-bold mb-4">
+                  <div className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-3 sm:mb-4 leading-tight">
                     Bu sizga bitta kofe. Lekin bir oilaga esa, non.
                   </div>
-                  <button className="bg-white text-primary px-6 py-3 rounded-xl font-bold flex items-center gap-2">
-                    <Calendar className="w-5 h-5" />
-                    Menga avtomatik xayriya eslatmasi yuboring
+
+                  <button className="bg-white text-primary px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-xl font-bold flex items-center gap-2 text-xs sm:text-sm md:text-base w-fit">
+                    <Calendar className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                    <span className="hidden sm:inline">
+                      Menga avtomatik xayriya eslatmasi yuboring
+                    </span>
+                    <span className="sm:hidden">Avtomatik eslatma</span>
                   </button>
                 </div>
               </div>
@@ -185,10 +213,10 @@ export default function DonationSection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, margin: "-100px" }}
-              className="card p-8 shadow-lg"
+              className="card p-4 sm:p-6 md:p-8 shadow-lg"
             >
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-bold text-text-primary">
+              <div className="flex items-center justify-between mb-6 sm:mb-8 flex-col sm:flex-row gap-3 sm:gap-0">
+                <h3 className="text-xl sm:text-2xl font-bold text-text-primary">
                   Yordam miqdorini tanlang
                 </h3>
                 <div className="inline-flex items-center gap-2 bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold">
@@ -198,7 +226,7 @@ export default function DonationSection() {
               </div>
 
               {/* Amount Selection - New Design */}
-              <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                 {donationAmounts.map((item, idx) => (
                   <motion.button
                     key={item.amount}
@@ -210,17 +238,51 @@ export default function DonationSection() {
                       ease: "easeOut",
                     }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="p-4 border-2 border-border rounded-xl text-left hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
+                    onClick={() => handleAmountSelect(item.amount)}
+                    className={`p-3 sm:p-4 border-2 rounded-xl text-left transition-all duration-300 group relative ${
+                      selectedAmount === item.amount
+                        ? "border-primary bg-primary/5 shadow-md"
+                        : "border-border hover:border-primary hover:bg-primary/5"
+                    }`}
                   >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                        <item.icon className="w-4 h-4 text-primary group-hover:text-white transition-colors" />
+                    {/* Selection indicator */}
+                    {selectedAmount === item.amount && (
+                      <div className="absolute top-2 right-2 w-5 h-5 bg-primary rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-3 h-3 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
                       </div>
-                      <div className="font-bold text-text-primary text-lg">
+                    )}
+
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                      <div
+                        className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${
+                          selectedAmount === item.amount
+                            ? "bg-primary text-white"
+                            : "bg-primary/10 group-hover:bg-primary group-hover:text-white"
+                        }`}
+                      >
+                        <item.icon
+                          className={`w-3 h-3 sm:w-4 sm:h-4 transition-colors ${
+                            selectedAmount === item.amount
+                              ? "text-white"
+                              : "text-primary group-hover:text-white"
+                          }`}
+                        />
+                      </div>
+                      <div className="font-bold text-text-primary text-base sm:text-lg">
                         {item.label}
                       </div>
                     </div>
-                    <div className="text-text-secondary text-sm">
+                    <div className="text-text-secondary text-xs sm:text-sm">
                       {item.description}
                     </div>
                   </motion.button>
@@ -238,7 +300,11 @@ export default function DonationSection() {
                     type="number"
                     placeholder="Miqdorni kiriting..."
                     className={`w-full px-4 py-4 pr-16 bg-card-hover border-2 rounded-xl text-text-primary placeholder-text-secondary focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 text-lg font-medium ${
-                      amountError ? "border-red-500" : "border-border"
+                      amountError
+                        ? "border-red-500"
+                        : customAmount && !selectedAmount
+                        ? "border-primary bg-primary/5"
+                        : "border-border"
                     }`}
                     value={customAmount}
                     onChange={handleAmountChange}
@@ -247,6 +313,21 @@ export default function DonationSection() {
                   <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-text-secondary font-medium text-sm">
                     so&apos;m
                   </div>
+                  {customAmount && !amountError && !selectedAmount && (
+                    <div className="absolute top-2 right-12 w-5 h-5 bg-primary rounded-full flex items-center justify-center">
+                      <svg
+                        className="w-3 h-3 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  )}
                 </div>
                 {amountError && (
                   <div className="mt-2 text-red-500 text-sm flex items-center gap-1">
@@ -257,28 +338,46 @@ export default function DonationSection() {
               </div>
 
               {/* Monthly Donation - New Design */}
-              <div className="bg-primary/5 p-4 rounded-xl mb-8 flex items-center gap-3">
+              <div className="bg-primary/5 p-3 sm:p-4 rounded-xl mb-8 flex items-center gap-2 sm:gap-3">
                 <input
                   type="checkbox"
                   id="monthly"
-                  className="w-5 h-5 text-primary bg-white border-primary rounded focus:ring-primary focus:ring-2"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-primary bg-white border-primary rounded focus:ring-primary focus:ring-2 flex-shrink-0"
                 />
                 <label
                   htmlFor="monthly"
-                  className="text-text-primary font-medium flex-1"
+                  className="text-text-primary font-medium flex-1 text-sm sm:text-base"
                 >
                   Har oy avtomatik yordam berish
                 </label>
-                <div className="bg-primary text-white text-xs font-bold px-2 py-1 rounded">
+                <div className="bg-primary text-white text-xs font-bold px-2 py-1 rounded flex-shrink-0">
                   Tavsiya etiladi
                 </div>
               </div>
 
               {/* Main Donate Button - New Design */}
-              <button className="w-full btn-primary py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-3 shadow-lg mb-8">
-                <Heart className="w-5 h-5" />
-                HOZIR YORDAM BERISH
-                <ArrowRight className="w-5 h-5" />
+              <button
+                className={`w-full py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-3 shadow-lg mb-8 transition-all duration-300 ${
+                  getFinalAmount()
+                    ? "btn-primary"
+                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                }`}
+                disabled={!getFinalAmount()}
+              >
+                <Heart className="w-5 h-5 flex-shrink-0" />
+                {getFinalAmount() ? (
+                  <>
+                    <span className="text-sm sm:text-base lg:text-lg truncate">
+                      {getFinalAmount()?.toLocaleString()} SO&apos;M YORDAM
+                      BERISH
+                    </span>
+                    <ArrowRight className="w-5 h-5 flex-shrink-0" />
+                  </>
+                ) : (
+                  <span className="text-sm sm:text-base lg:text-lg">
+                    Miqdorni tanlang
+                  </span>
+                )}
               </button>
 
               {/* Payment Methods - New Design */}
@@ -333,12 +432,12 @@ export default function DonationSection() {
                       <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
                         <item.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <div className="flex items-center justify-between mb-1">
                           <div className="font-bold text-text-primary">
                             {item.title}
                           </div>
-                          <div className="text-primary font-bold">
+                          <div className="text-primary font-bold text-right">
                             {item.amount}
                           </div>
                         </div>

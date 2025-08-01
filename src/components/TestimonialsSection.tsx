@@ -124,26 +124,30 @@ export default function TestimonialsSection() {
                   sizlarga.&rdquo;
                 </blockquote>
 
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-xl">MO</span>
+                <div className="flex items-center justify-between flex-col sm:flex-row gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                      <span className="text-white font-bold text-lg sm:text-xl">
+                        MO
+                      </span>
                     </div>
                     <div>
-                      <div className="font-bold text-text-primary text-lg">
+                      <div className="font-bold text-text-primary text-base sm:text-lg">
                         Mavluda opa
                       </div>
-                      <div className="text-text-secondary flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        Farg&apos;ona viloyati, farzand onasi
+                      <div className="text-text-secondary flex items-center gap-1 text-sm">
+                        <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span className="whitespace-nowrap">
+                          Farg&apos;ona viloyati, farzand onasi
+                        </span>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 flex-shrink-0">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-5 h-5 fill-accent text-accent"
+                        className="w-4 h-4 sm:w-5 sm:h-5 fill-accent text-accent"
                       />
                     ))}
                   </div>
@@ -153,7 +157,7 @@ export default function TestimonialsSection() {
           </motion.div>
 
           {/* Testimonials Grid - New Design */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {testimonials.slice(1).map((testimonial, idx) => (
               <motion.div
                 key={testimonial.id}
@@ -167,46 +171,50 @@ export default function TestimonialsSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 className="card group hover:border-primary/20"
               >
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   {/* Header */}
-                  <div className="flex justify-between items-start mb-6">
-                    <div className="flex items-center gap-3">
+                  <div className="flex justify-between items-start mb-4 sm:mb-6 gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                       <div
-                        className={`w-12 h-12 ${testimonial.color} rounded-full flex items-center justify-center`}
+                        className={`w-10 h-10 sm:w-12 sm:h-12 ${testimonial.color} rounded-full flex items-center justify-center flex-shrink-0`}
                       >
-                        <testimonial.icon className="w-6 h-6 text-white" />
+                        <testimonial.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
-                      <div>
-                        <div className="font-bold text-text-primary">
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-text-primary text-sm sm:text-base truncate">
                           {testimonial.name}
                         </div>
-                        <div className="text-text-secondary text-sm flex items-center gap-1">
-                          <MapPin className="w-3 h-3" />
-                          {testimonial.location}
+                        <div className="text-text-secondary text-xs sm:text-sm flex items-center gap-1">
+                          <MapPin className="w-3 h-3 flex-shrink-0" />
+                          <span className="truncate">
+                            {testimonial.location}
+                          </span>
                         </div>
                       </div>
                     </div>
-                    <div className="inline-flex items-center gap-1 bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-bold">
+                    <div className="inline-flex items-center gap-1 bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-bold flex-shrink-0">
                       {testimonial.category}
                     </div>
                   </div>
 
                   {/* Quote */}
-                  <blockquote className="text-text-primary text-lg leading-relaxed mb-4 relative">
-                    <Quote className="w-8 h-8 text-primary/10 absolute -left-2 -top-2" />
-                    <div className="pl-6">&ldquo;{testimonial.text}&rdquo;</div>
+                  <blockquote className="text-text-primary text-base sm:text-lg leading-relaxed mb-4 sm:mb-4 relative">
+                    <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-primary/10 absolute -left-1 sm:-left-2 -top-1 sm:-top-2" />
+                    <div className="pl-4 sm:pl-6">
+                      &ldquo;{testimonial.text}&rdquo;
+                    </div>
                   </blockquote>
 
                   {/* Rating */}
-                  <div className="flex items-center justify-between border-t border-border pt-4">
-                    <div className="text-text-secondary text-sm">
+                  <div className="flex items-center justify-between border-t border-border pt-3 sm:pt-4">
+                    <div className="text-text-secondary text-xs sm:text-sm">
                       Yurak Amri yordami bilan
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 flex-shrink-0">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="w-4 h-4 fill-accent text-accent"
+                          className="w-3 h-3 sm:w-4 sm:h-4 fill-accent text-accent"
                         />
                       ))}
                     </div>

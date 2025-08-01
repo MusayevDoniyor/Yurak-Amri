@@ -119,13 +119,15 @@ export default function StatisticsSection() {
                 style={{ objectFit: "cover" }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center">
-                <div className="p-8 md:p-16 max-w-xl">
+                <div className="p-6 md:p-16 max-w-xl">
                   <div className="text-white text-5xl md:text-7xl font-black mb-4">
                     1,200,000+
                   </div>
+
                   <div className="text-white text-2xl md:text-3xl font-bold mb-2">
                     USD qiymatidagi yordam
                   </div>
+
                   <div className="text-white/90 text-lg">
                     3 yil ichida to&apos;plangan va yo&apos;naltirilgan
                     mablag&apos;

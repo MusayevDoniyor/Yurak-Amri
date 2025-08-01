@@ -68,19 +68,21 @@ export default function HeroSection() {
               >
                 <a
                   href="#yordam"
-                  className="btn-primary px-6 py-4 text-md font-bold flex items-center gap-3 shadow-gold"
+                  className="btn-primary px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-md font-bold flex items-center justify-center gap-2 sm:gap-3 shadow-gold text-center"
                 >
-                  <Heart className="w-5 h-5" />
-                  HOZIR YORDAM BERISH
-                  <ArrowRight className="w-5 h-5" />
+                  <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="whitespace-nowrap">HOZIR YORDAM BERISH</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
 
                 <a
                   href="#hikoyalar"
-                  className="btn-secondary px-6 py-4 text-md md:text-lg font-bold flex items-center gap-3"
+                  className="btn-secondary px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-md md:text-lg font-bold flex items-center justify-center gap-2 sm:gap-3 text-center"
                 >
-                  <Play className="w-5 h-5" />
-                  HIKOYALARNI KO&apos;RISH
+                  <Play className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="whitespace-nowrap">
+                    HIKOYALARNI KO&apos;RISH
+                  </span>
                 </a>
               </motion.div>
             </div>
@@ -90,7 +92,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="bg-white rounded-3xl p-8 shadow-lg border border-border"
+              className="bg-white rounded-t-3xl p-8 shadow-lg border border-border"
             >
               <div className="text-center mb-8">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
