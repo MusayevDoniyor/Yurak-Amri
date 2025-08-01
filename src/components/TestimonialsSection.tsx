@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
+            <div className="inline-flex items-center gap-2 bg-gradient-primary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
               <Heart className="w-4 h-4" />
               Foydalanuvchilar Fikri
             </div>
@@ -104,9 +104,9 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Right Column - Content */}
-              <div className="bg-white p-8">
+              <div className="card p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center border border-primary/20">
                     <Quote className="w-6 h-6 text-primary" />
                   </div>
                   <div>
@@ -192,7 +192,7 @@ export default function TestimonialsSection() {
                         </div>
                       </div>
                     </div>
-                    <div className="inline-flex items-center gap-1 bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-bold flex-shrink-0">
+                    <div className="inline-flex items-center gap-1 bg-primary/20 text-primary px-2 py-1 rounded-full text-xs font-bold flex-shrink-0 border border-primary/20">
                       {testimonial.category}
                     </div>
                   </div>
@@ -232,13 +232,13 @@ export default function TestimonialsSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mt-16"
           >
-            <div className="bg-primary/5 rounded-2xl p-8 border border-primary/10 max-w-3xl mx-auto">
+            <div className="bg-primary/10 rounded-2xl p-8 border border-primary/20 max-w-3xl mx-auto">
               <Quote className="w-12 h-12 text-primary/30 mx-auto mb-4" />
               <p className="text-text-primary text-xl mb-6">
                 Har bir hikoya - bu hayotning o&apos;zgarishi. Sizning
                 yordamingiz bilan yangi hikoyalar yaratiladi.
               </p>
-              <button className="btn-primary px-6 py-3 text-md font-bold">
+              <button className="btn-primary px-6 py-3 text-md font-bold rounded-xl">
                 O&apos;Z HIKOYANGIZNI ULASHING
               </button>
             </div>

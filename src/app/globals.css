@@ -2,33 +2,33 @@
 @import "tailwindcss";
 
 :root {
-  /* Professional Charity Theme - Serious Color Palette */
-  --background: #f5f5f5;
-  --foreground: #222222;
-  --primary: #8b0000;
-  --primary-light: #a52a2a;
-  --secondary: #003366;
-  --secondary-light: #004080;
-  --accent: #8b4513;
-  --accent-light: #a0522d;
-  --muted: #555555;
-  --muted-light: #777777;
-  --border: #dddddd;
-  --border-light: #eeeeee;
-  --success: #006400;
-  --warning: #b8860b;
-  --error: #8b0000;
-  --card: #ffffff;
-  --card-hover: #f0f0f0;
-  --text-primary: #222222;
-  --text-secondary: #444444;
-  --highlight: #8b0000;
-  --navy-dark: #1a2639;
-  --navy-medium: #2c3e50;
-  --navy-light: #3e5771;
-  --gold-primary: #8b4513;
-  --gold-light: #a0522d;
-  --gold-dark: #654321;
+  /* Professional Dark Theme - Premium Color Palette */
+  --background: #0a0a0f;
+  --foreground: #ffffff;
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --secondary: #10b981;
+  --secondary-light: #34d399;
+  --accent: #f59e0b;
+  --accent-light: #fbbf24;
+  --muted: #6b7280;
+  --muted-light: #9ca3af;
+  --border: #1f2937;
+  --border-light: #374151;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --card: #111827;
+  --card-hover: #1f2937;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --highlight: #6366f1;
+  --navy-dark: #0f172a;
+  --navy-medium: #1e293b;
+  --navy-light: #334155;
+  --gold-primary: #f59e0b;
+  --gold-light: #fbbf24;
+  --gold-dark: #d97706;
 }
 
 @theme inline {
@@ -75,12 +75,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(245, 245, 245, 0.8),
-      rgba(245, 245, 245, 0.9)
-    ),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b0000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* Typography */
@@ -116,9 +110,7 @@ body {
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
-  border: 2px solid var(--primary);
-  border-radius: 12px;
-  outline: none;
+  border: 2px solid transparent;
 }
 
 .btn-primary:hover {
@@ -128,39 +120,27 @@ body {
     var(--primary) 100%
   );
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(139, 0, 0, 0.2);
-  border-color: var(--primary-light);
-}
-
-.btn-primary:focus {
-  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.3);
-  outline: none;
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+  border-color: var(--primary);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--text-primary);
-  border: 2px solid var(--secondary);
+  color: var(--foreground);
+  border: 2px solid var(--border);
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, border-color;
-  border-radius: 12px;
-  outline: none;
 }
 
 .btn-secondary:hover {
-  background: var(--secondary);
-  color: white;
-  border-color: var(--secondary-light);
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
-}
-
-.btn-secondary:focus {
-  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.3);
-  outline: none;
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
 }
 
 .btn-navy {
@@ -175,9 +155,7 @@ body {
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
-  border: 2px solid var(--secondary);
-  border-radius: 12px;
-  outline: none;
+  border: 2px solid var(--secondary-light);
 }
 
 .btn-navy:hover {
@@ -187,13 +165,8 @@ body {
     var(--secondary) 100%
   );
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
-  border-color: var(--secondary-light);
-}
-
-.btn-navy:focus {
-  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.3);
-  outline: none;
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+  border-color: var(--accent);
 }
 
 /* Professional Gradients */
@@ -241,7 +214,7 @@ body {
   background-clip: text;
 }
 
-/* Professional Charity Backgrounds */
+/* Professional Backgrounds */
 .bg-gradient-primary {
   background: linear-gradient(
     135deg,
@@ -267,11 +240,16 @@ body {
 }
 
 .bg-gradient-hero {
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #dddddd 100%);
+  background: linear-gradient(
+    135deg,
+    var(--background) 0%,
+    #0f172a 50%,
+    #1e293b 100%
+  );
 }
 
 .bg-gradient-section {
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #dddddd 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
 }
 
 .bg-gradient-card {
@@ -282,42 +260,44 @@ body {
 .bg-gradient-navy {
   background: linear-gradient(
     135deg,
-    var(--secondary) 0%,
-    var(--secondary-light) 100%
+    var(--navy-medium) 0%,
+    var(--navy-light) 100%
   );
 }
 
-/* Professional Charity Cards */
+/* Professional Cards */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 8px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 .card:hover {
   background: var(--card-hover);
   border-color: var(--border-light);
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .card-navy {
-  background: var(--secondary);
-  border: 1px solid var(--secondary-light);
-  border-radius: 16px;
+  background: var(--navy-medium);
+  border: 1px solid var(--navy-light);
+  border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
-  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
 }
 
 .card-navy:hover {
-  background: var(--secondary-light);
+  background: var(--navy-light);
   border-color: var(--accent);
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2);
 }
 
 /* Scroll Animations - Fixed */
@@ -333,50 +313,50 @@ body {
   transform: translateY(0);
 }
 
-/* Professional Charity Borders */
+/* Professional Borders */
 .border-glow {
   border: 1px solid var(--border);
-  box-shadow: 0 0 20px rgba(139, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
 }
 
 .border-glow:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 30px rgba(139, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
 }
 
 .border-navy {
-  border: 1px solid var(--secondary-light);
-  box-shadow: 0 0 20px rgba(52, 152, 219, 0.2);
+  border: 1px solid var(--navy-light);
+  box-shadow: 0 0 20px rgba(30, 41, 59, 0.2);
 }
 
 .border-navy:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 30px rgba(243, 156, 18, 0.3);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
 }
 
-/* Professional Charity Shadows */
+/* Professional Shadows */
 .shadow-glow {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .shadow-glow:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
 .shadow-navy {
-  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.2);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
 }
 
 .shadow-navy:hover {
-  box-shadow: 0 12px 30px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
 }
 
 .shadow-gold {
-  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.2);
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
 }
 
 .shadow-gold:hover {
-  box-shadow: 0 12px 30px rgba(243, 156, 18, 0.3);
+  box-shadow: 0 20px 50px rgba(245, 158, 11, 0.3);
 }
 
 /* Optimize motion for users who prefer reduced motion */

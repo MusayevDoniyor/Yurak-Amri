@@ -8,7 +8,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-hero pt-10">
-        <div className="absolute inset-0 opacity-20 bg-[url('/yurak_amri.png')] bg-contain bg-top md:bg-center bg-no-repeat"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url('/yurak_amri.png')] bg-contain bg-top md:bg-center bg-no-repeat"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -17,7 +17,7 @@ export default function HeroSection() {
             {/* Left Column - Content */}
             <div className="text-left mt-8">
               {/* Badge */}
-              {/* <motion.div
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -26,7 +26,7 @@ export default function HeroSection() {
                 <div className="w-2 h-2 bg-white rounded-full"></div>
                 YURAK AMRI XAYRIYA FONDI
                 <div className="w-2 h-2 bg-white rounded-full"></div>
-              </motion.div> */}
+              </motion.div>
 
               {/* Main Headline */}
               <motion.h1
@@ -38,6 +38,7 @@ export default function HeroSection() {
                 <span className="heading-corporate block mb-2">
                   Bir yurakdan
                 </span>
+
                 <span className="heading-corporate text-primary block">
                   ming yurakka nur!
                 </span>
@@ -68,18 +69,21 @@ export default function HeroSection() {
               >
                 <a
                   href="#yordam"
-                  className="btn-primary px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-md font-bold flex items-center justify-center gap-2 sm:gap-3 shadow-gold text-center"
+                  className="btn-primary px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-md font-bold flex items-center justify-center gap-2 sm:gap-3 shadow-gold text-center rounded-xl"
                 >
                   <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
+
                   <span className="whitespace-nowrap">HOZIR YORDAM BERISH</span>
+
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
 
                 <a
                   href="#hikoyalar"
-                  className="btn-secondary px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-md md:text-lg font-bold flex items-center justify-center gap-2 sm:gap-3 text-center"
+                  className="btn-secondary px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-md md:text-lg font-bold flex items-center justify-center gap-2 sm:gap-3 text-center rounded-xl"
                 >
                   <Play className="w-4 h-4 sm:w-5 sm:h-5" />
+
                   <span className="whitespace-nowrap">
                     HIKOYALARNI KO&apos;RISH
                   </span>
@@ -92,49 +96,58 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="bg-white rounded-t-3xl p-8 shadow-lg border border-border"
+              className="card rounded-t-3xl p-8 shadow-lg"
             >
               <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="w-8 h-8 text-primary" />
                 </div>
+
                 <h3 className="text-2xl font-bold text-text-primary mb-2">
                   Bizning natijalarimiz
                 </h3>
+
                 <p className="text-text-secondary">Raqamlarda ko&apos;ring</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-primary/5 rounded-2xl p-6 text-center">
+                <div className="bg-primary/10 rounded-2xl p-6 text-center border border-primary/20">
                   <div className="text-3xl font-bold text-primary mb-2">
                     15,000+
                   </div>
+
                   <div className="text-text-secondary text-sm">
                     Oila yordam olgan
                   </div>
                 </div>
-                <div className="bg-secondary/5 rounded-2xl p-6 text-center">
+
+                <div className="bg-secondary/10 rounded-2xl p-6 text-center border border-secondary/20">
                   <div className="text-3xl font-bold text-secondary mb-2">
                     160+
                   </div>
+
                   <div className="text-text-secondary text-sm">Uy qurilgan</div>
                 </div>
-                <div className="bg-accent/5 rounded-2xl p-6 text-center">
+
+                <div className="bg-accent/10 rounded-2xl p-6 text-center border border-accent/20">
                   <div className="text-3xl font-bold text-accent mb-2">1M+</div>
+
                   <div className="text-text-secondary text-sm">
                     USD yig&apos;ilgan
                   </div>
                 </div>
-                <div className="bg-success/5 rounded-2xl p-6 text-center">
+
+                <div className="bg-success/10 rounded-2xl p-6 text-center border border-success/20">
                   <div className="text-3xl font-bold text-success mb-2">
                     100%
                   </div>
+
                   <div className="text-text-secondary text-sm">Shaffoflik</div>
                 </div>
               </div>
 
               {/* Additional Info */}
-              <div className="mt-8 p-6 bg-primary/5 rounded-2xl border border-primary/10">
+              <div className="mt-8 p-6 bg-primary/10 rounded-2xl border border-primary/20">
                 <p className="text-text-primary text-lg leading-relaxed">
                   <span className="text-primary font-semibold">
                     Pandemiya davrida boshlangan

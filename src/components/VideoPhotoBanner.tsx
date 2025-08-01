@@ -113,7 +113,7 @@ export default function VideoPhotoBanner() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-bold mb-6 shadow-gold">
+            <div className="inline-flex items-center gap-2 bg-gradient-primary text-white px-6 py-3 rounded-full text-sm font-bold mb-6 shadow-gold">
               <Camera className="w-5 h-5" />
               Vizual Hikoyalar
             </div>
@@ -170,7 +170,7 @@ export default function VideoPhotoBanner() {
 
           {/* Content Tabs */}
           <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-white rounded-full p-1 sm:p-2 shadow-sm flex-wrap justify-center">
+            <div className="inline-flex bg-card rounded-full p-1 sm:p-2 shadow-sm flex-wrap justify-center border border-border">
               <button
                 onClick={() => setActiveTab("all")}
                 className={`px-3 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors duration-300 text-xs sm:text-sm whitespace-nowrap ${
@@ -333,7 +333,7 @@ export default function VideoPhotoBanner() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center"
           >
-            <button className="btn-primary px-8 py-4 text-md font-bold flex items-center gap-3 mx-auto">
+            <button className="btn-primary px-8 py-4 text-md font-bold flex items-center gap-3 mx-auto rounded-xl">
               <Heart className="w-5 h-5" />
               BARCHA HIKOYALARNI KO&apos;RISH
             </button>

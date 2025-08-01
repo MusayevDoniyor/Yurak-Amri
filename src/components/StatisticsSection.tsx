@@ -20,7 +20,7 @@ const statistics = [
     label: "Oila yordam olgan",
     description: "O'zbekiston bo'ylab",
     color: "bg-primary",
-    bgColor: "bg-primary/5",
+    bgColor: "bg-primary/10",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const statistics = [
     label: "Uy qurilgan",
     description: "Turli viloyatlarda",
     color: "bg-secondary",
-    bgColor: "bg-secondary/5",
+    bgColor: "bg-secondary/10",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const statistics = [
     label: "USD yig'ilgan",
     description: "3 yilda xayriya",
     color: "bg-accent",
-    bgColor: "bg-accent/5",
+    bgColor: "bg-accent/10",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const statistics = [
     label: "Faol ko'mak",
     description: "Qo'llab-quvvatlash",
     color: "bg-success",
-    bgColor: "bg-success/5",
+    bgColor: "bg-success/10",
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const statistics = [
     label: "Viloyat",
     description: "Faoliyat doirasi",
     color: "bg-primary",
-    bgColor: "bg-primary/5",
+    bgColor: "bg-primary/10",
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ const statistics = [
     label: "Shaffoflik",
     description: "Hisob-kitob ochiq",
     color: "bg-secondary",
-    bgColor: "bg-secondary/5",
+    bgColor: "bg-secondary/10",
   },
 ];
 
@@ -89,7 +89,7 @@ export default function StatisticsSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
+            <div className="inline-flex items-center gap-2 bg-gradient-primary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
               <TrendingUp className="w-4 h-4" />
               Bizning Natijalar
             </div>
@@ -167,7 +167,7 @@ export default function StatisticsSection() {
                     </div>
                   </div>
                   <div
-                    className={`${stat.bgColor} p-4 rounded-xl text-text-secondary`}
+                    className={`${stat.bgColor} p-4 rounded-xl text-text-secondary border border-border`}
                   >
                     {stat.description}
                   </div>
@@ -193,7 +193,7 @@ export default function StatisticsSection() {
                   Xayriya mablag&apos;lari yig&apos;ish dinamikasi (USD)
                 </p>
               </div>
-              <div className="mt-4 md:mt-0 bg-primary/5 rounded-xl p-4">
+              <div className="mt-4 md:mt-0 bg-primary/10 rounded-xl p-4 border border-primary/20">
                 <div className="text-3xl font-bold text-primary">
                   {(
                     ((growthData[3].amount - growthData[0].amount) /
@@ -227,7 +227,7 @@ export default function StatisticsSection() {
                       viewport={{ once: true }}
                       className={`w-1/5 ${data.color} rounded-t-lg relative group`}
                     >
-                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg px-3 py-2 text-center min-w-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-card shadow-lg rounded-lg px-3 py-2 text-center min-w-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-border">
                         <div className="text-lg font-bold text-text-primary">
                           ${(data.amount / 1000).toFixed(0)}K
                         </div>
@@ -243,7 +243,9 @@ export default function StatisticsSection() {
                 <div className="absolute bottom-0 left-0 right-0 flex justify-between pt-4 border-t border-border">
                   {growthData.map((data) => (
                     <div key={data.year} className="text-center w-1/5">
-                      <div className="text-white font-medium">{data.year}</div>
+                      <div className="text-text-secondary font-medium">
+                        {data.year}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -252,7 +254,7 @@ export default function StatisticsSection() {
 
             {/* Year-by-Year Growth */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-primary/10 rounded-xl p-6 text-center">
+              <div className="bg-primary/10 rounded-xl p-6 text-center border border-primary/20">
                 <div className="text-2xl font-bold text-primary/90 mb-2">
                   {(
                     ((growthData[1].amount - growthData[0].amount) /
@@ -264,7 +266,7 @@ export default function StatisticsSection() {
                 <div className="text-text-secondary">O&apos;sish 2021-2022</div>
               </div>
 
-              <div className="bg-secondary/10 rounded-xl p-6 text-center">
+              <div className="bg-secondary/10 rounded-xl p-6 text-center border border-secondary/20">
                 <div className="text-2xl font-bold text-secondary/90 mb-2">
                   {(
                     ((growthData[2].amount - growthData[1].amount) /
@@ -276,7 +278,7 @@ export default function StatisticsSection() {
                 <div className="text-text-secondary">O&apos;sish 2022-2023</div>
               </div>
 
-              <div className="bg-accent/10 rounded-xl p-6 text-center">
+              <div className="bg-accent/10 rounded-xl p-6 text-center border border-accent/20">
                 <div className="text-2xl font-bold text-accent/90 mb-2">
                   {(
                     ((growthData[3].amount - growthData[2].amount) /

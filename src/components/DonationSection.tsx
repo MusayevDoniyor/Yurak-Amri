@@ -46,10 +46,10 @@ const donationAmounts = [
 ];
 
 const paymentMethods = [
-  { name: "UzCard", icon: CreditCard, logo: "/yurak_amri.webp" }, // Placeholder - would be replaced with actual payment logos
-  { name: "Humo", icon: CreditCard, logo: "/yurak_amri.webp" },
-  { name: "Visa", icon: CreditCard, logo: "/yurak_amri.webp" },
-  { name: "MasterCard", icon: CreditCard, logo: "/yurak_amri.webp" },
+  { name: "UzCard", icon: CreditCard, logo: "/yurak_amri.png" }, // Placeholder - would be replaced with actual payment logos
+  { name: "Humo", icon: CreditCard, logo: "/yurak_amri.png" },
+  { name: "Visa", icon: CreditCard, logo: "/yurak_amri.png" },
+  { name: "MasterCard", icon: CreditCard, logo: "/yurak_amri.png" },
 ];
 
 const impactItems = [
@@ -219,7 +219,7 @@ export default function DonationSection() {
                 <h3 className="text-xl sm:text-2xl font-bold text-text-primary">
                   Yordam miqdorini tanlang
                 </h3>
-                <div className="inline-flex items-center gap-2 bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold">
+                <div className="inline-flex items-center gap-2 bg-success/20 text-success px-3 py-1 rounded-full text-xs font-bold border border-success/20">
                   <CheckCircle className="w-3 h-3" />
                   Xavfsiz to&apos;lov
                 </div>
@@ -241,8 +241,8 @@ export default function DonationSection() {
                     onClick={() => handleAmountSelect(item.amount)}
                     className={`p-3 sm:p-4 border-2 rounded-xl text-left transition-all duration-300 group relative ${
                       selectedAmount === item.amount
-                        ? "border-primary bg-primary/5 shadow-md"
-                        : "border-border hover:border-primary hover:bg-primary/5"
+                        ? "border-primary bg-primary/20 shadow-md"
+                        : "border-border hover:border-primary hover:bg-primary/10"
                     }`}
                   >
                     {/* Selection indicator */}
@@ -267,7 +267,7 @@ export default function DonationSection() {
                         className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${
                           selectedAmount === item.amount
                             ? "bg-primary text-white"
-                            : "bg-primary/10 group-hover:bg-primary group-hover:text-white"
+                            : "bg-primary/20 group-hover:bg-primary group-hover:text-white"
                         }`}
                       >
                         <item.icon
@@ -295,28 +295,28 @@ export default function DonationSection() {
                   Yoki o&apos;zingiz miqdorni kiriting:
                 </label>
 
-                <div className="relative">
+                <div className="relative group">
                   <input
                     type="number"
                     placeholder="Miqdorni kiriting..."
-                    className={`w-full px-4 py-4 pr-16 bg-card-hover border-2 rounded-xl text-text-primary placeholder-text-secondary focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 text-lg font-medium ${
+                    className={`w-full px-6 py-4 pr-20 bg-card border-2 rounded-2xl text-text-primary placeholder-text-secondary focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 text-lg font-medium group-hover:border-primary/50 ${
                       amountError
-                        ? "border-red-500"
+                        ? "border-error bg-error/5"
                         : customAmount && !selectedAmount
-                        ? "border-primary bg-primary/5"
-                        : "border-border"
+                        ? "border-primary bg-primary/10"
+                        : "border-border hover:border-primary/30"
                     }`}
                     value={customAmount}
                     onChange={handleAmountChange}
                     min="1000"
                   />
-                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-text-secondary font-medium text-sm">
+                  <div className="absolute right-6 top-1/2 transform -translate-y-1/2 text-text-secondary font-medium text-sm bg-card px-2">
                     so&apos;m
                   </div>
                   {customAmount && !amountError && !selectedAmount && (
-                    <div className="absolute top-2 right-12 w-5 h-5 bg-primary rounded-full flex items-center justify-center">
+                    <div className="absolute top-3 right-16 w-6 h-6 bg-primary rounded-full flex items-center justify-center shadow-lg">
                       <svg
-                        className="w-3 h-3 text-white"
+                        className="w-4 h-4 text-white"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -330,19 +330,19 @@ export default function DonationSection() {
                   )}
                 </div>
                 {amountError && (
-                  <div className="mt-2 text-red-500 text-sm flex items-center gap-1">
-                    <AlertCircle className="w-4 h-4" />
+                  <div className="mt-3 text-error text-sm flex items-center gap-2 bg-error/10 border border-error/20 rounded-xl px-4 py-3">
+                    <AlertCircle className="w-5 h-5" />
                     {amountError}
                   </div>
                 )}
               </div>
 
               {/* Monthly Donation - New Design */}
-              <div className="bg-primary/5 p-3 sm:p-4 rounded-xl mb-8 flex items-center gap-2 sm:gap-3">
+              <div className="bg-primary/10 p-3 sm:p-4 rounded-xl mb-8 flex items-center gap-2 sm:gap-3 border border-primary/20">
                 <input
                   type="checkbox"
                   id="monthly"
-                  className="w-4 h-4 sm:w-5 sm:h-5 text-primary bg-white border-primary rounded focus:ring-primary focus:ring-2 flex-shrink-0"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-primary bg-card border-primary rounded focus:ring-primary focus:ring-2 flex-shrink-0"
                 />
                 <label
                   htmlFor="monthly"
@@ -357,10 +357,10 @@ export default function DonationSection() {
 
               {/* Main Donate Button - New Design */}
               <button
-                className={`w-full py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-3 shadow-lg mb-8 transition-all duration-300 ${
+                className={`w-full py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-3 shadow-lg mb-8 transition-all duration-300 ${
                   getFinalAmount()
                     ? "btn-primary"
-                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                    : "bg-muted/20 text-muted border-2 border-muted/30 cursor-not-allowed opacity-70"
                 }`}
                 disabled={!getFinalAmount()}
               >
@@ -388,7 +388,7 @@ export default function DonationSection() {
                 <div className="flex justify-center gap-6">
                   {paymentMethods.map((method, index) => (
                     <div key={index} className="flex flex-col items-center">
-                      <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center mb-1 p-2">
+                      <div className="w-12 h-12 bg-card rounded-lg shadow-sm flex items-center justify-center mb-1 p-2 border border-border">
                         <Image
                           src={method.logo}
                           alt={method.name}

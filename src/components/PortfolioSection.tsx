@@ -82,7 +82,7 @@ export default function PortfolioSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
+            <div className="inline-flex items-center gap-2 bg-gradient-primary text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-gold">
               <Star className="w-4 h-4" />
               Bizning Faoliyat
             </div>
@@ -132,7 +132,7 @@ export default function PortfolioSection() {
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center border-t border-border pt-4">
+                  <div className="flex justify-between items-center border-t border-border group-hover:border-border-light pt-4">
                     <div>
                       <div className="text-2xl font-bold text-primary">
                         {item.count}
@@ -141,7 +141,7 @@ export default function PortfolioSection() {
                         {item.countLabel}
                       </div>
                     </div>
-                    <button className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <button className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 border border-primary/20">
                       <ArrowRight className="w-5 h-5" />
                     </button>
                   </div>
@@ -156,7 +156,7 @@ export default function PortfolioSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            className="rounded-3xl overflow-hidden shadow-lg border border-border mb-16"
+            className="card rounded-3xl overflow-hidden shadow-lg mb-16"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Left Column - Image */}
@@ -179,9 +179,9 @@ export default function PortfolioSection() {
               </div>
 
               {/* Right Column - Content */}
-              <div className="bg-white p-8">
+              <div className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center border border-primary/20">
                     <Home className="w-6 h-6 text-primary" />
                   </div>
                   <div>
@@ -199,25 +199,25 @@ export default function PortfolioSection() {
                 </p>
 
                 <div className="grid md:grid-cols-3 gap-4 mb-8">
-                  <div className="bg-primary/5 rounded-xl p-4 text-center">
+                  <div className="bg-primary/10 rounded-xl p-4 text-center border border-primary/20">
                     <div className="text-2xl font-bold text-primary">25</div>
                     <div className="text-text-secondary text-sm">Uy</div>
                   </div>
 
-                  <div className="bg-secondary/5 rounded-xl p-4 text-center">
+                  <div className="bg-secondary/10 rounded-xl p-4 text-center border border-secondary/20">
                     <div className="text-2xl font-bold text-secondary">
                       100+
                     </div>
                     <div className="text-text-secondary text-sm">Kishi</div>
                   </div>
 
-                  <div className="bg-accent/5 rounded-xl p-4 text-center">
+                  <div className="bg-accent/10 rounded-xl p-4 text-center border border-accent/20">
                     <div className="text-2xl font-bold text-accent">2024</div>
                     <div className="text-text-secondary text-sm">Yil</div>
                   </div>
                 </div>
 
-                <button className="btn-primary px-6 py-3 text-md font-bold flex items-center gap-2">
+                <button className="btn-primary px-6 py-3 text-md font-bold flex items-center gap-2 rounded-xl">
                   Loyiha haqida batafsil
                   <ArrowRight className="w-5 h-5" />
                 </button>
