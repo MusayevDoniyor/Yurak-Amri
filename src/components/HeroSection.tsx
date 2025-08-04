@@ -1,162 +1,76 @@
 "use client";
-
 import { motion } from "framer-motion";
-import { Heart, ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-hero pt-10">
-        <div className="absolute inset-0 opacity-10 bg-[url('/yurak_amri.png')] bg-contain bg-top md:bg-center bg-no-repeat"></div>
-      </div>
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center overflow-hidden pt-20"
+    >
+      <div className="container h-[90vh] p-6 rounded-3xl relative overflow-hidden">
+        {/* Background Image with Zoom Animation */}
+        <motion.div
+          initial={{ scale: 1.2, rotate: -4 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute inset-0 bg-[url('/Sardor_Rahimxon.png')] bg-cover bg-center bg-no-repeat"
+        />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Content */}
-            <div className="text-left mt-8">
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="inline-flex items-center gap-3 bg-gradient-primary text-white px-6 py-3 rounded-full text-sm font-bold mb-8 shadow-gold"
-              >
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                YURAK AMRI XAYRIYA FONDI
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-              </motion.div>
-
-              {/* Main Headline */}
+        <div className="max-w-7xl mx-auto relative z-10 h-full flex items-center">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-left"
+            >
+              {/* Main Heading */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="text-4xl md:text-5xl lg:text-6xl font-black text-text-primary mb-6 leading-tight"
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight text-white"
               >
-                <span className="heading-corporate block mb-2">
-                  Bir yurakdan
-                </span>
-
-                <span className="heading-corporate text-primary block">
-                  ming yurakka nur!
-                </span>
+                <span className="block mb-3">Bir yurakdan</span>
+                <span className="block">ming yurakka nur!</span>
               </motion.h1>
 
-              {/* Subheadline */}
+              {/* Description */}
               <motion.p
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                className="text-xl md:text-2xl text-text-secondary max-w-xl mb-8 leading-relaxed"
+                transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+                className="text-gray-100 text-lg md:text-xl leading-relaxed mb-10 max-w-xl"
               >
                 O&apos;zbekistonning har bir chekkasida bir oila sizning
-                e&apos;tiboringizni kutmoqda.{" "}
-                <span className="text-primary font-semibold">
-                  &ldquo;Yurak Amri&rdquo; bilan siz bevosita o&apos;zgarish
-                  yasay olasiz.
-                </span>{" "}
-                Bugun emas, hoziroq.
+                e&apos;tiboringizni kutmoqda. &quot;Yurak Amri&quot; bilan siz
+                bevosita o&apos;zgarish yasay olasiz. Bugun emas, hoziroq.
               </motion.p>
 
-              {/* CTA Buttons */}
+              {/* Action Buttons */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-                className="flex flex-col sm:flex-row gap-4 mb-8"
+                transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+                className="flex flex-col sm:flex-row gap-4"
               >
                 <a
                   href="#yordam"
-                  className="btn-primary px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-md font-bold flex items-center justify-center gap-2 sm:gap-3 shadow-gold text-center rounded-xl"
+                  className="inline-flex items-center gap-3 bg-white text-[#2C2C2C] hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
                 >
-                  <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
-
-                  <span className="whitespace-nowrap">HOZIR YORDAM BERISH</span>
-
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                  Hozir yordam berish
+                  <ArrowRight className="w-5 h-5" />
                 </a>
 
                 <a
                   href="#hikoyalar"
-                  className="btn-secondary px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-md md:text-lg font-bold flex items-center justify-center gap-2 sm:gap-3 text-center rounded-xl"
+                  className="inline-flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 border border-white/30 hover:border-white/50"
                 >
-                  <Play className="w-4 h-4 sm:w-5 sm:h-5" />
-
-                  <span className="whitespace-nowrap">
-                    HIKOYALARNI KO&apos;RISH
-                  </span>
+                  <Play className="w-5 h-5" />
+                  Hikoyalarni ko&apos;rish
                 </a>
               </motion.div>
-            </div>
-
-            {/* Right Column - Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="card rounded-t-3xl p-8 shadow-lg"
-            >
-              <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-primary" />
-                </div>
-
-                <h3 className="text-2xl font-bold text-text-primary mb-2">
-                  Bizning natijalarimiz
-                </h3>
-
-                <p className="text-text-secondary">Raqamlarda ko&apos;ring</p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-primary/10 rounded-2xl p-6 text-center border border-primary/20">
-                  <div className="text-3xl font-bold text-primary mb-2">
-                    15,000+
-                  </div>
-
-                  <div className="text-text-secondary text-sm">
-                    Oila yordam olgan
-                  </div>
-                </div>
-
-                <div className="bg-secondary/10 rounded-2xl p-6 text-center border border-secondary/20">
-                  <div className="text-3xl font-bold text-secondary mb-2">
-                    160+
-                  </div>
-
-                  <div className="text-text-secondary text-sm">Uy qurilgan</div>
-                </div>
-
-                <div className="bg-accent/10 rounded-2xl p-6 text-center border border-accent/20">
-                  <div className="text-3xl font-bold text-accent mb-2">1M+</div>
-
-                  <div className="text-text-secondary text-sm">
-                    USD yig&apos;ilgan
-                  </div>
-                </div>
-
-                <div className="bg-success/10 rounded-2xl p-6 text-center border border-success/20">
-                  <div className="text-3xl font-bold text-success mb-2">
-                    100%
-                  </div>
-
-                  <div className="text-text-secondary text-sm">Shaffoflik</div>
-                </div>
-              </div>
-
-              {/* Additional Info */}
-              <div className="mt-8 p-6 bg-primary/10 rounded-2xl border border-primary/20">
-                <p className="text-text-primary text-lg leading-relaxed">
-                  <span className="text-primary font-semibold">
-                    Pandemiya davrida boshlangan
-                  </span>{" "}
-                  oddiy tashabbus, bugun milliy xayriya tizimiga aylandi. Endi
-                  siz ham bu yurakdan chiqqan amallarga qo&apos;shilishingiz
-                  mumkin.
-                </p>
-              </div>
             </motion.div>
           </div>
         </div>
