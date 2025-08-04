@@ -74,13 +74,13 @@ export default function TestimonialsSection() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Left Section - Header and Introduction */}
-            <div className="lgmb-12 lg:mb-0 lg:col-span-1">
+            <div className="lg:mb-12 lg:mb-0 lg:col-span-1">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="space-y-6 lg:sticky lg:top-10"
+                className="space-y-6 lg:sticky lg:top-32"
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}

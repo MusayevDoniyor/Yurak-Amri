@@ -56,7 +56,7 @@ export default function HeroSection() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <a
-                  href="#yordam"
+                  href="#donation"
                   className="inline-flex items-center gap-3 bg-white text-[#2C2C2C] hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
                 >
                   Hozir yordam berish
@@ -64,8 +64,8 @@ export default function HeroSection() {
                 </a>
 
                 <a
-                  href="#hikoyalar"
-                  className="inline-flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 border border-white/30 hover:border-white/50"
+                  href="#testimonials"
+                  className="inline-flex items-center gap-3 bg-transparent bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 border border-white/30 hover:border-white/50"
                 >
                   <Play className="w-5 h-5" />
                   Hikoyalarni ko&apos;rish

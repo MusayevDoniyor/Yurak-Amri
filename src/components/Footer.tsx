@@ -175,27 +175,11 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="pt-8 border-t border-gray-200"
+            className="pt-8 border-t border-gray-200 flex justify-center"
           >
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-              <div className="text-gray-600 flex items-center gap-2">
-                <Heart className="w-4 h-4 text-gray-400" />
-                &copy; 2025 Yurak Amri. Barcha huquqlar himoyalangan.
-              </div>
-              <div className="flex gap-6">
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Maxfiylik siyosati
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Foydalanish shartlari
-                </a>
-              </div>
+            <div className="text-gray-600 flex items-center gap-2">
+              <Heart className="w-4 h-4 text-gray-400" />
+              &copy; 2025 Yurak Amri. Barcha huquqlar himoyalangan.
             </div>
           </motion.div>
         </div>

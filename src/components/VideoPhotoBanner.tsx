@@ -50,13 +50,6 @@ const photoItems: PhotoItem[] = [
   },
   {
     id: 2,
-    imageSrc: "/yurak_amri.webp",
-    title: "Nonga yetmagan bola bilan suhbat",
-    description: "Ehtiyojmand oilalar bilan samimiy muloqot",
-    category: "Faol yordam",
-  },
-  {
-    id: 3,
     imageSrc: "/photo_banner_3.png",
     title: "Sardor Rahimxon ko'mak ko'rsatmoqda",
     description: "Sardor Rahimxon shaxsan yordam ko'rsatish paytida",
@@ -127,7 +120,7 @@ export default function VideoPhotoBanner() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveTab("all")}
-                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 text-sm whitespace-nowrap ${
+                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 text-sm whitespace-nowrap cursor-pointer ${
                   activeTab === "all"
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-600 hover:text-gray-900"
@@ -135,11 +128,12 @@ export default function VideoPhotoBanner() {
               >
                 Barcha hikoyalar
               </motion.button>
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveTab("videos")}
-                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 text-sm whitespace-nowrap ${
+                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 text-sm whitespace-nowrap cursor-pointer ${
                   activeTab === "videos"
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-600 hover:text-gray-900"
@@ -147,11 +141,12 @@ export default function VideoPhotoBanner() {
               >
                 Videolar
               </motion.button>
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveTab("photos")}
-                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 text-sm whitespace-nowrap ${
+                className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 text-sm whitespace-nowrap cursor-pointer ${
                   activeTab === "photos"
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-600 hover:text-gray-900"
@@ -343,16 +338,19 @@ export default function VideoPhotoBanner() {
                 Har bir yordam - bir oilaning hayotini o&apos;zgartiradi. Bugun
                 emas, hoziroq yordam qo&apos;shishingiz mumkin.
               </motion.p>
+
               <motion.button
                 whileHover={{
                   scale: 1.05,
                   transition: { duration: 0.2 },
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-gray-900 text-white hover:bg-gray-800 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
+                className="inline-flex items-center gap-3 bg-gray-900 text-white hover:bg-gray-800 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 cursor-pointer"
               >
-                Hozir yordam berish
-                <Play className="w-5 h-5" />
+                <a href="#donation" className="flex items-center gap-3">
+                  Hozir yordam berish
+                  <Play className="w-5 h-5" />
+                </a>
               </motion.button>
             </motion.div>
           </motion.div>

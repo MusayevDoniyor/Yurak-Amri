@@ -85,7 +85,7 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                className={`text-sm font-medium transition-all duration-300 hover:scale-105 cursor-pointer ${
                   isScrolled
                     ? "text-gray-700 hover:text-gray-900"
                     : "text-[#2f2f2f] hover:text-gray-900"
@@ -105,7 +105,7 @@ export default function Header() {
           >
             <button
               onClick={() => handleNavClick("#donation")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105 ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105 cursor-pointer ${
                 isScrolled
                   ? "bg-gray-900 text-white hover:bg-gray-800"
                   : "bg-[#2f2f2f] text-white hover:bg-gray-800"

@@ -180,7 +180,7 @@ export default function PortfolioSection() {
                   >
                     <motion.div
                       whileHover={{ scale: 1.05 }}
-                      className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full w-fit shadow-sm transition-all duration-300"
+                      className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full w-fit shadow-sm transition-all duration-300 group-hover:bg-gray-200"
                     >
                       <span className="text-gray-900 font-semibold text-lg">
                         {item.count}
