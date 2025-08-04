@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X, Heart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navigation = [
   { name: "Bosh sahifa", href: "#hero" },
@@ -26,14 +27,6 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleNavClick = (href: string) => {
-    setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <motion.header
@@ -84,14 +77,13 @@ export default function Header() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                onClick={() => handleNavClick(item.href)}
                 className={`text-sm font-medium transition-all duration-300 hover:scale-105 cursor-pointer ${
                   isScrolled
                     ? "text-gray-700 hover:text-gray-900"
                     : "text-[#2f2f2f] hover:text-gray-900"
                 }`}
               >
-                {item.name}
+                <Link href={item.href}>{item.name}</Link>{" "}
               </motion.button>
             ))}
           </motion.nav>
@@ -104,15 +96,19 @@ export default function Header() {
             className="hidden lg:block"
           >
             <button
-              onClick={() => handleNavClick("#donation")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105 cursor-pointer ${
                 isScrolled
                   ? "bg-gray-900 text-white hover:bg-gray-800"
                   : "bg-[#2f2f2f] text-white hover:bg-gray-800"
               }`}
             >
-              <Heart className="w-4 h-4" />
-              Yordam berish
+              <Link
+                href="#donation"
+                className="flex items-center justify-center gap-2"
+              >
+                <Heart className="w-4 h-4" />
+                Yordam berish
+              </Link>
             </button>
           </motion.div>
 
@@ -146,19 +142,21 @@ export default function Header() {
             {navigation.map((item) => (
               <button
                 key={item.name}
-                onClick={() => handleNavClick(item.href)}
                 className="block w-full text-left px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors duration-200"
               >
-                {item.name}
+                <Link href={item.href}>{item.name}</Link>{" "}
               </button>
             ))}
+
             <div className="px-4 pt-2">
-              <button
-                onClick={() => handleNavClick("#donation")}
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white rounded-xl font-medium hover:bg-gray-800 transition-colors duration-200"
-              >
-                <Heart className="w-4 h-4" />
-                Yordam berish
+              <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white rounded-xl font-medium hover:bg-gray-800 transition-colors duration-200">
+                <Link
+                  href="#donation"
+                  className="flex items-center justify-center gap-2"
+                >
+                  <Heart className="w-4 h-4" />
+                  Yordam berish
+                </Link>
               </button>
             </div>
           </div>
