@@ -172,7 +172,7 @@ export default function DonationSection() {
               </div>
 
               {/* Amount Selection */}
-              <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 {donationAmounts.map((item, idx) => (
                   <motion.button
                     key={item.amount}

@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="min-h-screen flex items-center justify-center overflow-hidden pt-20 px-1"
     >
       <div className="container h-[90vh] p-6 rounded-3xl relative overflow-hidden">
         {/* Background Image with Zoom Animation */}
