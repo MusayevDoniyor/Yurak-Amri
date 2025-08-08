@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, Camera, Video, Eye, Heart } from "lucide-react";
+import { Camera, Video, Eye, Heart, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -77,7 +77,7 @@ export default function VideoPhotoBanner() {
   return (
     <section
       id="video-photo"
-      className="py-32 bg-gradient-to-br from-gray-50 to-white"
+      className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white"
     >
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
@@ -225,32 +225,24 @@ export default function VideoPhotoBanner() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -8, scale: 1.02 }}
-                    className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-500 cursor-pointer"
+                    className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-500"
                   >
-                    {/* Enhanced Video Thumbnail */}
+                    {/* YouTube Iframe */}
                     <div className="relative">
-                      <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-                        <div className="w-full h-full bg-gradient-to-br from-gray-300 via-gray-400 to-gray-500 flex items-center justify-center relative">
-                          {/* Play Button Overlay */}
-                          <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-all duration-300 cursor-pointer"
-                          >
-                            <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl group-hover:bg-white transition-all duration-300">
-                              <Play className="w-8 h-8 text-red-600 ml-1" />
-                            </div>
-                          </motion.div>
+                      <div className="aspect-video overflow-hidden">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+                          title={video.title}
+                          className="w-full h-full"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
 
-                          {/* Video Stats Overlay */}
-                          <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-semibold">
-                            {video.duration}
-                          </div>
-
-                          {/* Category Badge */}
-                          <div className="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                            {video.category}
-                          </div>
-                        </div>
+                      {/* Category Badge */}
+                      <div className="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-10">
+                        {video.category}
                       </div>
                     </div>
 
@@ -285,14 +277,18 @@ export default function VideoPhotoBanner() {
                             </div>
                           </div>
 
-                          {/* Watch Button */}
-                          <motion.button
+                          {/* YouTube Link */}
+                          <motion.a
+                            href={`https://www.youtube.com/watch?v=${video.videoId}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-red-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg text-sm cursor-pointer"
+                            className="bg-red-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg text-sm cursor-pointer flex items-center gap-2"
                           >
-                            Ko&apos;rish
-                          </motion.button>
+                            <ExternalLink className="w-4 h-4" />
+                            YouTube da ko&apos;rish
+                          </motion.a>
                         </div>
                       </div>
                     </div>
@@ -338,7 +334,7 @@ export default function VideoPhotoBanner() {
                         src={photo.imageSrc}
                         alt={photo.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                       />
 
                       {/* Enhanced Overlay */}
@@ -382,14 +378,6 @@ export default function VideoPhotoBanner() {
                           </div>
                           <span className="text-xs font-semibold">Hikoya</span>
                         </div>
-
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="bg-red-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg text-sm cursor-pointer"
-                        >
-                          Ko&apos;rish
-                        </motion.button>
                       </div>
                     </div>
                   </motion.div>
@@ -398,7 +386,6 @@ export default function VideoPhotoBanner() {
             </div>
           )}
 
-          {/* Videos Only Layout */}
           {activeTab === "videos" && (
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-4 mb-12 justify-center">
@@ -422,74 +409,44 @@ export default function VideoPhotoBanner() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -12, scale: 1.02 }}
-                    className="group bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                    className="group bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500"
                   >
-                    {/* Enhanced Video Thumbnail */}
-                    <div className="relative">
-                      <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-                        <div className="w-full h-full bg-gradient-to-br from-gray-300 via-gray-400 to-gray-500 flex items-center justify-center relative">
-                          {/* Play Button Overlay */}
-                          <motion.div
-                            whileHover={{ scale: 1.2 }}
-                            className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-all duration-300 cursor-pointer"
-                          >
-                            <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl group-hover:bg-white transition-all duration-300">
-                              <Play className="w-10 h-10 text-red-600 ml-1" />
-                            </div>
-                          </motion.div>
-
-                          {/* Video Stats Overlay */}
-                          <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold">
-                            {video.duration}
-                          </div>
-
-                          {/* Category Badge */}
-                          <div className="absolute top-4 left-4 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                            {video.category}
-                          </div>
-                        </div>
+                    {/* YouTube Iframe */}
+                    <div className="relative aspect-video overflow-hidden">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+                        title={video.title}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                      {/* Category Badge */}
+                      <div className="absolute top-4 left-4 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                        {video.category}
+                      </div>
+                      {/* Duration */}
+                      <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold">
+                        {video.duration}
                       </div>
                     </div>
 
-                    {/* Enhanced Video Info */}
+                    {/* Video Info */}
                     <div className="p-6">
-                      <div className="space-y-4">
-                        <h4 className="text-xl font-bold text-gray-900 leading-tight group-hover:text-red-600 transition-colors duration-300">
-                          {video.title}
-                        </h4>
-                        <p className="text-gray-600 leading-relaxed text-base font-light">
-                          {video.description}
-                        </p>
-
-                        {/* Enhanced Video Stats */}
-                        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                          <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-2 text-gray-500">
-                              <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center">
-                                <Eye className="w-3 h-3" />
-                              </div>
-                              <span className="text-xs font-semibold">
-                                {video.views} ko&apos;rish
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2 text-gray-500">
-                              <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center">
-                                <Heart className="w-3 h-3 text-red-600" />
-                              </div>
-                              <span className="text-xs font-semibold">
-                                Yordam
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* Watch Button */}
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="bg-red-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg text-sm cursor-pointer"
-                          >
-                            Ko&apos;rish
-                          </motion.button>
+                      <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
+                        {video.title}
+                      </h4>
+                      <p className="text-gray-600 leading-relaxed text-base font-light mb-4">
+                        {video.description}
+                      </p>
+                      <div className="flex items-center gap-4 text-gray-500 text-sm">
+                        <div className="flex items-center gap-2">
+                          <Eye className="w-4 h-4" />
+                          {video.views} ko‘rish
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Heart className="w-4 h-4 text-red-600" />
+                          Yordam
                         </div>
                       </div>
                     </div>
@@ -531,7 +488,7 @@ export default function VideoPhotoBanner() {
                         src={photo.imageSrc}
                         alt={photo.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                       />
 
                       {/* Enhanced Overlay */}

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Star, Heart, Home, Gift, Quote } from "lucide-react";
 
-// Add Mavluda opa back to the testimonials list
 const testimonials = [
   {
     id: 1,
@@ -49,39 +48,16 @@ const testimonials = [
     color: "bg-purple-100 text-purple-700",
     bgColor: "bg-purple-50",
   },
-  {
-    id: 5,
-    name: "Malika opa",
-    location: "Namangan viloyati",
-    rating: 5,
-    text: "Bolalarim uchun ta'lim materiallari oldik. Endi ular maktabda yaxshi o'qiyapti. Yurak Amri haqiqatan ham oilalarga yordam beradi.",
-    category: "Ta'lim yordami",
-    icon: Gift,
-    color: "bg-yellow-100 text-yellow-700",
-    bgColor: "bg-yellow-50",
-  },
-  {
-    id: 6,
-    name: "Rustam aka",
-    location: "Qashqadaryo viloyati",
-    rating: 5,
-    text: "Tibbiy yordam oldik. Endi sog'ligim yaxshilandi va oilamni qo'llab-quvvatlay olaman. Rahmat Yurak Amri jamoasiga!",
-    category: "Tibbiy yordam",
-    icon: Heart,
-    color: "bg-indigo-100 text-indigo-700",
-    bgColor: "bg-indigo-50",
-  },
 ];
 
 export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-16 md:py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white"
+      className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white"
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Mobile-First Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,35 +82,70 @@ export default function TestimonialsSection() {
               </span>{" "}
               va shukrona hislar
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto lg:mx-0 mb-8 lg:mb-12">
               Har bir oilaning hikoyasi - bu bizning motivatsiyamiz. Sizning
               yordamingiz bilan qancha oilaning hayoti o&apos;zgardi, ularning
               so&apos;zlari bilan tanishing.
             </p>
 
-            {/* Trust Statistics - Mobile Optimized */}
-            <div className="grid grid-cols-2 gap-4 md:gap-6 mt-8 lg:mt-12 max-w-md mx-auto lg:mx-0 lg:max-w-xs">
-              <div className="text-center p-4 md:p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
-                <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2">
-                  5,000+
+            {/* Enhanced Trust Statistics Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-lg mx-auto lg:mx-0">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -2, scale: 1.01 }}
+                className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <Heart className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="text-2xl md:text-3xl font-bold text-gray-900">
+                      5,000+
+                    </div>
+                    <div className="text-xs md:text-sm text-gray-500 font-medium">
+                      Yordam berilgan oila
+                    </div>
+                  </div>
                 </div>
-                <div className="text-xs md:text-sm text-gray-600 font-medium">
-                  Yordam berilgan oila
+                <div className="text-gray-700 font-semibold text-xs md:text-sm">
+                  Har bir oila bizning oilamiz
                 </div>
-              </div>
-              <div className="text-center p-4 md:p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
-                <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2">
-                  100%
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -2, scale: 1.01 }}
+                className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                    <Star className="w-5 h-5 text-green-600 fill-green-600" />
+                  </div>
+                  <div>
+                    <div className="text-2xl md:text-3xl font-bold text-gray-900">
+                      100%
+                    </div>
+                    <div className="text-xs md:text-sm text-gray-500 font-medium">
+                      Mamnuniyat
+                    </div>
+                  </div>
                 </div>
-                <div className="text-xs md:text-sm text-gray-600 font-medium">
-                  Mamnuniyat
+                <div className="text-gray-700 font-semibold text-xs md:text-sm">
+                  Har bir oila mamnun
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
           {/* Mobile-First Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
@@ -146,65 +157,75 @@ export default function TestimonialsSection() {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg md:shadow-xl border border-gray-200 hover:shadow-xl md:hover:shadow-2xl transition-all duration-300"
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="group bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 flex flex-col h-full relative overflow-hidden"
               >
-                {/* Quote Icon and Rating */}
-                <div className="flex justify-between items-start mb-4 md:mb-6">
+                {/* Background Pattern */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-50 to-transparent rounded-full -translate-y-16 translate-x-16 opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+
+                {/* Quote Icon */}
+                <div className="flex justify-between items-start mb-6 relative z-10">
                   <div
-                    className={`w-10 h-10 md:w-12 md:h-12 ${testimonial.bgColor} rounded-xl md:rounded-2xl flex items-center justify-center`}
+                    className={`w-14 h-14 ${testimonial.bgColor} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
                   >
-                    <Quote className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
+                    <Quote className="w-7 h-7 text-gray-600" />
                   </div>
                   <div className="flex items-center gap-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400"
+                        className="w-4 h-4 fill-yellow-400 text-yellow-400"
                       />
                     ))}
                   </div>
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 md:mb-8 font-light">
-                  &ldquo;{testimonial.text}&rdquo;
-                </blockquote>
+                <div className="flex-1 mb-8 relative z-10">
+                  <blockquote className="text-gray-700 text-lg leading-relaxed font-light italic">
+                    &ldquo;{testimonial.text}&rdquo;
+                  </blockquote>
+                </div>
 
-                {/* Author Info */}
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                  <div className="flex items-center gap-3 md:gap-4">
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
-                      <span className="text-gray-700 font-bold text-base md:text-lg">
-                        {testimonial.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-900 text-sm md:text-base">
-                        {testimonial.name}
+                {/* Author Section */}
+                <div className="mt-auto relative z-10">
+                  <div className="flex flex-col gap-4">
+                    {/* Author Info */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center shadow-lg">
+                        <span className="text-gray-700 font-bold text-xl">
+                          {testimonial.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </span>
                       </div>
-                      <div className="text-xs md:text-sm text-gray-500">
-                        {testimonial.location}
+                      <div className="flex-1 min-w-0">
+                        <div className="font-bold text-gray-900 text-lg truncate">
+                          {testimonial.name}
+                        </div>
+                        <div className="text-sm text-gray-500 truncate">
+                          {testimonial.location}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Category Badge */}
-                  <div
-                    className={`inline-flex items-center gap-2 ${testimonial.color} px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium self-start md:self-auto`}
-                  >
-                    <testimonial.icon className="w-3 h-3 md:w-4 md:h-4" />
-                    {testimonial.category}
+                    {/* Category Badge */}
+                    <div
+                      className={`inline-flex items-center gap-3 ${testimonial.color} px-4 py-3 rounded-2xl text-sm font-semibold w-fit shadow-md hover:shadow-lg transition-shadow duration-300`}
+                    >
+                      <testimonial.icon className="w-5 h-5 flex-shrink-0" />
+                      <span className="truncate">{testimonial.category}</span>
+                    </div>
                   </div>
                 </div>
+
+                {/* Hover Effect Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
               </motion.div>
             ))}
           </div>
 
-          {/* Call to Action - Mobile Optimized */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -189,7 +189,7 @@ export default function Header() {
           className="lg:hidden overflow-hidden"
         >
           <motion.div
-            className="py-8 space-y-2 border-t border-gray-200/50 bg-white/95 backdrop-blur-sm rounded-b-3xl shadow-xl"
+            className="py-5 space-y-0.5 border-t border-gray-200/50 bg-transparent backdrop-blur-sm rounded-b-3xl shadow-xl"
             initial={{ y: -20, opacity: 0 }}
             animate={{
               y: isOpen ? 0 : -20,

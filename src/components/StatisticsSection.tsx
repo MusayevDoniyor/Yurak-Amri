@@ -217,14 +217,14 @@ export default function StatisticsSection() {
                 {
                   icon: Eye,
                   title: "Bizning G'oya",
-                  desc: "Yurak Amri jamiyatimizda shaffof xayriya standarti bo&apos;lishga intiladi. Har bir oila bizning oilamiz.",
+                  desc: "Yurak Amri jamiyatimizda shaffof xayriya standarti bo'lishga intiladi. Har bir oila bizning oilamiz.",
                   color: "bg-blue-50 border-blue-200",
                   iconColor: "bg-blue-100 text-blue-700",
                 },
                 {
                   icon: Target,
                   title: "Bizning Maqsad",
-                  desc: "Oilalarning barqaror hayoti uchun ta&apos;lim, inshoot va insoniy yordam ko&apos;rsatish. Har bir bola kelajak.",
+                  desc: "Oilalarning barqaror hayoti uchun ta'lim, inshoot va insoniy yordam ko'rsatish. Har bir bola kelajak.",
                   color: "bg-green-50 border-green-200",
                   iconColor: "bg-green-100 text-green-700",
                 },
