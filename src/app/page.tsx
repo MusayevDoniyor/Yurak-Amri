@@ -6,6 +6,7 @@ import StatisticsSection from "@/components/StatisticsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import DonationSection from "@/components/DonationSection";
 import Footer from "@/components/Footer";
+import FloatingDonateButton from "@/components/FloatingDonateButton";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <TestimonialsSection />
       <DonationSection />
       <Footer />
+      <FloatingDonateButton />
     </main>
   );
 }

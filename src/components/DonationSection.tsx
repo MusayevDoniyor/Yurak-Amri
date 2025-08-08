@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import {
   Heart,
-  CreditCard,
   Shield,
   ArrowRight,
   CheckCircle,
@@ -12,6 +11,8 @@ import {
   Users,
   AlertCircle,
   TrendingUp,
+  Star,
+  Zap,
 } from "lucide-react";
 import React from "react";
 
@@ -21,24 +22,28 @@ const donationAmounts = [
     label: "10,000 so'm",
     description: "Bir oilaga non",
     icon: Gift,
+    impact: "1 oila uchun non",
   },
   {
     amount: 50000,
     label: "50,000 so'm",
     description: "Oila uchun oziq-ovqat",
     icon: Gift,
+    impact: "1 oila uchun oziq-ovqat",
   },
   {
     amount: 100000,
     label: "100,000 so'm",
     description: "Bolalar uchun kiyim",
     icon: Users,
+    impact: "2 bola uchun kiyim",
   },
   {
     amount: 500000,
     label: "500,000 so'm",
     description: "Uy ta'mirlash",
     icon: Home,
+    impact: "1 uy ta'mirlash",
   },
 ];
 
@@ -49,6 +54,7 @@ const impactItems = [
       "10,000 so'm bilan bir oilaga bir kunlik non ta'minlash mumkin",
     amount: "10,000 so'm",
     icon: Gift,
+    color: "bg-green-100 text-green-700",
   },
   {
     title: "Bir bolaga ta'lim",
@@ -56,6 +62,7 @@ const impactItems = [
       "100,000 so'm bilan bir bolaga bir oylik ta'lim materiallari berish mumkin",
     amount: "100,000 so'm",
     icon: Users,
+    color: "bg-blue-100 text-blue-700",
   },
   {
     title: "Bir uyni ta'mirlash",
@@ -63,6 +70,7 @@ const impactItems = [
       "500,000 so'm bilan bir uyni asosiy ta'mirlash ishlari uchun yordam berish mumkin",
     amount: "500,000 so'm",
     icon: Home,
+    color: "bg-purple-100 text-purple-700",
   },
 ];
 
@@ -103,6 +111,7 @@ export default function DonationSection() {
   const handleAmountSelect = (amount: number) => {
     setSelectedAmount(amount);
     setCustomAmount("");
+    setAmountError("");
   };
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,65 +123,69 @@ export default function DonationSection() {
 
   const getFinalAmount = () => {
     if (selectedAmount) return selectedAmount;
-    if (customAmount && !amountError)
-      return parseFloat(customAmount.replace(/\s/g, ""));
+    if (customAmount && !amountError) return parseFloat(customAmount);
     return null;
   };
 
   return (
-    <section id="donation" className="py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
+    <section
+      id="donation"
+      className="py-32 bg-gradient-to-br from-gray-50 to-white"
+    >
+      <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Enhanced Header */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true, margin: "-100px" }}
-              className="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
+              className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-red-200"
             >
-              <Heart className="w-4 h-4" />
+              <Heart className="w-5 h-5" />
               Yordam Berish
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6">
-              SEN HAM QO&apos;SHIL!
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                SEN HAM QO&apos;SHIL!
+              </span>
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto font-light">
               Bugun bitta yurakni ilitib, o&apos;zingizni ham o&apos;zgartiring.
               Har bir so&apos;m - bir oilaning umidi. Sizning yordamingiz
               minglab oilalarning hayotini o&apos;zgartiradi.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left Section - Donation Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Enhanced Left Section - Donation Form */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm"
+              className="bg-white rounded-3xl p-10 border border-gray-200 shadow-xl"
             >
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-bold text-gray-900">
+              <div className="flex items-center justify-between mb-10">
+                <h3 className="text-3xl font-bold text-gray-900">
                   Yordam miqdorini tanlang
                 </h3>
-                <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
+                <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-semibold border border-green-200">
+                  <Shield className="w-4 h-4" />
                   Xavfsiz to&apos;lov
                 </div>
               </div>
 
-              {/* Amount Selection */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              {/* Enhanced Amount Selection */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                 {donationAmounts.map((item, idx) => (
                   <motion.button
                     key={item.amount}
@@ -181,222 +194,224 @@ export default function DonationSection() {
                     transition={{ duration: 0.6, delay: idx * 0.1 }}
                     viewport={{ once: true }}
                     onClick={() => handleAmountSelect(item.amount)}
-                    className={`p-4 border-2 rounded-xl text-left transition-all duration-300 ${
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`p-6 border-2 rounded-2xl text-left transition-all duration-300 cursor-pointer ${
                       selectedAmount === item.amount
-                        ? "border-gray-900 bg-gray-50"
-                        : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                        ? "border-red-600 bg-red-50 shadow-lg"
+                        : "border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md"
                     }`}
                   >
-                    <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-4 mb-3">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 cursor-pointer ${
                           selectedAmount === item.amount
-                            ? "bg-gray-900 text-white"
+                            ? "bg-red-600 text-white shadow-lg"
                             : "bg-gray-100 text-gray-600"
                         }`}
                       >
-                        <item.icon className="w-4 h-4" />
+                        <item.icon className="w-6 h-6" />
                       </div>
-                      <div className="font-bold text-gray-900">
-                        {item.label}
+                      <div>
+                        <div className="font-bold text-xl text-gray-900">
+                          {item.label}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          {item.description}
+                        </div>
                       </div>
                     </div>
-                    <div className="text-gray-600 text-sm">
-                      {item.description}
+                    <div className="text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-lg inline-block">
+                      {item.impact}
                     </div>
                   </motion.button>
                 ))}
               </div>
 
-              {/* Custom Amount */}
-              <div className="mb-8">
-                <label className="block text-gray-900 font-medium mb-3">
+              {/* Enhanced Custom Amount */}
+              <div className="mb-10">
+                <label className="block text-gray-900 font-semibold mb-4 text-lg">
                   Yoki o&apos;zingiz miqdorni kiriting:
                 </label>
                 <div className="relative">
                   <input
                     type="number"
                     placeholder="Miqdorni kiriting..."
-                    className={`w-full px-6 py-4 pr-20 bg-white border-2 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-4 focus:ring-gray-200 focus:border-gray-900 transition-all duration-300 text-lg font-medium ${
+                    className={`w-full px-8 py-6 pr-24 bg-white border-2 rounded-2xl text-gray-900 placeholder-gray-500 focus:ring-4 focus:ring-red-200 focus:border-red-600 transition-all duration-300 text-xl font-medium cursor-text ${
                       amountError
                         ? "border-red-300 bg-red-50"
                         : customAmount && !selectedAmount
-                        ? "border-gray-900 bg-gray-50"
+                        ? "border-red-600 bg-red-50"
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                     value={customAmount}
                     onChange={handleAmountChange}
                     min="1000"
                   />
-                  <div className="absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-500 font-medium text-sm">
+                  <div className="absolute right-8 top-1/2 transform -translate-y-1/2 text-gray-500 font-semibold text-lg">
                     so&apos;m
                   </div>
                 </div>
                 {amountError && (
-                  <div className="mt-3 text-red-600 text-sm flex items-center gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-4 text-red-600 text-sm flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-6 py-4 cursor-default"
+                  >
                     <AlertCircle className="w-5 h-5" />
                     {amountError}
-                  </div>
+                  </motion.div>
                 )}
               </div>
 
-              {/* Monthly Donation */}
-              <div className="bg-gray-50 p-4 rounded-xl mb-8 flex items-center gap-3 border border-gray-200">
+              {/* Enhanced Monthly Donation */}
+              <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-2xl mb-10 flex items-center gap-4 border border-gray-200 cursor-pointer">
                 <input
                   type="checkbox"
                   id="monthly"
-                  className="w-5 h-5 text-gray-900 bg-white border-gray-300 rounded focus:ring-gray-500 focus:ring-2"
+                  className="w-6 h-6 text-red-600 bg-white border-gray-300 rounded-lg focus:ring-red-500 focus:ring-2 cursor-pointer"
                 />
                 <label
                   htmlFor="monthly"
-                  className="text-gray-900 font-medium flex-1"
+                  className="text-gray-900 font-semibold flex-1 text-lg cursor-pointer"
                 >
                   Har oy avtomatik yordam berish
                 </label>
-                <div className="bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded">
+                <div className="bg-red-600 text-white text-sm font-bold px-4 py-2 rounded-xl cursor-pointer">
                   Tavsiya etiladi
                 </div>
               </div>
 
-              {/* Main Donate Button */}
-              <button
-                className={`w-full py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-3 mb-8 transition-all duration-300 ${
+              {/* Enhanced Main Donate Button */}
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`w-full py-6 rounded-2xl text-xl font-bold flex items-center justify-center gap-4 mb-8 transition-all duration-300 shadow-lg cursor-pointer ${
                   getFinalAmount()
-                    ? "bg-gray-900 text-white hover:bg-gray-800"
+                    ? "bg-red-600 text-white hover:bg-red-700 hover:shadow-xl"
                     : "bg-gray-100 text-gray-400 cursor-not-allowed"
                 }`}
                 disabled={!getFinalAmount()}
               >
-                <Heart className="w-5 h-5" />
+                <Heart className="w-6 h-6" />
                 {getFinalAmount() ? (
                   <>
                     <span>
                       {getFinalAmount()?.toLocaleString()} SO&apos;M YORDAM
                       BERISH
                     </span>
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-6 h-6" />
                   </>
                 ) : (
                   <span>Miqdorni tanlang</span>
                 )}
-              </button>
+              </motion.button>
 
-              {/* Security Badge */}
-              <div className="flex items-center justify-center gap-2 text-gray-600 text-sm border-t border-gray-200 pt-4">
-                <Shield className="w-4 h-4 text-green-600" />
-                To&apos;lovlar 100% xavfsiz va shaffof
+              {/* Enhanced Security Badge */}
+              <div className="flex items-center justify-center gap-3 text-gray-600 text-sm border-t border-gray-200 pt-6 cursor-default">
+                <Shield className="w-5 h-5 text-green-600" />
+                <span className="font-medium">
+                  To&apos;lovlar 100% xavfsiz va shaffof
+                </span>
               </div>
             </motion.div>
 
-            {/* Right Section - Impact Visualization */}
+            {/* Enhanced Right Section - Impact Visualization */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-10"
             >
-              {/* Impact Card */}
-              <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-gray-900" />
-                  Sizning ta&apos;siringiz
-                </h3>
+              {/* Enhanced Impact Card */}
+              <div className="bg-white rounded-3xl p-10 border border-gray-200 shadow-xl">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center">
+                    <TrendingUp className="w-8 h-8 text-red-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">
+                      Sizning ta&apos;siringiz
+                    </h3>
+                    <p className="text-gray-600">
+                      Har bir so&apos;m hisoblanadi
+                    </p>
+                  </div>
+                </div>
 
                 <div className="space-y-6">
                   {impactItems.map((item, idx) => (
                     <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      key={item.title}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: idx * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex gap-4"
+                      className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 cursor-pointer"
                     >
-                      <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-6 h-6 text-gray-900" />
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center ${item.color}`}
+                      >
+                        <item.icon className="w-6 h-6" />
                       </div>
                       <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <div className="font-bold text-gray-900">
-                            {item.title}
-                          </div>
-                          <div className="text-gray-900 font-bold text-right">
-                            {item.amount}
-                          </div>
+                        <div className="font-semibold text-gray-900">
+                          {item.title}
                         </div>
-                        <div className="text-gray-600 text-sm">
+                        <div className="text-sm text-gray-600">
                           {item.description}
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-bold text-gray-900">
+                          {item.amount}
                         </div>
                       </div>
                     </motion.div>
                   ))}
                 </div>
-
-                <div className="mt-8 pt-6 border-t border-gray-200">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="text-gray-900 font-bold">
-                      Jami yordam ko&apos;rsatilgan:
-                    </div>
-                    <div className="text-2xl font-bold text-gray-900">
-                      15,200+ oila
-                    </div>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                    <div
-                      className="bg-gray-900 h-full rounded-full"
-                      style={{ width: "75%" }}
-                    ></div>
-                  </div>
-                  <div className="text-gray-600 text-sm text-right mt-1">
-                    2025-yil maqsadi: 20,000 oila
-                  </div>
-                </div>
               </div>
 
-              {/* Additional Payment Methods */}
-              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-                <div className="text-gray-900 font-bold mb-4">
-                  Qo&apos;shimcha to&apos;lov usullari:
+              {/* Trust Indicators */}
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-10 text-white">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold mb-4">
+                    Nima uchun ishonishimiz kerak?
+                  </h3>
+                  <p className="text-gray-300">
+                    Bizning ishonchli va shaffof yordam tizimimiz
+                  </p>
                 </div>
-                <div className="grid grid-cols-3 gap-4">
-                  <a
-                    href="https://payme.uz/@yurakamri"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center gap-2 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors"
-                  >
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200">
-                      <CreditCard className="w-5 h-5 text-gray-900" />
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-8 h-8 text-green-400" />
                     </div>
-                    <span className="text-gray-900 text-sm font-medium">
-                      PayMe
-                    </span>
-                  </a>
-                  <a
-                    href="https://click.uz/@yurakamri"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center gap-2 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors"
-                  >
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200">
-                      <CreditCard className="w-5 h-5 text-gray-900" />
+                    <h4 className="font-semibold mb-2">100% Shaffof</h4>
+                    <p className="text-sm text-gray-300">
+                      Har bir so&apos;m hisoblanadi va ko&apos;rsatiladi
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Zap className="w-8 h-8 text-yellow-400" />
                     </div>
-                    <span className="text-gray-900 text-sm font-medium">
-                      Click
-                    </span>
-                  </a>
-                  <a
-                    href="tel:+998712345678"
-                    className="flex flex-col items-center gap-2 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors"
-                  >
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200">
-                      <CreditCard className="w-5 h-5 text-gray-900" />
+                    <h4 className="font-semibold mb-2">Bevosita Yordam</h4>
+                    <p className="text-sm text-gray-300">
+                      O&apos;rtadagi odamlar yo&apos;q, bevosita oilalarga
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Star className="w-8 h-8 text-blue-400" />
                     </div>
-                    <span className="text-gray-900 text-sm font-medium">
-                      Telefon
-                    </span>
-                  </a>
+                    <h4 className="font-semibold mb-2">Ishonchli</h4>
+                    <p className="text-sm text-gray-300">
+                      5 yillik tajriba va minglab oilalar
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
