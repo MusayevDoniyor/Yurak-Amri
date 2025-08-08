@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Heart, Home, Gift, Quote, ArrowRight } from "lucide-react";
+import { Star, Heart, Home, Gift, Quote } from "lucide-react";
 
 // Add Mavluda opa back to the testimonials list
 const testimonials = [
@@ -77,166 +77,160 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-32 bg-gradient-to-br from-gray-50 to-white"
+      className="py-16 md:py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            {/* Enhanced Left Section - Header and Introduction */}
-            <div className="lg:col-span-1">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="space-y-8 lg:sticky lg:top-32"
-              >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold border border-red-200"
-                >
-                  <Heart className="w-5 h-5" />
-                  Foydalanuvchilar Fikri
-                </motion.div>
+          {/* Mobile-First Header Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-center lg:text-left mb-12 lg:mb-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold border border-red-200 mb-6"
+            >
+              <Heart className="w-5 h-5" />
+              Foydalanuvchilar Fikri
+            </motion.div>
 
-                <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                  <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                    Hikoyalar
-                  </span>{" "}
-                  va shukrona hislar
-                </h2>
-                <p className="text-xl text-gray-600 leading-relaxed font-light">
-                  Har bir oilaning hikoyasi - bu bizning motivatsiyamiz. Sizning
-                  yordamingiz bilan qancha oilaning hayoti o&apos;zgardi,
-                  ularning so&apos;zlari bilan tanishing.
-                </p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                Hikoyalar
+              </span>{" "}
+              va shukrona hislar
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto lg:mx-0">
+              Har bir oilaning hikoyasi - bu bizning motivatsiyamiz. Sizning
+              yordamingiz bilan qancha oilaning hayoti o&apos;zgardi, ularning
+              so&apos;zlari bilan tanishing.
+            </p>
 
-                {/* Trust Statistics */}
-                <div className="grid grid-cols-2 gap-6 pt-8">
-                  <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
-                    <div className="text-3xl font-bold text-gray-900 mb-2">
-                      5,000+
-                    </div>
-                    <div className="text-sm text-gray-600 font-medium">
-                      Yordam berilgan oila
-                    </div>
-                  </div>
-                  <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
-                    <div className="text-3xl font-bold text-gray-900 mb-2">
-                      100%
-                    </div>
-                    <div className="text-sm text-gray-600 font-medium">
-                      Mamnuniyat
-                    </div>
-                  </div>
+            {/* Trust Statistics - Mobile Optimized */}
+            <div className="grid grid-cols-2 gap-4 md:gap-6 mt-8 lg:mt-12 max-w-md mx-auto lg:mx-0 lg:max-w-xs">
+              <div className="text-center p-4 md:p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+                <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2">
+                  5,000+
                 </div>
-              </motion.div>
-            </div>
-
-            {/* Enhanced Right Section - Testimonials Grid */}
-            <div className="lg:col-span-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {testimonials.map((testimonial, index) => (
-                  <motion.div
-                    key={testimonial.id}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: index * 0.1,
-                      ease: "easeOut",
-                    }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -8 }}
-                    className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500"
-                  >
-                    {/* Quote Icon */}
-                    <div className="flex justify-between items-start mb-6">
-                      <div
-                        className={`w-12 h-12 ${testimonial.bgColor} rounded-2xl flex items-center justify-center`}
-                      >
-                        <Quote className="w-6 h-6 text-gray-600" />
-                      </div>
-                      <div className="flex items-center gap-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Testimonial Text */}
-                    <blockquote className="text-gray-700 text-lg leading-relaxed mb-8 font-light">
-                      &ldquo;{testimonial.text}&rdquo;
-                    </blockquote>
-
-                    {/* Author Info */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
-                          <span className="text-gray-700 font-bold text-lg">
-                            {testimonial.name
-                              .split(" ")
-                              .map((n) => n[0])
-                              .join("")}
-                          </span>
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-900">
-                            {testimonial.name}
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            {testimonial.location}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Category Badge */}
-                      <div
-                        className={`inline-flex items-center gap-2 ${testimonial.color} px-4 py-2 rounded-full text-sm font-medium`}
-                      >
-                        <testimonial.icon className="w-4 h-4" />
-                        {testimonial.category}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+                <div className="text-xs md:text-sm text-gray-600 font-medium">
+                  Yordam berilgan oila
+                </div>
               </div>
+              <div className="text-center p-4 md:p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+                <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2">
+                  100%
+                </div>
+                <div className="text-xs md:text-sm text-gray-600 font-medium">
+                  Mamnuniyat
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
-              {/* Call to Action */}
+          {/* Mobile-First Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {testimonials.map((testimonial, index) => (
               <motion.div
+                key={testimonial.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.1,
+                  ease: "easeOut",
+                }}
                 viewport={{ once: true }}
-                className="mt-16 text-center"
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg md:shadow-xl border border-gray-200 hover:shadow-xl md:hover:shadow-2xl transition-all duration-300"
               >
-                <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-12 text-white">
-                  <h3 className="text-3xl font-bold mb-4">
-                    Siz ham o&apos;z hikoyangizni yozing
-                  </h3>
-                  <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                    Yurak Amri yordami bilan hayotingiz o&apos;zgangan
-                    bo&apos;lsa, boshqa oilalarga ham umid bering. Sizning
-                    hikoyangiz boshqalarga ilhom beradi.
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-3 bg-red-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-red-700 transition-all duration-300 shadow-lg cursor-pointer"
+                {/* Quote Icon and Rating */}
+                <div className="flex justify-between items-start mb-4 md:mb-6">
+                  <div
+                    className={`w-10 h-10 md:w-12 md:h-12 ${testimonial.bgColor} rounded-xl md:rounded-2xl flex items-center justify-center`}
                   >
-                    <Heart className="w-5 h-5" />
-                    Hikoyangizni yozing
-                  </motion.button>
+                    <Quote className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400"
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Testimonial Text */}
+                <blockquote className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 md:mb-8 font-light">
+                  &ldquo;{testimonial.text}&rdquo;
+                </blockquote>
+
+                {/* Author Info */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
+                      <span className="text-gray-700 font-bold text-base md:text-lg">
+                        {testimonial.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </span>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900 text-sm md:text-base">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-xs md:text-sm text-gray-500">
+                        {testimonial.location}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Category Badge */}
+                  <div
+                    className={`inline-flex items-center gap-2 ${testimonial.color} px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium self-start md:self-auto`}
+                  >
+                    <testimonial.icon className="w-3 h-3 md:w-4 md:h-4" />
+                    {testimonial.category}
+                  </div>
                 </div>
               </motion.div>
-            </div>
+            ))}
           </div>
+
+          {/* Call to Action - Mobile Optimized */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="mt-12 md:mt-16 text-center"
+          >
+            <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl md:rounded-3xl p-8 md:p-12 text-white">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                Siz ham o&apos;z hikoyangizni yozing
+              </h3>
+              <p className="text-gray-300 text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
+                Yurak Amri yordami bilan hayotingiz o&apos;zgangan bo&apos;lsa,
+                boshqa oilalarga ham umid bering. Sizning hikoyangiz boshqalarga
+                ilhom beradi.
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 bg-red-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg hover:bg-red-700 transition-all duration-300 shadow-lg cursor-pointer"
+              >
+                <Heart className="w-4 h-4 md:w-5 md:h-5" />
+                Hikoyangizni yozing
+              </motion.button>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

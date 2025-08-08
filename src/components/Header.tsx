@@ -40,7 +40,7 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className="flex items-center justify-between h-18 lg:h-20">
           {/* Enhanced Logo */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -56,7 +56,6 @@ export default function Header() {
                 height={50}
                 className="bg-transparent"
               />
-              {/* <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div> */}
             </motion.div>
             <div className="flex flex-col">
               <span
@@ -72,7 +71,7 @@ export default function Header() {
             </div>
           </motion.div>
 
-          {/* Enhanced Desktop Navigation */}
+          {/* Enhanced Desktop Navigation with Sliding Underline */}
           <motion.nav
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,20 +88,41 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`text-sm font-semibold transition-all duration-300 hover:text-red-600 cursor-pointer ${
+                  className={`relative text-sm font-semibold transition-all duration-300 hover:text-red-600 cursor-pointer focus:outline-none focus:ring-0 px-2 py-1 ${
                     isScrolled
-                      ? "text-gray-700 hover:text-gray-900"
-                      : "text-gray-700 hover:text-gray-900"
+                      ? "text-gray-700 hover:text-red-600"
+                      : "text-gray-700 hover:text-red-600"
                   }`}
                 >
                   {item.name}
-                </Link>
 
-                <motion.div
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                />
+                  {/* Sliding Underline Animation */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full"
+                    initial={{ width: 0, x: -10 }}
+                    whileHover={{
+                      width: "100%",
+                      x: 0,
+                      transition: {
+                        duration: 0.3,
+                        ease: "easeOut",
+                        width: { delay: 0.1 },
+                      },
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeOut",
+                    }}
+                  />
+
+                  {/* Hover Background Effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-red-50 rounded-lg -z-10"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                </Link>
               </motion.div>
             ))}
           </motion.nav>
@@ -125,7 +145,7 @@ export default function Header() {
             >
               <Link
                 href="#donation"
-                className="flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 focus:outline-none focus:ring-0"
               >
                 <Heart className="w-5 h-5" />
                 Yordam berish
@@ -145,11 +165,20 @@ export default function Header() {
                 : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
             }`}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <motion.div
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </motion.div>
           </motion.button>
         </div>
 
-        {/* Enhanced Mobile Navigation */}
+        {/* Enhanced Mobile Navigation Modal */}
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{
@@ -159,46 +188,101 @@ export default function Header() {
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="lg:hidden overflow-hidden"
         >
-          <div className="py-6 space-y-3 border-t border-gray-200/50 bg-white/95 backdrop-blur-sm">
+          <motion.div
+            className="py-8 space-y-2 border-t border-gray-200/50 bg-white/95 backdrop-blur-sm rounded-b-3xl shadow-xl"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{
+              y: isOpen ? 0 : -20,
+              opacity: isOpen ? 1 : 0,
+            }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+          >
             {navigation.map((item, index) => (
               <motion.div
                 key={item.name}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : -20 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{
+                  opacity: isOpen ? 1 : 0,
+                  x: isOpen ? 0 : -30,
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.2 + index * 0.1,
+                  type: "spring",
+                  stiffness: 200,
+                }}
+                className="relative overflow-hidden"
               >
                 <Link
                   href={item.href}
-                  className="block w-full text-left px-6 py-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-xl transition-all duration-200 font-medium"
+                  className="relative block w-full text-left px-8 py-4 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-2xl transition-all duration-300 font-medium group"
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.name}
+                  {/* Mobile Sliding Background */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-red-50 to-transparent rounded-2xl"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "0%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+
+                  {/* Mobile Sliding Underline */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  />
+
+                  <span className="relative z-10 flex items-center justify-between">
+                    {item.name}
+                    <motion.div
+                      className="w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100"
+                      initial={{ scale: 0 }}
+                      whileHover={{ scale: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </span>
                 </Link>
               </motion.div>
             ))}
 
+            {/* Enhanced Mobile CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : 20 }}
-              transition={{ duration: 0.3, delay: 0.6 }}
-              className="px-6 pt-4"
+              animate={{
+                opacity: isOpen ? 1 : 0,
+                y: isOpen ? 0 : 20,
+              }}
+              transition={{
+                duration: 0.4,
+                delay: 0.8,
+                type: "spring",
+                stiffness: 200,
+              }}
+              className="px-8 pt-6"
             >
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-red-600 text-white rounded-2xl font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg"
+                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-2xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg"
               >
                 <Link
                   href="#donation"
-                  className="flex items-center justify-center gap-2"
+                  className="flex items-center justify-center gap-2 focus:outline-none focus:ring-0"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Heart className="w-5 h-5" />
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <Heart className="w-5 h-5" />
+                  </motion.div>
                   Yordam berish
                 </Link>
               </motion.button>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </motion.header>

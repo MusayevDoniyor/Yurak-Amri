@@ -92,7 +92,7 @@ export default function PortfolioSection() {
   return (
     <section
       id="portfolio"
-      className="py-32 bg-gradient-to-br from-gray-50 to-white"
+      className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white"
     >
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
@@ -268,28 +268,17 @@ export default function PortfolioSection() {
                 Har bir loyiha - bu hayot o&apos;zgardi. Sizning yordamingiz
                 bilan ko&apos;proq oilalarga umid va yordam yetkazamiz.
               </p>
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-red-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-red-700 transition-all duration-300 shadow-lg cursor-pointer"
+                className="inline-flex items-center gap-3 bg-red-600 text-white px-4 py-2 lg:px-8 lg:py-4 rounded-2xl font-semibold text-base md:text-lg hover:bg-red-700 transition-all duration-300 shadow-lg cursor-pointer"
               >
                 <Heart className="w-5 h-5" />
                 Hozir yordam berish
               </motion.button>
             </div>
           </motion.div>
-
-          {/* Call to Action */}
-          <div className="text-center mt-16">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 bg-red-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-red-700 transition-all duration-300 shadow-lg cursor-pointer"
-            >
-              Barcha loyihalarni ko&apos;rish
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
-          </div>
         </div>
       </div>
     </section>

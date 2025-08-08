@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Heart } from "lucide-react";
+import { ArrowRight, Heart } from "lucide-react";
 
 export default function HeroSection() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, Camera, Video, Eye, Heart, ArrowRight } from "lucide-react";
+import { Play, Camera, Video, Eye, Heart } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -610,7 +610,7 @@ export default function VideoPhotoBanner() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-red-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-red-700 transition-all duration-300 shadow-lg cursor-pointer"
+                className="inline-flex items-center gap-3 bg-red-600 text-white px-4 py-2 lg:px-8 lg:py-4 rounded-2xl font-semibold text-base md:text-lg hover:bg-red-700 transition-all duration-300 shadow-lg cursor-pointer"
               >
                 <Heart className="w-5 h-5" />
                 Hozir yordam berish
