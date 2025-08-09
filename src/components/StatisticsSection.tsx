@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import {
-  Eye,
-  Target,
   TrendingUp,
   Heart,
   Users,
@@ -48,7 +46,7 @@ export default function StatisticsSection() {
   return (
     <section
       id="statistics"
-      className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white"
+      className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white"
     >
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
@@ -60,25 +58,25 @@ export default function StatisticsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="space-y-8 mb-12"
+                className="space-y-6 mb-12"
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                   viewport={{ once: true, margin: "-100px" }}
-                  className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold border border-red-200"
+                  className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold border border-red-200 font-secondary"
                 >
                   <TrendingUp className="w-5 h-5" />
                   Bizning Natijalar
                 </motion.div>
 
-                <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight font-display">
                   <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                     RAQAMLAR GAPIRADI
                   </span>
                 </h2>
-                <p className="text-xl text-gray-600 leading-relaxed font-light">
+                <p className="text-lg text-gray-600 leading-relaxed font-light font-primary">
                   Har yili yordam berish hajmi o&apos;sib bormoqda. Bu faqat
                   sizning ishonchingiz va qo&apos;llab-quvvatlashingiz
                   natijasidir. Har bir raqam - bu hayot o&apos;zgardi.
@@ -103,37 +101,35 @@ export default function StatisticsSection() {
                       visible: { opacity: 1, y: 0 },
                     }}
                     whileHover={{
-                      y: -3,
-                      scale: 1.02,
-                      boxShadow:
-                        "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                      y: -4,
+                      transition: { duration: 0.3, ease: "easeOut" },
                     }}
-                    className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+                    className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-500"
                   >
-                    <div className="flex items-center gap-4 mb-3">
+                    <div className="flex items-center gap-4">
                       <div
-                        className={`w-10 h-10 ${stat.color} rounded-xl flex items-center justify-center`}
+                        className={`w-12 h-12 ${stat.color} rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
                       >
-                        <stat.icon className="w-5 h-5" />
+                        <stat.icon className="w-6 h-6" />
                       </div>
-                      <div>
-                        <div className="text-2xl md:text-3xl font-bold text-gray-900">
+                      <div className="flex-1">
+                        <div className="text-2xl font-bold text-gray-900 mb-1 font-secondary">
                           {stat.value}
                         </div>
-                        <div className="text-xs text-gray-500 font-medium">
+                        <div className="text-sm text-gray-600 font-medium font-primary">
+                          {stat.label}
+                        </div>
+                        <div className="text-xs text-gray-500 mt-1 font-primary">
                           {stat.description}
                         </div>
                       </div>
-                    </div>
-                    <div className="text-gray-700 font-semibold text-sm">
-                      {stat.label}
                     </div>
                   </motion.div>
                 ))}
               </motion.div>
             </div>
 
-            {/* Enhanced Image with Better Design */}
+            {/* Enhanced Image Section */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -165,101 +161,21 @@ export default function StatisticsSection() {
                     <Heart className="w-5 h-5 text-red-600" />
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-gray-900">
+                    <div className="text-lg font-bold text-gray-900 font-secondary">
                       Har kuni yordam
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-600 font-primary">
                       Oilalarga umid va yordam
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-700 text-sm leading-relaxed font-primary">
                   Har bir kun, har bir soat - biz oilalarga yordam berish uchun
                   ishlaymiz. Sizning har bir so&apos;mingiz - bu hayot
                   o&apos;zgardi.
                 </p>
               </motion.div>
             </motion.div>
-          </div>
-
-          {/* Mobile Impact Card - Separate Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="lg:hidden mt-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-gray-200"
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
-                <Heart className="w-5 h-5 text-red-600" />
-              </div>
-              <div>
-                <div className="text-lg font-bold text-gray-900">
-                  Har kuni yordam
-                </div>
-                <div className="text-sm text-gray-600">
-                  Oilalarga umid va yordam
-                </div>
-              </div>
-            </div>
-            <p className="text-gray-700 text-sm leading-relaxed">
-              Har bir kun, har bir soat - biz oilalarga yordam berish uchun
-              ishlaymiz. Sizning har bir so&apos;mingiz - bu hayot
-              o&apos;zgardi.
-            </p>
-          </motion.div>
-
-          {/* Enhanced Vision & Mission */}
-          <div className="mt-32">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {[
-                {
-                  icon: Eye,
-                  title: "Bizning G'oya",
-                  desc: "Yurak Amri jamiyatimizda shaffof xayriya standarti bo'lishga intiladi. Har bir oila bizning oilamiz.",
-                  color: "bg-blue-50 border-blue-200",
-                  iconColor: "bg-blue-100 text-blue-700",
-                },
-                {
-                  icon: Target,
-                  title: "Bizning Maqsad",
-                  desc: "Oilalarning barqaror hayoti uchun ta'lim, inshoot va insoniy yordam ko'rsatish. Har bir bola kelajak.",
-                  color: "bg-green-50 border-green-200",
-                  iconColor: "bg-green-100 text-green-700",
-                },
-              ].map((block, i) => {
-                const Icon = block.icon;
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: i * 0.2 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -8 }}
-                    className={`${block.color} rounded-3xl p-10 border transition-all duration-500 hover:shadow-2xl`}
-                  >
-                    <div className="flex flex-col md:flex-row items-start gap-6">
-                      <div
-                        className={`w-16 h-16 ${block.iconColor} rounded-2xl flex items-center justify-center flex-shrink-0`}
-                      >
-                        <Icon className="w-8 h-8" />
-                      </div>
-
-                      <div>
-                        <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                          {block.title}
-                        </h3>
-                        <p className="text-gray-700 leading-relaxed text-lg font-light">
-                          {block.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
           </div>
         </div>
       </div>

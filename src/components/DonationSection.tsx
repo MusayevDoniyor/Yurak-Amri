@@ -130,9 +130,9 @@ export default function DonationSection() {
   return (
     <section
       id="donation"
-      className="py-16 md:py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white"
+      className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white"
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           {/* Enhanced Header */}
           <motion.div
@@ -140,29 +140,41 @@ export default function DonationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-center mb-12 md:mb-20"
+            className="text-center mb-16"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true, margin: "-100px" }}
-              className="inline-flex items-center gap-2 md:gap-3 bg-red-50 text-red-700 px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-semibold mb-6 md:mb-8 border border-red-200"
+              className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-red-200 font-secondary"
             >
-              <Heart className="w-4 h-4 md:w-5 md:h-5" />
+              <Heart className="w-5 h-5" />
               Yordam Berish
             </motion.div>
 
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight font-display"
+            >
               <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 SEN HAM QO&apos;SHIL!
               </span>
-            </h2>
-            <p className="text-base md:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto font-light px-4">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed font-primary"
+            >
               Bugun bitta yurakni ilitib, o&apos;zingizni ham o&apos;zgartiring.
               Har bir so&apos;m - bir oilaning umidi. Sizning yordamingiz
               minglab oilalarning hayotini o&apos;zgartiradi.
-            </p>
+            </motion.p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
@@ -172,20 +184,20 @@ export default function DonationSection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-gray-200 shadow-xl"
+              className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-500"
             >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 md:mb-10">
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 font-secondary">
                   Yordam miqdorini tanlang
                 </h3>
-                <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold border border-green-200 w-fit">
-                  <Shield className="w-3 h-3 md:w-4 md:h-4" />
+                <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-semibold border border-green-200 w-fit font-secondary">
+                  <Shield className="w-4 h-4" />
                   Xavfsiz to&apos;lov
                 </div>
               </div>
 
               {/* Enhanced Amount Selection */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {donationAmounts.map((item, idx) => (
                   <motion.button
                     key={item.amount}
@@ -194,34 +206,34 @@ export default function DonationSection() {
                     transition={{ duration: 0.6, delay: idx * 0.1 }}
                     viewport={{ once: true }}
                     onClick={() => handleAmountSelect(item.amount)}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ y: -4, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`p-4 md:p-6 border-2 rounded-xl md:rounded-2xl text-left transition-all duration-300 cursor-pointer ${
+                    className={`p-6 border-2 rounded-2xl text-left transition-all duration-300 cursor-pointer ${
                       selectedAmount === item.amount
                         ? "border-red-600 bg-red-50 shadow-lg"
                         : "border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md"
                     }`}
                   >
-                    <div className="flex items-center gap-3 md:gap-4 mb-3">
+                    <div className="flex items-center gap-4 mb-3">
                       <div
-                        className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center transition-all duration-300 cursor-pointer ${
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
                           selectedAmount === item.amount
                             ? "bg-red-600 text-white shadow-lg"
                             : "bg-gray-100 text-gray-600"
                         }`}
                       >
-                        <item.icon className="w-5 h-5 md:w-6 md:h-6" />
+                        <item.icon className="w-6 h-6" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-bold text-lg md:text-xl text-gray-900 truncate">
+                        <div className="font-bold text-lg text-gray-900 truncate font-secondary">
                           {item.label}
                         </div>
-                        <div className="text-xs md:text-sm text-gray-500 truncate">
+                        <div className="text-sm text-gray-500 truncate font-primary">
                           {item.description}
                         </div>
                       </div>
                     </div>
-                    <div className="text-xs md:text-sm font-medium text-gray-700 bg-gray-100 px-2 md:px-3 py-1 rounded-lg inline-block">
+                    <div className="text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-lg inline-block font-primary">
                       {item.impact}
                     </div>
                   </motion.button>
@@ -229,15 +241,15 @@ export default function DonationSection() {
               </div>
 
               {/* Enhanced Custom Amount */}
-              <div className="mb-8 md:mb-10">
-                <label className="block text-gray-900 font-semibold mb-3 md:mb-4 text-base md:text-lg">
+              <div className="mb-8">
+                <label className="block text-gray-900 font-semibold mb-4 text-base font-secondary">
                   Yoki o&apos;zingiz miqdorni kiriting:
                 </label>
                 <div className="relative">
                   <input
                     type="number"
                     placeholder="Miqdorni kiriting..."
-                    className={`w-full px-6 md:px-8 py-4 md:py-6 pr-20 md:pr-24 bg-white border-2 rounded-xl md:rounded-2xl text-gray-900 placeholder-gray-500 focus:ring-4 focus:ring-red-200 focus:border-red-600 transition-all duration-300 text-lg md:text-xl font-medium cursor-text ${
+                    className={`w-full px-6 py-4 pr-20 bg-white border-2 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-4 focus:ring-red-200 focus:border-red-600 transition-all duration-300 text-lg font-medium cursor-text ${
                       amountError
                         ? "border-red-300 bg-red-50"
                         : customAmount && !selectedAmount
@@ -248,7 +260,7 @@ export default function DonationSection() {
                     onChange={handleAmountChange}
                     min="1000"
                   />
-                  <div className="absolute right-6 md:right-8 top-1/2 transform -translate-y-1/2 text-gray-500 font-semibold text-base md:text-lg">
+                  <div className="absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-500 font-semibold text-base">
                     so&apos;m
                   </div>
                 </div>
@@ -256,61 +268,61 @@ export default function DonationSection() {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-3 md:mt-4 text-red-600 text-sm flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-4 md:px-6 py-3 md:py-4 cursor-default"
+                    className="mt-4 text-red-600 text-sm flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-4 py-3 cursor-default"
                   >
-                    <AlertCircle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
-                    <span className="text-xs md:text-sm">{amountError}</span>
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span className="text-sm">{amountError}</span>
                   </motion.div>
                 )}
               </div>
 
               {/* Enhanced Monthly Donation */}
-              <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-4 md:p-6 rounded-xl md:rounded-2xl mb-8 md:mb-10 flex items-center gap-3 md:gap-4 border border-gray-200 cursor-pointer">
+              <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl mb-8 flex items-center gap-4 border border-gray-200 cursor-pointer hover:shadow-lg transition-all duration-300">
                 <input
                   type="checkbox"
                   id="monthly"
-                  className="w-5 h-5 md:w-6 md:h-6 text-red-600 bg-white border-gray-300 rounded-lg focus:ring-red-500 focus:ring-2 cursor-pointer flex-shrink-0"
+                  className="w-5 h-5 text-red-600 bg-white border-gray-300 rounded-lg focus:ring-red-500 focus:ring-2 cursor-pointer flex-shrink-0"
                 />
                 <label
                   htmlFor="monthly"
-                  className="text-gray-900 font-semibold flex-1 text-sm md:text-lg cursor-pointer"
+                  className="text-gray-900 font-semibold flex-1 text-base cursor-pointer font-secondary"
                 >
                   Har oy avtomatik yordam berish
                 </label>
-                <div className="bg-red-600 text-white text-xs md:text-sm font-bold px-3 md:px-4 py-1 md:py-2 rounded-lg md:rounded-xl cursor-pointer flex-shrink-0">
+                <div className="bg-red-600 text-white text-sm font-bold px-4 py-2 rounded-lg cursor-pointer flex-shrink-0">
                   Tavsiya etiladi
                 </div>
               </div>
 
               {/* Enhanced Main Donate Button */}
               <motion.button
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full py-4 md:py-6 rounded-xl md:rounded-2xl text-lg md:text-xl font-bold flex items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8 transition-all duration-300 shadow-lg cursor-pointer ${
+                className={`w-full py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-3 mb-6 transition-all duration-300 shadow-lg cursor-pointer ${
                   getFinalAmount()
-                    ? "bg-red-600 text-white hover:bg-red-700 hover:shadow-xl"
+                    ? "bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 hover:shadow-xl"
                     : "bg-gray-100 text-gray-400 cursor-not-allowed"
                 }`}
                 disabled={!getFinalAmount()}
               >
-                <Heart className="w-5 h-5 md:w-6 md:h-6" />
+                <Heart className="w-5 h-5" />
                 {getFinalAmount() ? (
                   <>
-                    <span className="text-sm md:text-base">
+                    <span className="text-base">
                       {getFinalAmount()?.toLocaleString()} SO&apos;M YORDAM
                       BERISH
                     </span>
-                    <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
+                    <ArrowRight className="w-5 h-5" />
                   </>
                 ) : (
-                  <span className="text-sm md:text-base">Miqdorni tanlang</span>
+                  <span className="text-base">Miqdorni tanlang</span>
                 )}
               </motion.button>
 
               {/* Enhanced Security Badge */}
-              <div className="flex items-center justify-center gap-2 md:gap-3 text-gray-600 text-xs md:text-sm border-t border-gray-200 pt-4 md:pt-6 cursor-default">
-                <Shield className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
-                <span className="font-medium text-center">
+              <div className="flex items-center justify-center gap-3 text-gray-600 text-sm border-t border-gray-200 pt-6 cursor-default">
+                <Shield className="w-4 h-4 text-green-600" />
+                <span className="font-semibold text-center font-primary">
                   To&apos;lovlar 100% xavfsiz va shaffof
                 </span>
               </div>
@@ -322,25 +334,25 @@ export default function DonationSection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="space-y-6 md:space-y-10"
+              className="space-y-6"
             >
               {/* Enhanced Impact Card */}
-              <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-gray-200 shadow-xl">
-                <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-red-100 rounded-xl md:rounded-2xl flex items-center justify-center">
+              <div className="bg-white rounded-2xl p-4 md:p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
+                <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6 md:mb-8">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-red-100 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg mx-auto md:mx-0">
                     <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-red-600" />
                   </div>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                  <div className="text-center md:text-left">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 font-secondary">
                       Sizning ta&apos;siringiz
                     </h3>
-                    <p className="text-sm md:text-base text-gray-600">
+                    <p className="text-sm md:text-base text-gray-600 font-primary">
                       Har bir so&apos;m hisoblanadi
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-4 md:space-y-6">
+                <div className="space-y-3 md:space-y-4">
                   {impactItems.map((item, idx) => (
                     <motion.div
                       key={item.title}
@@ -348,23 +360,23 @@ export default function DonationSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: idx * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 cursor-pointer"
+                      className="flex flex-col sm:flex-row sm:items-start gap-3 md:gap-4 p-3 md:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 cursor-pointer"
                     >
                       <div
-                        className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0 ${item.color}`}
+                        className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg mx-auto sm:mx-0 ${item.color}`}
                       >
                         <item.icon className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-semibold text-gray-900 text-sm md:text-base mb-1">
+                      <div className="flex-1 min-w-0 text-center sm:text-left">
+                        <div className="font-semibold text-gray-900 text-sm md:text-base mb-1 font-secondary">
                           {item.title}
                         </div>
-                        <div className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                        <div className="text-xs md:text-sm text-gray-600 leading-relaxed font-primary">
                           {item.description}
                         </div>
                       </div>
-                      <div className="text-right flex-shrink-0">
-                        <div className="font-bold text-gray-900 text-sm md:text-base">
+                      <div className="text-center sm:text-right flex-shrink-0">
+                        <div className="font-bold text-gray-900 text-sm md:text-base font-secondary">
                           {item.amount}
                         </div>
                       </div>
@@ -373,48 +385,48 @@ export default function DonationSection() {
                 </div>
               </div>
 
-              {/* Trust Indicators */}
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl md:rounded-3xl p-6 md:p-10 text-white">
+              {/* Enhanced Trust Indicators */}
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-4 md:p-8 text-white shadow-lg">
                 <div className="text-center mb-6 md:mb-8">
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 font-secondary">
                     Nima uchun ishonishimiz kerak?
                   </h3>
-                  <p className="text-sm md:text-base text-gray-300">
+                  <p className="text-sm md:text-base text-gray-300 font-primary">
                     Bizning ishonchli va shaffof yordam tizimimiz
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   <div className="text-center">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
                       <CheckCircle className="w-6 h-6 md:w-8 md:h-8 text-green-400" />
                     </div>
-                    <h4 className="font-semibold mb-2 text-sm md:text-base">
+                    <h4 className="font-bold mb-2 md:mb-3 text-sm md:text-base font-secondary">
                       100% Shaffof
                     </h4>
-                    <p className="text-xs md:text-sm text-gray-300">
+                    <p className="text-xs md:text-sm text-gray-300 font-primary">
                       Har bir so&apos;m hisoblanadi va ko&apos;rsatiladi
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
                       <Zap className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
                     </div>
-                    <h4 className="font-semibold mb-2 text-sm md:text-base">
+                    <h4 className="font-bold mb-2 md:mb-3 text-sm md:text-base font-secondary">
                       Bevosita Yordam
                     </h4>
-                    <p className="text-xs md:text-sm text-gray-300">
+                    <p className="text-xs md:text-sm text-gray-300 font-primary">
                       O&apos;rtadagi odamlar yo&apos;q, bevosita oilalarga
                     </p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                  <div className="text-center sm:col-span-2 lg:col-span-1">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
                       <Star className="w-6 h-6 md:w-8 md:h-8 text-blue-400" />
                     </div>
-                    <h4 className="font-semibold mb-2 text-sm md:text-base">
+                    <h4 className="font-bold mb-2 md:mb-3 text-sm md:text-base font-secondary">
                       Ishonchli
                     </h4>
-                    <p className="text-xs md:text-sm text-gray-300">
+                    <p className="text-xs md:text-sm text-gray-300 font-primary">
                       5 yillik tajriba va minglab oilalar
                     </p>
                   </div>

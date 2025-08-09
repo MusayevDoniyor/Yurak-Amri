@@ -92,7 +92,7 @@ export default function PortfolioSection() {
   return (
     <section
       id="portfolio"
-      className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white"
+      className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white"
     >
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
@@ -102,14 +102,14 @@ export default function PortfolioSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-20"
+            className="text-center mb-16"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true, margin: "-100px" }}
-              className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-red-200"
+              className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-red-200 font-secondary"
             >
               <TrendingUp className="w-5 h-5" />
               Bizning Faoliyat
@@ -120,7 +120,7 @@ export default function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
               viewport={{ once: true, margin: "-100px" }}
-              className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight"
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight font-display"
             >
               <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 NIMALAR QILAMIZ?
@@ -132,152 +132,85 @@ export default function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
               viewport={{ once: true, margin: "-100px" }}
-              className="text-xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed"
+              className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed font-primary"
             >
-              Yurak Amri fondi O&apos;zbekiston bo&apos;ylab turli xil ijtimoiy
-              loyihalar orqali ehtiyojmand oilalarga yordam beradi. Har bir
-              loyiha - bu hayot o&apos;zgardi.
+              Har bir loyiha - bu hayot o&apos;zgardi. Biz oilalarga yordam
+              berish orqali jamiyatni yaxshilaymiz. Har bir kichik yordam -
+              katta o&apos;zgarish.
             </motion.p>
           </motion.div>
 
           {/* Enhanced Portfolio Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.1,
-                  ease: "easeOut",
-                }}
-                viewport={{ once: true, margin: "-50px" }}
-                whileHover={{
-                  y: -12,
-                  transition: { duration: 0.4, ease: "easeOut" },
-                }}
-                className="group cursor-pointer"
-              >
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {portfolioItems.map((item) => {
+              const Icon = item.icon;
+              return (
                 <motion.div
-                  className="bg-white rounded-3xl p-8 h-full border border-gray-200 hover:border-gray-300 transition-all duration-500 shadow-lg hover:shadow-2xl"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.4, ease: "easeOut" },
+                  key={item.id}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 },
                   }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-500 relative overflow-hidden"
                 >
-                  {/* Header with Icon and Title */}
-                  <div className="flex items-start gap-4 mb-6">
-                    {/* Enhanced Icon */}
-                    <motion.div
-                      className={`w-16 h-16 ${item.bgColor} rounded-2xl flex items-center justify-center shadow-lg border border-gray-100`}
-                      whileHover={{
-                        scale: 1.1,
-                        transition: { duration: 0.3 },
-                      }}
+                  {/* Background Pattern */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-50 to-transparent rounded-full -translate-y-16 translate-x-16 opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+
+                  {/* Icon */}
+                  <div className="relative z-10 mb-6">
+                    <div
+                      className={`w-16 h-16 ${item.bgColor} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
                     >
-                      <item.icon
-                        className={`w-8 h-8 ${item.color.split(" ")[1]}`}
-                      />
-                    </motion.div>
-
-                    {/* Title */}
-                    <div className="flex-1">
-                      <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-                        viewport={{ once: true }}
-                        className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors"
-                      >
-                        {item.title}
-                      </motion.h3>
-
-                      {/* Impact Badge */}
-                      <div
-                        className={`inline-flex items-center gap-2 ${item.color} px-3 py-1 rounded-full text-xs font-semibold`}
-                      >
-                        <Star className="w-3 h-3" />
-                        {item.impact}
-                      </div>
+                      <Icon className={`w-8 h-8 ${item.color}`} />
                     </div>
                   </div>
 
-                  {/* Enhanced Description */}
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                    viewport={{ once: true }}
-                    className="text-gray-600 text-base leading-relaxed mb-8 font-light"
-                  >
-                    {item.description}
-                  </motion.p>
+                  {/* Content */}
+                  <div className="relative z-10 space-y-4">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 font-secondary">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-sm font-primary">
+                      {item.description}
+                    </p>
 
-                  {/* Enhanced Stats and CTA */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-                    viewport={{ once: true }}
-                    className="flex items-center justify-between"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      className="flex items-center gap-3 bg-gray-100 px-4 py-3 rounded-2xl shadow-sm transition-all duration-300 group-hover:bg-gray-200"
-                    >
-                      <div className="text-center">
-                        <span className="text-gray-900 font-bold text-2xl block">
+                    {/* Stats */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <div className="flex items-center gap-2">
+                        <span className="text-2xl font-bold text-gray-900 font-secondary">
                           {item.count}
                         </span>
-                        <span className="text-gray-600 text-sm font-medium">
+                        <span className="text-sm text-gray-500 font-primary">
                           {item.countLabel}
                         </span>
                       </div>
-                    </motion.div>
+                      <div className="flex items-center gap-2">
+                        <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors duration-300" />
+                      </div>
+                    </div>
 
-                    <motion.button
-                      whileHover={{
-                        scale: 1.1,
-                        transition: { duration: 0.3 },
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-12 h-12 rounded-2xl bg-gray-900 flex items-center justify-center text-white group-hover:bg-red-600 transition-all duration-300 shadow-lg cursor-pointer"
-                    >
-                      <ArrowRight className="w-5 h-5" />
-                    </motion.button>
-                  </motion.div>
+                    {/* Impact */}
+                    <div className="pt-4">
+                      <div className="inline-flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-full">
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <span className="text-xs font-semibold text-gray-700 font-primary">
+                          {item.impact}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Call to Action Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="mt-20 text-center"
-          >
-            <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-12 text-white">
-              <h3 className="text-3xl font-bold mb-4">
-                Siz ham qo&apos;shiling!
-              </h3>
-              <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                Har bir loyiha - bu hayot o&apos;zgardi. Sizning yordamingiz
-                bilan ko&apos;proq oilalarga umid va yordam yetkazamiz.
-              </p>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-red-600 text-white px-4 py-2 lg:px-8 lg:py-4 rounded-2xl font-semibold text-base md:text-lg hover:bg-red-700 transition-all duration-300 shadow-lg cursor-pointer"
-              >
-                <Heart className="w-5 h-5" />
-                Hozir yordam berish
-              </motion.button>
-            </div>
+              );
+            })}
           </motion.div>
         </div>
       </div>

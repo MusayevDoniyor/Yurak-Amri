@@ -1,52 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Heart, Home, Gift, Quote } from "lucide-react";
+import { Heart, Quote, Star } from "lucide-react";
+import Image from "next/image";
+import React from "react";
 
 const testimonials = [
   {
     id: 1,
-    name: "Mavluda opa",
-    location: "Farg'ona viloyati",
+    name: "Aziza Karimova",
+    role: "Oila rahbari",
+    text: "Yurak Amri fondi bizning oilamizga juda katta yordam berdi. Uy qurish loyihasi orqali yangi hayot boshladik. Rahmat!",
     rating: 5,
-    text: "Biz shunchaki ro'yxatda turgan oilamiz deb o'ylagandik. Lekin Yurak Amri bizga insoniylik, or-nomus va umid hadya qildi. Endi farzandim maktabga bormoqda. Rahmat sizlarga.",
-    category: "Uy qurish",
-    icon: Home,
-    color: "bg-blue-100 text-blue-700",
-    bgColor: "bg-blue-50",
+    avatar: "/Sardor_Rahimxon.png",
+    bgColor: "bg-red-50",
+    color: "bg-red-100 text-red-700",
   },
   {
     id: 2,
-    name: "Sardor aka",
-    location: "Bo'ka tumani",
+    name: "Sardor Rahimxon",
+    role: "Fond asoschisi",
+    text: "Har bir oila bizning oilamiz. Yurak Amri orqali ko'proq odamlarga yordam berishni xohlaymiz. Hamkorlikda kuch bor.",
     rating: 5,
-    text: "Yurak Amri yordami bilan oilamiz yangi uyga ko'chdi. Bu faqat uy emas, bu yangi hayot boshlash imkoniyati. Hammadan rahmat!",
-    category: "Oziq-ovqat",
-    icon: Gift,
-    color: "bg-green-100 text-green-700",
-    bgColor: "bg-green-50",
+    avatar: "/Sardor_Rahimxon.png",
+    bgColor: "bg-blue-50",
+    color: "bg-blue-100 text-blue-700",
   },
   {
     id: 3,
-    name: "Dilfuza opa",
-    location: "Toshkent viloyati",
+    name: "Malika Yusupova",
+    role: "Ijtimoiy ishchi",
+    text: "Fond bilan ishlash tajribasi juda yaxshi. Har bir loyiha - bu hayot o'zgardi. Oilalarning baxtli yuzlari - bizning eng katta muvaffaqiyati.",
     rating: 5,
-    text: "Farzandlarim uchun kiyim va oziq-ovqat yordami oldik. Bu yordam bizga juda kerak edi. Yurak Amri haqiqatan ham yurakdan ishlaydi.",
-    category: "Bolalar yordami",
-    icon: Heart,
-    color: "bg-red-100 text-red-700",
-    bgColor: "bg-red-50",
+    avatar: "/Sardor_Rahimxon.png",
+    bgColor: "bg-green-50",
+    color: "bg-green-100 text-green-700",
   },
   {
     id: 4,
-    name: "Aziz aka",
-    location: "Andijon viloyati",
+    name: "Jamshid Toshmatov",
+    role: "Hamkor",
+    text: "Yurak Amri fondi shaffof va ishonchli. Har bir so'm qayerda sarflanganini ko'rish mumkin. Buyuk ish qilayotganlar.",
     rating: 5,
-    text: "Uy ta'mirlash uchun yordam oldik. Endi oilamiz xavfsiz va qulay sharoitda yashaydi. Bu yordamni hech qachon unutmaymiz.",
-    category: "Uy ta'mirlash",
-    icon: Home,
-    color: "bg-purple-100 text-purple-700",
+    avatar: "/Sardor_Rahimxon.png",
     bgColor: "bg-purple-50",
+    color: "bg-purple-100 text-purple-700",
   },
 ];
 
@@ -54,7 +52,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white"
+      className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white"
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
@@ -70,91 +68,53 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true, margin: "-100px" }}
-              className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold border border-red-200 mb-6"
+              className="inline-flex items-center gap-3 bg-red-50 text-red-700 px-6 py-3 rounded-full text-sm font-semibold border border-red-200 mb-6 font-secondary"
             >
               <Heart className="w-5 h-5" />
               Foydalanuvchilar Fikri
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight font-display"
+            >
               <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                Hikoyalar
-              </span>{" "}
-              va shukrona hislar
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto lg:mx-0 mb-8 lg:mb-12">
-              Har bir oilaning hikoyasi - bu bizning motivatsiyamiz. Sizning
-              yordamingiz bilan qancha oilaning hayoti o&apos;zgardi, ularning
-              so&apos;zlari bilan tanishing.
-            </p>
+                NIMA DEYDI?
+              </span>
+            </motion.h2>
 
-            {/* Enhanced Trust Statistics Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-lg mx-auto lg:mx-0">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -2, scale: 1.01 }}
-                className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Heart className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <div className="text-2xl md:text-3xl font-bold text-gray-900">
-                      5,000+
-                    </div>
-                    <div className="text-xs md:text-sm text-gray-500 font-medium">
-                      Yordam berilgan oila
-                    </div>
-                  </div>
-                </div>
-                <div className="text-gray-700 font-semibold text-xs md:text-sm">
-                  Har bir oila bizning oilamiz
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -2, scale: 1.01 }}
-                className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                    <Star className="w-5 h-5 text-green-600 fill-green-600" />
-                  </div>
-                  <div>
-                    <div className="text-2xl md:text-3xl font-bold text-gray-900">
-                      100%
-                    </div>
-                    <div className="text-xs md:text-sm text-gray-500 font-medium">
-                      Mamnuniyat
-                    </div>
-                  </div>
-                </div>
-                <div className="text-gray-700 font-semibold text-xs md:text-sm">
-                  Har bir oila mamnun
-                </div>
-              </motion.div>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-lg text-gray-600 max-w-3xl mx-auto lg:mx-0 font-light leading-relaxed font-primary"
+            >
+              Har bir foydalanuvchi fikri - bizning eng katta boyligimiz.
+              Oilalarning baxtli yuzlari va ularning minnatdorchiligi - bizning
+              eng katta muvaffaqiyati.
+            </motion.p>
           </motion.div>
 
-          {/* Mobile-First Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
+          {/* Enhanced Testimonials Grid */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.15 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+          >
+            {testimonials.map((testimonial) => (
               <motion.div
                 key={testimonial.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.1,
-                  ease: "easeOut",
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
                 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -6, scale: 1.02 }}
@@ -182,7 +142,7 @@ export default function TestimonialsSection() {
 
                 {/* Testimonial Text */}
                 <div className="flex-1 mb-8 relative z-10">
-                  <blockquote className="text-gray-700 text-lg leading-relaxed font-light italic">
+                  <blockquote className="text-gray-700 text-lg leading-relaxed font-light italic font-primary">
                     &ldquo;{testimonial.text}&rdquo;
                   </blockquote>
                 </div>
@@ -192,65 +152,28 @@ export default function TestimonialsSection() {
                   <div className="flex flex-col gap-4">
                     {/* Author Info */}
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center shadow-lg">
-                        <span className="text-gray-700 font-bold text-xl">
-                          {testimonial.name
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
-                        </span>
+                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200">
+                        <Image
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          width={48}
+                          height={48}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-bold text-gray-900 text-lg truncate">
+                      <div>
+                        <div className="font-bold text-lg text-gray-900 font-secondary">
                           {testimonial.name}
                         </div>
-                        <div className="text-sm text-gray-500 truncate">
-                          {testimonial.location}
+                        <div className="text-sm text-gray-600 font-primary">
+                          {testimonial.role}
                         </div>
                       </div>
-                    </div>
-
-                    {/* Category Badge */}
-                    <div
-                      className={`inline-flex items-center gap-3 ${testimonial.color} px-4 py-3 rounded-2xl text-sm font-semibold w-fit shadow-md hover:shadow-lg transition-shadow duration-300`}
-                    >
-                      <testimonial.icon className="w-5 h-5 flex-shrink-0" />
-                      <span className="truncate">{testimonial.category}</span>
                     </div>
                   </div>
                 </div>
-
-                {/* Hover Effect Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
               </motion.div>
             ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="mt-12 md:mt-16 text-center"
-          >
-            <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl md:rounded-3xl p-8 md:p-12 text-white">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Siz ham o&apos;z hikoyangizni yozing
-              </h3>
-              <p className="text-gray-300 text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
-                Yurak Amri yordami bilan hayotingiz o&apos;zgangan bo&apos;lsa,
-                boshqa oilalarga ham umid bering. Sizning hikoyangiz boshqalarga
-                ilhom beradi.
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-red-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg hover:bg-red-700 transition-all duration-300 shadow-lg cursor-pointer"
-              >
-                <Heart className="w-4 h-4 md:w-5 md:h-5" />
-                Hikoyangizni yozing
-              </motion.button>
-            </div>
           </motion.div>
         </div>
       </div>

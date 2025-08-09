@@ -36,11 +36,11 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-xl shadow-xl border-b border-gray-200/50"
-          : "bg-white/90 backdrop-blur-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-18 lg:h-20">
+        <div className="flex items-center justify-between h-18 md:h-20">
           {/* Enhanced Logo */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -52,31 +52,35 @@ export default function Header() {
               <Image
                 src="/yurak_amri.png"
                 alt="Yurak Amri"
-                width={50}
-                height={50}
+                width={60}
+                height={60}
                 className="bg-transparent"
               />
             </motion.div>
-            <div className="flex flex-col">
+
+            <div className="flex-col flex md:hidden xl:flex">
               <span
                 className={`font-bold text-2xl transition-colors duration-300 ${
-                  isScrolled ? "text-gray-900" : "text-gray-800"
+                  isScrolled ? "text-gray-900" : "text-white"
                 }`}
               >
                 Yurak Amri
               </span>
-              <span className="text-xs text-gray-500 font-medium">
+              <span
+                className={`text-xs font-medium transition-colors duration-300 ${
+                  isScrolled ? "text-gray-500" : "text-gray-300"
+                }`}
+              >
                 Xayriya Fondi
               </span>
             </div>
           </motion.div>
 
-          {/* Enhanced Desktop Navigation with Sliding Underline */}
           <motion.nav
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="hidden lg:flex items-center gap-10"
+            className="hidden md:flex items-center gap-4 xl:gap-8"
           >
             {navigation.map((item, index) => (
               <motion.div
@@ -88,40 +92,13 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`relative text-sm font-semibold transition-all duration-300 hover:text-red-600 cursor-pointer focus:outline-none focus:ring-0 px-2 py-1 ${
+                  className={`relative text-sm font-semibold transition-all duration-300 cursor-pointer px-2 py-2 rounded-lg hover:scale-105 ${
                     isScrolled
                       ? "text-gray-700 hover:text-red-600"
-                      : "text-gray-700 hover:text-red-600"
+                      : "text-white hover:text-red-400"
                   }`}
                 >
                   {item.name}
-
-                  {/* Sliding Underline Animation */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full"
-                    initial={{ width: 0, x: -10 }}
-                    whileHover={{
-                      width: "100%",
-                      x: 0,
-                      transition: {
-                        duration: 0.3,
-                        ease: "easeOut",
-                        width: { delay: 0.1 },
-                      },
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      ease: "easeOut",
-                    }}
-                  />
-
-                  {/* Hover Background Effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-red-50 rounded-lg -z-10"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.2 }}
-                  />
                 </Link>
               </motion.div>
             ))}
@@ -132,23 +109,24 @@ export default function Header() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="hidden lg:block"
+            className="hidden md:block"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`flex items-center gap-3 px-6 py-3 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-sm ${
                 isScrolled
                   ? "bg-red-600 text-white hover:bg-red-700"
-                  : "bg-gray-900 text-white hover:bg-gray-800"
+                  : "bg-white text-gray-900 hover:bg-gray-100"
               }`}
             >
               <Link
                 href="#donation"
                 className="flex items-center justify-center gap-2 focus:outline-none focus:ring-0"
               >
-                <Heart className="w-5 h-5" />
-                Yordam berish
+                <Heart className="w-4 h-4" />
+                <span className="hidden xl:inline">Yordam berish</span>
+                <span className="xl:hidden">Yordam</span>
               </Link>
             </motion.button>
           </motion.div>
@@ -159,10 +137,10 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-3 rounded-xl transition-all duration-300 ${
+            className={`md:hidden p-3 rounded-xl transition-all duration-300 ${
               isScrolled
                 ? "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                : "text-white hover:bg-white/10 hover:text-white"
             }`}
           >
             <motion.div
@@ -180,108 +158,166 @@ export default function Header() {
 
         {/* Enhanced Mobile Navigation Modal */}
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{
-            opacity: isOpen ? 1 : 0,
-            height: isOpen ? "auto" : 0,
-          }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="lg:hidden overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isOpen ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+          className={`md:hidden fixed inset-0 z-[9999] ${
+            isOpen ? "pointer-events-auto" : "pointer-events-none"
+          }`}
         >
+          {/* Backdrop */}
           <motion.div
-            className="py-5 space-y-0.5 border-t border-gray-200/50 bg-transparent backdrop-blur-sm rounded-b-3xl shadow-xl"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{
-              y: isOpen ? 0 : -20,
-              opacity: isOpen ? 1 : 0,
-            }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isOpen ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsOpen(false)}
+          />
+
+          {/* Modal Content */}
+          <motion.div
+            className={`absolute top-0 right-0 h-full w-full max-w-sm flex flex-col ${
+              isScrolled
+                ? "bg-white/95 backdrop-blur-xl"
+                : "bg-gradient-to-b from-gray-900/95 to-black/95 backdrop-blur-xl"
+            }`}
+            initial={{ x: "100%" }}
+            animate={{ x: isOpen ? 0 : "100%" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            {navigation.map((item, index) => (
+            {/* Header Section */}
+            <div className="flex items-center justify-between p-6 border-b border-white/10">
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/yurak_amri.png"
+                  alt="Yurak Amri"
+                  width={40}
+                  height={40}
+                  className="bg-transparent"
+                />
+                <div className="flex flex-col">
+                  <span
+                    className={`font-bold text-xl ${
+                      isScrolled ? "text-gray-900" : "text-white"
+                    }`}
+                  >
+                    Yurak Amri
+                  </span>
+                  <span
+                    className={`text-xs font-medium ${
+                      isScrolled ? "text-gray-500" : "text-gray-300"
+                    }`}
+                  >
+                    Xayriya Fondi
+                  </span>
+                </div>
+              </div>
+
+              {/* Close Button */}
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setIsOpen(false)}
+                className={`p-3 rounded-full transition-all duration-300 ${
+                  isScrolled
+                    ? "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "bg-white/10 text-white hover:bg-white/20"
+                }`}
+              >
+                <X className="w-5 h-5" />
+              </motion.button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex-1 px-6 py-8 space-y-2 overflow-y-auto">
+              {navigation.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{
+                    opacity: isOpen ? 1 : 0,
+                    x: isOpen ? 0 : 50,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.1 + index * 0.1,
+                    ease: "easeOut",
+                  }}
+                  className="relative overflow-hidden"
+                >
+                  <Link
+                    href={item.href}
+                    className={`relative block w-full text-left px-6 py-4 rounded-2xl transition-all duration-300 font-semibold group ${
+                      isScrolled
+                        ? "text-gray-700 hover:text-red-600 hover:bg-red-50"
+                        : "text-gray-200 hover:text-white hover:bg-white/10"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {/* Background Animation */}
+                    <motion.div
+                      className={`absolute inset-0 rounded-2xl ${
+                        isScrolled
+                          ? "bg-gradient-to-r from-red-50 to-red-100"
+                          : "bg-gradient-to-r from-white/10 to-white/5"
+                      }`}
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "0%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+
+                    {/* Content */}
+                    <span className="relative z-10 flex items-center justify-between">
+                      <span className="text-lg">{item.name}</span>
+                      <motion.div
+                        className={`w-2 h-2 rounded-full ${
+                          isScrolled ? "bg-red-500" : "bg-red-400"
+                        } opacity-0 group-hover:opacity-100`}
+                        initial={{ scale: 0 }}
+                        whileHover={{ scale: 1 }}
+                        transition={{ duration: 0.2 }}
+                      />
+                    </span>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA Section */}
+            <div className="p-6 border-t border-white/10">
               <motion.div
-                key={item.name}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{
                   opacity: isOpen ? 1 : 0,
-                  x: isOpen ? 0 : -30,
+                  y: isOpen ? 0 : 30,
                 }}
                 transition={{
-                  duration: 0.4,
-                  delay: 0.2 + index * 0.1,
-                  type: "spring",
-                  stiffness: 200,
+                  duration: 0.5,
+                  delay: 0.8,
+                  ease: "easeOut",
                 }}
-                className="relative overflow-hidden"
               >
-                <Link
-                  href={item.href}
-                  className="relative block w-full text-left px-8 py-4 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-2xl transition-all duration-300 font-medium group"
-                  onClick={() => setIsOpen(false)}
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-2xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg shadow-red-500/25 hover:shadow-red-500/40"
                 >
-                  {/* Mobile Sliding Background */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-red-50 to-transparent rounded-2xl"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-
-                  {/* Mobile Sliding Underline */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
-
-                  <span className="relative z-10 flex items-center justify-between">
-                    {item.name}
-                    <motion.div
-                      className="w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100"
-                      initial={{ scale: 0 }}
-                      whileHover={{ scale: 1 }}
-                      transition={{ duration: 0.2 }}
-                    />
-                  </span>
-                </Link>
-              </motion.div>
-            ))}
-
-            {/* Enhanced Mobile CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: isOpen ? 1 : 0,
-                y: isOpen ? 0 : 20,
-              }}
-              transition={{
-                duration: 0.4,
-                delay: 0.8,
-                type: "spring",
-                stiffness: 200,
-              }}
-              className="px-8 pt-6"
-            >
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-2xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg"
-              >
-                <Link
-                  href="#donation"
-                  className="flex items-center justify-center gap-2 focus:outline-none focus:ring-0"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
+                  <Link
+                    href="#donation"
+                    className="flex items-center justify-center gap-2 focus:outline-none focus:ring-0"
+                    onClick={() => setIsOpen(false)}
                   >
-                    <Heart className="w-5 h-5" />
-                  </motion.div>
-                  Yordam berish
-                </Link>
-              </motion.button>
-            </motion.div>
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Heart className="w-5 h-5" />
+                    </motion.div>
+                    Yordam berish
+                  </Link>
+                </motion.button>
+              </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

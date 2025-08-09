@@ -10,7 +10,6 @@ import {
   Send,
   Youtube,
   Heart,
-  ArrowRight,
   Shield,
   Users,
   Award,
@@ -21,9 +20,9 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white">
       <div className="container mx-auto px-6">
-        <div className="max-w-7xl mx-auto py-20">
+        <div className="max-w-7xl mx-auto py-12 md:py-16">
           {/* Enhanced Main Footer Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
             {/* Enhanced Brand Section */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -43,6 +42,7 @@ export default function Footer() {
                   />
                   <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>
                 </motion.div>
+
                 <div>
                   <div className="font-bold text-3xl text-white mb-1">
                     Yurak Amri
@@ -52,7 +52,8 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-              <p className="text-gray-300 leading-relaxed mb-8 text-lg font-light">
+
+              <p className="text-gray-300 leading-relaxed mb-8 text-lg font-medium">
                 &ldquo;Bir yurakdan - ming yurakka nur!&rdquo;
                 O&apos;zbekistonning har bir chekkasida bir oila sizning
                 e&apos;tiboringizni kutmoqda. Bizning maqsadimiz - har bir
@@ -180,52 +181,6 @@ export default function Footer() {
                 </motion.div>
               </div>
             </motion.div>
-
-            {/* Quick Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-2xl font-bold text-white mb-8">
-                Tezkor havolalar
-              </h4>
-              <div className="space-y-4">
-                <motion.a
-                  href="#hero"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
-                >
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  Bosh sahifa
-                </motion.a>
-                <motion.a
-                  href="#donation"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
-                >
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  Yordam berish
-                </motion.a>
-                <motion.a
-                  href="#testimonials"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
-                >
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  Hikoyalar
-                </motion.a>
-                <motion.a
-                  href="#statistics"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
-                >
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  Statistika
-                </motion.a>
-              </div>
-            </motion.div>
           </div>
 
           {/* Enhanced Newsletter Section */}
@@ -275,7 +230,7 @@ export default function Footer() {
             </div>
 
             {/* Trust Badges */}
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 md:gap-6">
               <div className="flex items-center gap-2 text-gray-400">
                 <Shield className="w-4 h-4" />
                 <span className="text-sm">Xavfsiz</span>
