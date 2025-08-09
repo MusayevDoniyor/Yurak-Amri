@@ -35,17 +35,6 @@ export default function HeroSection() {
       <div className="container mx-auto relative z-10 h-full flex flex-col justify-center">
         {/* Mobile Design */}
         <div className="md:hidden text-center space-y-8 py-8">
-          {/* Mobile Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/20 to-red-600/20 backdrop-blur-sm text-red-300 px-6 py-3 rounded-full text-sm font-semibold border border-red-400/30 shadow-lg"
-          >
-            <Heart className="w-4 h-4" />
-            Yordam Berish
-          </motion.div>
-
           {/* Mobile Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
